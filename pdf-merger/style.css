@@ -1,0 +1,474 @@
+/* PDF Merger Styles */
+:root {
+    --primary-color: #128C7E;
+    --primary-dark: #075E54;
+    --secondary-color: #25D366;
+    --danger-color: #dc3545;
+    --success-color: #128C7E;
+    --background-light: #f5f6f7;
+    --text-dark: #333;
+    --text-light: #6c757d;
+    --whatsapp-teal: #128C7E;
+    --whatsapp-light: #25D366;
+}
+
+.pdf-merger-container {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    margin: 2rem auto;
+    max-width: 95%;
+    position: relative;
+    overflow: hidden;
+}
+
+.pdf-merger-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.file-input-zone {
+    border: 2px dashed var(--primary-color);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    margin: 1rem 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.file-input-zone:hover {
+    background-color: #f0f8ff;
+    border-color: var(--primary-dark);
+}
+
+.file-input-zone i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.file-list {
+    margin: 2rem 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+}
+
+.file-item:hover {
+    background-color: #e9ecef;
+}
+
+.file-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.file-name {
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.file-size {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.remove-file {
+    color: var(--danger-color);
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.remove-file:hover {
+    background-color: #ffebee;
+}
+
+.file-order-controls {
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.file-item.dragging {
+    opacity: 0.5;
+    border: 2px dashed var(--primary-color);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.merged-result {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.merged-result h3 {
+    color: var(--success-color);
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.download-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.filename-input {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.filename-field {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    transition: border-color 0.3s ease;
+}
+
+.filename-field:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+}
+
+.filename-hint {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+}
+
+.action-button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.merge-button {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.merge-button:hover {
+    background-color: var(--primary-dark);
+}
+
+.download-button {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.download-button:hover {
+    background-color: var(--primary-dark);
+}
+
+.clear-button {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.clear-button:hover {
+    background-color: #c82333;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    margin: 1rem 0;
+    display: none;
+}
+
+.progress {
+    width: 0%;
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    transition: width 0.3s ease;
+}
+
+.recent-files {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.recent-files-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.clear-recent-button {
+    background-color: transparent;
+    color: var(--danger-color);
+    border: 1px solid var(--danger-color);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.clear-recent-button:hover {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.recent-files-list {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.recent-file-item {
+    position: relative;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.recent-file-item:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(18, 140, 126, 0.1);
+}
+
+.recent-file-item .merge-count {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.recent-file-item .merge-count i {
+    color: var(--secondary-color);
+}
+
+.recent-file-item .merge-date {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px dashed #e0e0e0;
+    padding-bottom: 0.8rem;
+}
+
+.recent-file-item .merge-date i {
+    color: #6c757d;
+}
+
+.recent-file-item .merge-size {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    align-self: flex-start;
+}
+
+.recent-file-item .merge-size i {
+    color: #2e7d32;
+}
+
+.recent-file-item .files-list {
+    background-color: #f8f9fa;
+    padding: 0.8rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    max-height: 80px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) #f0f0f0;
+}
+
+.recent-file-item .files-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.recent-file-item .files-list::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 3px;
+}
+
+.recent-file-item .files-list::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 3px;
+}
+
+.delete-recent {
+    position: absolute;
+    top: 0.8rem;
+    right: 0.8rem;
+    color: var(--danger-color);
+    cursor: pointer;
+    padding: 0.4rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    background-color: #fff0f0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-recent:hover {
+    background-color: var(--danger-color);
+    color: white;
+    transform: rotate(90deg);
+}
+
+.instructions-section {
+    margin: 4rem auto;
+    max-width: 1000px;
+    padding: 2rem;
+}
+
+.instruction-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.instruction-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.instruction-card:hover {
+    transform: translateY(-5px);
+}
+
+.instruction-card i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.instruction-card h3 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.tips-section {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 3rem;
+}
+
+.tips-section ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.tips-section li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+
+.tips-section i {
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .pdf-merger-container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .action-button {
+        width: 100%;
+    }
+
+    .recent-files-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .clear-recent-button {
+        width: 100%;
+    }
+}

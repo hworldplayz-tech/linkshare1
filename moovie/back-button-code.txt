@@ -1,0 +1,86 @@
+/* Back to LinkShare Button - Add this CSS to your style.css file after the scroll-to-top styles (around line 153) */
+
+/* Back to LinkShare Button */
+.back-to-linkshare {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    height: 50px;
+    background: linear-gradient(135deg, #ff0844 0%, #ffb199 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(255, 8, 68, 0.4);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100px);
+    text-decoration: none;
+    padding: 0 20px;
+    width: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.back-to-linkshare.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-linkshare svg {
+    min-width: 24px;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.back-to-linkshare .back-text {
+    margin-left: 8px;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.back-to-linkshare:hover {
+    background: linear-gradient(135deg, #ff073a 0%, #ff5e62 100%);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(255, 8, 68, 0.6), 0 0 20px rgba(255, 0, 0, 0.3);
+    width: auto;
+    padding: 0 20px;
+}
+
+.back-to-linkshare:hover .back-text {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.back-to-linkshare:hover svg {
+    transform: translateX(-3px);
+}
+
+@media (max-width: 768px) {
+    .back-to-linkshare {
+        bottom: 20px;
+        left: 20px;
+        width: 45px;
+        height: 45px;
+        padding: 0 15px;
+    }
+    
+    .back-to-linkshare:hover {
+        width: auto;
+        padding: 0 15px;
+    }
+    
+    .back-to-linkshare .back-text {
+        font-size: 13px;
+    }
+}

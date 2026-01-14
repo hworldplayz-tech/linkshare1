@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Redirecting to your destination - LinkShare URL Shortener">
+    <meta name="keywords" content="URL shortener, link shortener, short links, LinkShare">
+    <meta name="author" content="LinkShare">
+    <meta property="og:title" content="LinkShare - Redirecting">
+    <meta property="og:description" content="Redirecting to your destination">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.linkshare.online/linkshare-favicon.png">
+    <meta property="og:url" content="https://www.linkshare.online/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LinkShare - Redirecting">
+    <meta name="twitter:description" content="Redirecting to your destination">
+    <meta name="twitter:image" content="https://www.linkshare.online/linkshare-favicon.png">
+    
+    <!-- Favicon Implementation -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <title>Redirecting... | LinkShare</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-database-compat.js"></script>
+    
+    <style>
+        :root {
+            --primary-color: #25D366;
+            --secondary-color: #128C7E;
+            --accent-color: #34B7F1;
+            --text-color: #333;
+            --bg-color: #f5f5f5;
+            --white: #ffffff;
+            --gray-light: #f8f9fa;
+            --gray: #6c757d;
+            --shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .redirect-container {
+            max-width: 600px;
+            width: 100%;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin: 2rem auto;
+            transition: var(--transition);
+        }
+        
+        .redirect-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            width: 80px;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            font-size: 1.1rem;
+        }
+        
+        .loader {
+            border: 4px solid var(--gray-light);
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 1.5rem auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .error {
+            color: #e53e3e;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(229, 62, 62, 0.1);
+            border-radius: var(--radius);
+            display: none;
+        }
+        
+        .redirect-link {
+            color: var(--primary-color);
+            text-decoration: underline;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .redirect-link:hover {
+            color: var(--secondary-color);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            margin-top: 1rem;
+        }
+        
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        
+        .redirect-footer {
+            margin-top: 2rem;
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+        
+        .redirect-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .redirect-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="redirect-container">
+        <img src="/linkshare-favicon.png" alt="LinkShare Logo" class="logo">
+        <h1>LinkShare</h1>
+        <p id="message">Redirecting you to your destination...</p>
+        <div class="loader" id="loader"></div>
+        <div id="error" class="error">
+            <p>We couldn't find the URL you're looking for.</p>
+            <a href="/" class="btn">
+                <i class="fas fa-home"></i> Return to Homepage
+            </a>
+        </div>
+        <div id="redirect-message" style="display: none;">
+            <p>If you are not redirected automatically, click the button below:</p>
+            <a href="#" id="redirect-link" class="btn">
+                <i class="fas fa-external-link-alt"></i> Go to Destination
+            </a>
+        </div>
+        
+        <div class="redirect-footer">
+            <p>Powered by <a href="/short-url-generator">LinkShare URL Shortener</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyB1Nejcpv0jubaq85ufjZwll-k62aIjFuQ",
+            authDomain: "short-url-generator-9ab67.firebaseapp.com",
+            databaseURL: "https://short-url-generator-9ab67-default-rtdb.firebaseio.com",
+            projectId: "short-url-generator-9ab67",
+            storageBucket: "short-url-generator-9ab67.appspot.com",
+            messagingSenderId: "375644970022",
+            appId: "1:375644970022:web:be24008ed6f3a57a66dae7",
+            measurementId: "G-1Q7PCGD8TM"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+        
+        // DOM Elements
+        const message = document.getElementById('message');
+        const loader = document.getElementById('loader');
+        const error = document.getElementById('error');
+        const redirectMessage = document.getElementById('redirect-message');
+        const redirectLink = document.getElementById('redirect-link');
+        
+        // Get the short ID from the URL
+        const path = window.location.pathname;
+        const shortId = path.substring(1); // Remove the leading slash
+        
+        // Function to redirect
+        async function redirectToOriginalUrl() {
+            try {
+                // If there's no shortId, show error
+                if (!shortId) {
+                    throw new Error('No short ID provided');
+                }
+                
+                // Lookup the original URL in Firebase
+                const snapshot = await database.ref(`links/${shortId}`).once('value');
+                
+                if (!snapshot.exists()) {
+                    throw new Error('Link not found');
+                }
+                
+                const linkData = snapshot.val();
+                const originalUrl = linkData.originalUrl;
+                
+                // Update click count
+                await database.ref(`links/${shortId}/clicks`).transaction(clicks => {
+                    return (clicks || 0) + 1;
+                });
+                
+                // Show manual redirect option after a short delay
+                setTimeout(() => {
+                    redirectLink.href = originalUrl;
+                    redirectMessage.style.display = 'block';
+                }, 1500);
+                
+                // Redirect to the original URL
+                window.location.href = originalUrl;
+                
+            } catch (error) {
+                console.error('Redirect error:', error);
+                message.style.display = 'none';
+                loader.style.display = 'none';
+                document.getElementById('error').style.display = 'block';
+            }
+        }
+        
+        // Start the redirect process
+        redirectToOriginalUrl();
+    </script>
+</body>
+</html>

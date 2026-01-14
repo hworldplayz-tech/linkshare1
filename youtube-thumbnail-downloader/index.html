@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Free YouTube Thumbnail Downloader. Download high-quality YouTube video thumbnails (HD, HQ, 1080p, 4K) instantly. Easy and fast.">
+    <meta name="keywords"
+        content="youtube thumbnail downloader, download youtube thumbnail, youtube thumbnail grabber, save youtube thumbnail, hd thumbnail downloader">
+    <meta name="author" content="LinkShare">
+    <meta property="og:title" content="YouTube Thumbnail Downloader - Download HD Thumbnails | LinkShare">
+    <meta property="og:description"
+        content="Download YouTube video thumbnails in HD, HQ, and 4K quality instantly for free.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="YouTube Thumbnail Downloader - LinkShare">
+    <meta name="twitter:description" content="Get high-resolution YouTube thumbnails in seconds. Free tool.">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+
+    <title>YouTube Thumbnail Downloader - HD/4K Images | LinkShare</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Adsense Script-->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8130991342525434"
+        crossorigin="anonymous"></script>
+
+    <!-- navbar -->
+    <script src="../js/nav-loader.js"></script>
+
+    <style>
+        .tool-container {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .tool-header h1 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .tool-header p {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .url-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #eee;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .url-input:focus {
+            border-color: #25D366;
+            box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.1);
+        }
+
+        .get-thumb-btn {
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .get-thumb-btn:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+        }
+
+        .results-container {
+            display: none;
+            margin-top: 3rem;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .thumbnail-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 2rem;
+            border: 1px solid #eee;
+        }
+
+        .thumbnail-card h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .thumbnail-img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: #FF0000;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: #cc0000;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .error-msg {
+            color: #dc3545;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .tool-container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="tool-container">
+        <div class="tool-header">
+            <h1><i class="fab fa-youtube" style="color: #FF0000;"></i> YouTube Thumbnail Downloader</h1>
+            <p>Paste the YouTube video URL below to grab thumbnails in HD quality.</p>
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="videoUrl" class="url-input"
+                placeholder="Paste YouTube Link here (e.g., https://youtu.be/...)">
+            <button class="get-thumb-btn" onclick="getThumbnail()">Get Thumbnail Images</button>
+            <p class="error-msg" id="errorMsg">Please enter a valid YouTube URL.</p>
+        </div>
+
+        <div class="results-container" id="results">
+            <!-- HD Quality -->
+            <div class="thumbnail-card">
+                <h3>HD Resolution (1280x720)</h3>
+                <img src="" id="imgHD" class="thumbnail-img" alt="HD Thumbnail">
+                <a href="" id="btnHD" class="download-btn" target="_blank" download>Download HD Image</a>
+            </div>
+
+            <!-- SD Quality -->
+            <div class="thumbnail-card">
+                <h3>SD Quality (640x480)</h3>
+                <img src="" id="imgSD" class="thumbnail-img" alt="SD Thumbnail">
+                <a href="" id="btnSD" class="download-btn" target="_blank" download>Download SD Image</a>
+            </div>
+
+            <!-- Normal Quality -->
+            <div class="thumbnail-card">
+                <h3>Normal Quality (480x360)</h3>
+                <img src="" id="imgNormal" class="thumbnail-img" alt="Normal Thumbnail">
+                <a href="" id="btnNormal" class="download-btn" target="_blank" download>Download Normal Image</a>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem; text-align: left;">
+            <h2>How to download YouTube Thumbnails?</h2>
+            <ol style="margin-left: 20px; line-height: 1.8; color: #555;">
+                <li>Copy the URL of the YouTube video you want.</li>
+                <li>Paste the URL in the input box above.</li>
+                <li>Click the "Get Thumbnail Images" button.</li>
+                <li>Choose your desired quality and click the "Download" button.</li>
+            </ol>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <script src="../js/footer-loader.js"></script>
+
+    <script>
+        function getThumbnail() {
+            const input = document.getElementById('videoUrl').value;
+            const errorMsg = document.getElementById('errorMsg');
+            const results = document.getElementById('results');
+
+            errorMsg.style.display = 'none';
+            results.style.display = 'none';
+
+            let videoId = extractVideoID(input);
+
+            if (videoId) {
+                // Set Images
+                const hdUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+                const sdUrl = `https://img.youtube.com/vi/${videoId}/sddefault.jpg`;
+                const normalUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+
+                document.getElementById('imgHD').src = hdUrl;
+                document.getElementById('imgSD').src = sdUrl;
+                document.getElementById('imgNormal').src = normalUrl;
+
+                // Set Download Links
+                document.getElementById('btnHD').href = hdUrl;
+                document.getElementById('btnSD').href = sdUrl;
+                document.getElementById('btnNormal').href = normalUrl;
+
+                results.style.display = 'block';
+            } else {
+                errorMsg.style.display = 'block';
+            }
+        }
+
+        function extractVideoID(url) {
+            var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+            var match = url.match(regExp);
+            return (match && match[7].length == 11) ? match[7] : false;
+        }
+
+        // Allow pressing Enter key
+        document.getElementById('videoUrl').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                getThumbnail();
+            }
+        });
+    </script>
+</body>
+
+</html>

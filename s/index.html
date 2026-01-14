@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Redirecting...</title>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+</head>
+<body>
+  <p>Please wait... Redirecting</p>
+
+  <script>
+    // Firebase Config (same as before)
+    const firebaseConfig = {
+      apiKey: "AIzaSyB1Nejcpv0jubaq85ufjZwll-k62aIjFuQ",
+      authDomain: "short-url-generator-9ab67.firebaseapp.com",
+      databaseURL: "https://short-url-generator-9ab67-default-rtdb.firebaseio.com",
+      projectId: "short-url-generator-9ab67",
+      storageBucket: "short-url-generator-9ab67.appspot.com",
+      messagingSenderId: "375644970022",
+      appId: "1:375644970022:web:be24008ed6f3a57a66dae7",
+      measurementId: "G-1Q7PCGD8TM"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    // Extract short ID from URL path (e.g., /s/bT931G)
+    const pathParts = window.location.pathname.split('/');
+    const shortId = pathParts[pathParts.length - 1];
+
+    db.ref('short_urls/' + shortId).once('value').then(snapshot => {
+      const data = snapshot.val();
+      if (data && data.original) {
+        window.location.href = data.original;
+      } else {
+        document.body.innerHTML = "<h2>404 - Short link not found</h2>";
+      }
+    }).catch(err => {
+      console.error(err);
+      document.body.innerHTML = "<h2>Error loading link</h2>";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Link Preview with Microlink</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .preview { margin-top: 20px; border: 1px solid #ccc; padding: 15px; max-width: 400px; }
+    .preview img { width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+
+  <h2>Paste a Link to Preview</h2>
+  <input type="text" id="urlInput" placeholder="Paste WhatsApp group link..." style="width: 300px;">
+  <button onclick="getPreview()">Preview</button>
+
+  <div id="previewContainer" class="preview" style="display: none;">
+    <img id="previewImage" alt="" />
+    <h3 id="previewTitle"></h3>
+    <p id="previewDescription"></p>
+  </div>
+
+  <script>
+    async function getPreview() {
+      const url = document.getElementById("urlInput").value.trim();
+      if (!url) return;
+
+      try {
+        const res = await fetch(`https://api.microlink.io/?url=${encodeURIComponent(url)}`);
+        const json = await res.json();
+
+        if (json.status === 'success') {
+          const data = json.data;
+          document.getElementById("previewImage").src = data.image?.url || '';
+          document.getElementById("previewTitle").textContent = data.title || 'No title';
+          document.getElementById("previewDescription").textContent = data.description || 'No description';
+          document.getElementById("previewContainer").style.display = 'block';
+        } else {
+          alert('Preview failed. Try another URL.');
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Something went wrong!");
+      }
+    }
+  </script>
+
+</body>
+</html>

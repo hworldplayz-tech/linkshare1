@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Free Word Counter - Count Words, Characters, Sentences & More | LinkShare</title>
+    <meta name="description"
+        content="Free online word counter tool. Count words, characters, letters, sentences, and headings instantly. Real-time statistics with visual progress bars and percentages. 100% Free, No signup required.">
+    <meta name="keywords"
+        content="word counter, character counter, word count tool, text counter, sentence counter, letter counter, free word counter, online word counter">
+    <meta name="author" content="LinkShare">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Free Word Counter - Count Words, Characters & More">
+    <meta property="og:description"
+        content="Count words, characters, sentences, and more instantly. Free online tool with real-time statistics and visual progress bars.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.linkshare.online/word-counter">
+    <meta property="og:image" content="https://www.linkshare.online/linkshare-favicon.png">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Word Counter Tool">
+    <meta name="twitter:description"
+        content="Count words, characters, sentences, and more instantly. Free online tool with real-time statistics.">
+    <meta name="twitter:image" content="https://www.linkshare.online/linkshare-favicon.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon-96x96.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../word-counter/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/related-tools.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- adsense script-->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8130991342525434"
+        crossorigin="anonymous"></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Word Counter Tool",
+        "url": "https://www.linkshare.online/word-counter",
+        "description": "Free online word counter. Count words, characters, sentences, and headings with real-time statistics and visual progress bars.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Word Count",
+            "Character Count",
+            "Sentence Count",
+            "Heading Count",
+            "Real-time Statistics",
+            "Visual Progress Bars",
+            "Free to Use",
+            "No Registration Required"
+        ]
+    }
+    </script>
+    <!-- navbar -->
+    <script src="js/nav-loader.js"></script>
+</head>
+
+<body>
+    <!-- Navigation (will be loaded dynamically) -->
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1><i class="fas fa-calculator"></i> Word Counter Tool</h1>
+            <p class="hero-subtitle">Count words, characters, sentences, and more - Real-time statistics with visual
+                insights</p>
+            <div class="hero-badges">
+                <span class="badge"><i class="fas fa-check-circle"></i> No Signup Required</span>
+                <span class="badge"><i class="fas fa-infinity"></i> Unlimited Use</span>
+                <span class="badge"><i class="fas fa-bolt"></i> Real-time Results</span>
+            </div>
+        </section>
+
+        <!-- Word Counter Tool -->
+        <div class="tool-card">
+            <div class="card-header">
+                <h2><i class="fas fa-edit"></i> Text Analysis Tool</h2>
+                <p>Type or paste your text below to get instant statistics</p>
+            </div>
+
+            <div class="input-section">
+                <textarea id="text-input"
+                    placeholder="Start typing or paste your text here to analyze words, characters, sentences, and headings..."></textarea>
+                <div class="quick-actions">
+                    <button class="quick-btn" id="clear-btn">
+                        <i class="fas fa-trash"></i> Clear Text
+                    </button>
+                    <button class="quick-btn" id="copy-stats-btn">
+                        <i class="fas fa-copy"></i> Copy Statistics
+                    </button>
+                </div>
+            </div>
+
+            <!-- Statistics Section -->
+            <div class="stats-section">
+                <h3><i class="fas fa-chart-bar"></i> Text Statistics</h3>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <!-- Total Words -->
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-font"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Total Words</div>
+                            <div class="stat-value" id="word-count">0</div>
+                            <div class="stat-progress">
+                                <div class="progress-bar" id="word-progress"></div>
+                            </div>
+                            <div class="stat-percent" id="word-percent">0%</div>
+                        </div>
+                    </div>
+
+                    <!-- Total Characters -->
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-text-width"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Total Characters</div>
+                            <div class="stat-value" id="char-count">0</div>
+                            <div class="stat-progress">
+                                <div class="progress-bar" id="char-progress"></div>
+                            </div>
+                            <div class="stat-percent" id="char-percent">0%</div>
+                        </div>
+                    </div>
+
+                    <!-- Characters Without Spaces -->
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-align-left"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Characters (No Spaces)</div>
+                            <div class="stat-value" id="char-no-space-count">0</div>
+                            <div class="stat-progress">
+                                <div class="progress-bar" id="char-no-space-progress"></div>
+                            </div>
+                            <div class="stat-percent" id="char-no-space-percent">0%</div>
+                        </div>
+                    </div>
+
+                    <!-- Total Sentences -->
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-paragraph"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Total Sentences</div>
+                            <div class="stat-value" id="sentence-count">0</div>
+                            <div class="stat-progress">
+                                <div class="progress-bar" id="sentence-progress"></div>
+                            </div>
+                            <div class="stat-percent" id="sentence-percent">0%</div>
+                        </div>
+                    </div>
+
+                    <!-- Total Headings -->
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-heading"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Total Headings</div>
+                            <div class="stat-value" id="heading-count">0</div>
+                            <div class="stat-progress">
+                                <div class="progress-bar" id="heading-progress"></div>
+                            </div>
+                            <div class="stat-percent" id="heading-percent">0%</div>
+                        </div>
+                    </div>
+
+                    <!-- Reading Time -->
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Reading Time</div>
+                            <div class="stat-value" id="reading-time">0 min</div>
+                            <div class="stat-progress">
+                                <div class="progress-bar" id="reading-progress"></div>
+                            </div>
+                            <div class="stat-percent" id="reading-percent">0%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Insights -->
+                <div class="insights-section">
+                    <h4><i class="fas fa-lightbulb"></i> Additional Insights</h4>
+                    <div class="insights-grid">
+                        <div class="insight-item">
+                            <span class="insight-label">Average Word Length:</span>
+                            <span class="insight-value" id="avg-word-length">0</span>
+                        </div>
+                        <div class="insight-item">
+                            <span class="insight-label">Average Sentence Length:</span>
+                            <span class="insight-value" id="avg-sentence-length">0 words</span>
+                        </div>
+                        <div class="insight-item">
+                            <span class="insight-label">Longest Word:</span>
+                            <span class="insight-value" id="longest-word">-</span>
+                        </div>
+                        <div class="insight-item">
+                            <span class="insight-label">Speaking Time (Slow):</span>
+                            <span class="insight-value" id="speaking-time">0 min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Content Section -->
+        <section class="seo-content">
+            <article class="content-article">
+                <h2>What is a Word Counter?</h2>
+                <p>A word counter is an essential online tool that helps you analyze text by counting words, characters,
+                    sentences, and other important metrics. Our free word counter provides real-time statistics as you
+                    type, making it perfect for writers, students, bloggers, and professionals who need to track their
+                    writing progress or meet specific word count requirements.</p>
+
+                <h3>Key Features of Our Word Counter</h3>
+                <ul>
+                    <li><strong>Real-time Counting:</strong> Get instant updates as you type or paste text</li>
+                    <li><strong>Multiple Metrics:</strong> Track words, characters (with and without spaces), sentences,
+                        and headings</li>
+                    <li><strong>Visual Progress Bars:</strong> See your statistics represented graphically for easy
+                        understanding</li>
+                    <li><strong>Percentage Display:</strong> View relative proportions of each metric</li>
+                    <li><strong>Reading Time Estimate:</strong> Know how long it takes to read your content</li>
+                    <li><strong>Speaking Time Estimate:</strong> Calculate presentation duration</li>
+                    <li><strong>Advanced Insights:</strong> Average word length, sentence length, and longest word
+                        detection</li>
+                </ul>
+
+                <h3>Why Use a Word Counter?</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h4>For Students</h4>
+                        <p>Meet essay and assignment word count requirements accurately</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-pen-fancy"></i>
+                        <h4>For Writers</h4>
+                        <p>Track progress on articles, books, and creative writing projects</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-blog"></i>
+                        <h4>For Bloggers</h4>
+                        <p>Optimize content length for SEO and reader engagement</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-briefcase"></i>
+                        <h4>For Professionals</h4>
+                        <p>Create concise reports, emails, and business documents</p>
+                    </div>
+                </div>
+
+                <h3>Understanding the Statistics</h3>
+                <ul>
+                    <li><strong>Total Words:</strong> The complete count of words in your text, separated by spaces</li>
+                    <li><strong>Total Characters:</strong> All characters including letters, numbers, punctuation, and
+                        spaces</li>
+                    <li><strong>Characters (No Spaces):</strong> Character count excluding spaces - useful for platforms
+                        with character limits</li>
+                    <li><strong>Total Sentences:</strong> Number of sentences detected based on punctuation marks (., !,
+                        ?)</li>
+                    <li><strong>Total Headings:</strong> Count of heading-style text (lines starting with # or in title
+                        case)</li>
+                    <li><strong>Reading Time:</strong> Estimated time to read at average reading speed (200-250 words
+                        per minute)</li>
+                </ul>
+
+                <h3>Common Use Cases</h3>
+                <ol>
+                    <li><strong>Academic Writing:</strong> Ensure essays and research papers meet word count
+                        requirements</li>
+                    <li><strong>SEO Content:</strong> Optimize blog posts to ideal length (typically 1,500-2,500 words)
+                    </li>
+                    <li><strong>Social Media:</strong> Stay within character limits for Twitter, Facebook, Instagram
+                    </li>
+                    <li><strong>Email Marketing:</strong> Keep subject lines and preview text within optimal lengths
+                    </li>
+                    <li><strong>Resume Writing:</strong> Maintain concise, impactful resume content</li>
+                    <li><strong>Speech Preparation:</strong> Calculate speaking time for presentations</li>
+                    <li><strong>Translation Work:</strong> Track word counts for pricing and project management</li>
+                </ol>
+
+                <h3>Tips for Effective Writing</h3>
+                <ul>
+                    <li>Aim for an average sentence length of 15-20 words for readability</li>
+                    <li>Blog posts perform best between 1,500-2,500 words for SEO</li>
+                    <li>Use headings to break up long content (aim for one heading every 300 words)</li>
+                    <li>Keep paragraphs to 3-5 sentences for better readability</li>
+                    <li>For social media, shorter is often better (under 100 words)</li>
+                    <li>Academic essays typically require specific word counts - check your guidelines</li>
+                </ul>
+
+                <h3>Character Limits for Popular Platforms</h3>
+                <ul>
+                    <li><strong>Twitter/X:</strong> 280 characters per tweet</li>
+                    <li><strong>Facebook Post:</strong> 63,206 characters (but 40-80 characters perform best)</li>
+                    <li><strong>Instagram Caption:</strong> 2,200 characters</li>
+                    <li><strong>LinkedIn Post:</strong> 3,000 characters</li>
+                    <li><strong>Meta Description (SEO):</strong> 150-160 characters</li>
+                    <li><strong>Email Subject Line:</strong> 40-50 characters</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+
+    <script src="js/footer-loader.js"></script>
+
+    <!-- JavaScript -->
+    <script src="../word-counter/script.js"></script>
+    <script src="../js/related-tools-loader.js"></script>
+</body>
+
+</html>

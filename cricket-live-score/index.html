@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="🏏 Watch Asia Cup Live Cricket Scores & Updates! Get real-time cricket scores, Asia Cup matches, live commentary, player stats & match highlights. Updated every 30 seconds!" />
+    <meta name="keywords" content="Asia Cup live score, cricket live score, Asia Cup 2024, live cricket, cricket scores, Asia Cup matches, cricket updates, cricket commentary, Pakistan cricket, India cricket" />
+    <meta name="author" content="LinkShare" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="🏏 Asia Cup Live Cricket Scores - Real-time Updates | LinkShare" />
+    <meta property="og:description" content="Get live cricket scores for Asia Cup matches! Real-time updates, detailed scorecards, player stats & match commentary. Never miss a moment of Asia Cup action!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.linkshare.online/images/asia-cup-live-cricket.jpg" />
+    <meta property="og:url" content="https://www.linkshare.online/cricket-live-score/" />
+    <meta property="og:site_name" content="LinkShare" />
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="🏏 Asia Cup Live Cricket Scores - Real-time Updates | LinkShare" />
+    <meta name="twitter:description" content="Get live cricket scores for Asia Cup matches! Real-time updates, detailed scorecards, player stats & match commentary." />
+    <meta name="twitter:image" content="https://www.linkshare.online/images/asia-cup-live-cricket.jpg" />
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="1 day" />
+    <meta http-equiv="Cache-Control" content="public, max-age=300" />
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+    <title>🏏 Asia Cup Live Cricket Scores - Real-time Updates | LinkShare</title>
+    
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="../css/style.css?v=5.0&cache=20250909" />
+    <link rel="stylesheet" href="../cricket-live-score/cricket-live-score.css?v=1.0&cache=20250909" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8130991342525434" crossorigin="anonymous"></script>
+    
+    <!-- Navbar Loader -->
+    <script src="../js/nav-loader.js"></script>
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SportsEvent",
+        "name": "Asia Cup Live Cricket Scores",
+        "description": "Live cricket scores and updates for Asia Cup matches with real-time commentary and player statistics",
+        "startDate": "2024-08-30",
+        "location": {
+            "@type": "Place",
+            "name": "Asia Cup Venues"
+        },
+        "organizer": {
+            "@type": "Organization",
+            "name": "Asian Cricket Council"
+        },
+        "sport": "Cricket",
+        "url": "https://www.linkshare.online/cricket-live-score/"
+    }
+    </script>
+    
+</head>
+<body>
+    <!-- Navigation will be loaded here -->
+    <div id="header"></div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1 style="color: white; text-shadow: black 1px 2px 5px ; /*text-shadow: 1px 0 #dd0996, -2px 0 #dd0996, 0 2px #dd0996, 0 -2px #dd0996,
+               1px 1px #dd0996, -1px -1px #dd0996, 1px -1px #dd0996, -1px 1px #dd0996;*/
+">🏏 Asia Cup Live Cricket Scores</h1>
+        <p>Real-time updates • Live commentary • Complete scorecards</p>
+    </div>
+
+    <!-- Live Score Bar -->
+    <div class="live-score-bar" id="liveScoreBar">
+        <i class="fas fa-spinner fa-spin"></i> Fetching live scores...
+    </div>
+
+    <main class="page-container">
+        <!-- Featured Asia Cup Section -->
+        <div class="asia-cup-featured">
+            <h2>🏆 Asia Cup 2024 - Featured Matches</h2>
+            <p>Don't miss the most exciting cricket tournament in Asia! Live scores, ball-by-ball commentary, and comprehensive match analysis.</p>
+            <div id="asiaCupMatches" class="asia-cup-matches">
+                <div class="loading-container">
+                    <div class="loading-spinner"></div>
+                    <p>Loading Asia Cup matches...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Match Filters -->
+        <div class="match-filters">
+            <button class="filter-btn active" data-filter="all">
+                <i class="fas fa-globe"></i> All Matches
+            </button>
+            <button class="filter-btn" data-filter="live">
+                <i class="fas fa-circle" style="color: #e74c3c;"></i> Live
+            </button>
+            <button class="filter-btn" data-filter="upcoming">
+                <i class="fas fa-clock" style="color: #f39c12;"></i> Upcoming
+            </button>
+            <button class="filter-btn" data-filter="completed">
+                <i class="fas fa-check-circle" style="color: #27ae60;"></i> Completed
+            </button>
+        </div>
+
+        <!-- Matches Container -->
+        <div class="matches-container" id="matchesContainer">
+            <div class="loading-container">
+                <div class="loading-spinner"></div>
+                <p>Loading cricket matches...</p>
+            </div>
+        </div>
+
+        <!-- Additional Cricket Information -->
+        <div class="content-section" style="margin-top: 3rem;">
+            <h2>🏏 Live Cricket Scores & Updates</h2>
+            <p>Stay updated with the latest cricket scores from around the world! Our live cricket score service provides real-time updates for all major cricket tournaments including Asia Cup, IPL, PSL, BBL, CPL, and international matches.</p>
+            
+            <h3>📊 Features:</h3>
+            <ul>
+                <li><strong>Real-time Updates:</strong> Live scores updated every 30 seconds</li>
+                <li><strong>Comprehensive Coverage:</strong> All international and domestic cricket matches</li>
+                <li><strong>Detailed Scorecards:</strong> Ball-by-ball commentary and player statistics</li>
+                <li><strong>Match Analysis:</strong> Expert insights and match predictions</li>
+                <li><strong>Mobile Optimized:</strong> Perfect viewing experience on all devices</li>
+            </ul>
+
+            <h3>🏆 Tournament Coverage:</h3>
+            <div class="tournament-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0;">
+                <div class="tournament-card" style="background: white; padding: 1rem; border-radius: 8px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <h4 style="color: var(--cricket-secondary); margin-bottom: 0.5rem;">🏆 Asia Cup</h4>
+                    <p style="font-size: 0.9rem; color: #666;">Complete coverage of Asia Cup matches</p>
+                </div>
+                <div class="tournament-card" style="background: white; padding: 1rem; border-radius: 8px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <h4 style="color: var(--cricket-secondary); margin-bottom: 0.5rem;">🇮🇳 IPL</h4>
+                    <p style="font-size: 0.9rem; color: #666;">Indian Premier League live scores</p>
+                </div>
+                <div class="tournament-card" style="background: white; padding: 1rem; border-radius: 8px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <h4 style="color: var(--cricket-secondary); margin-bottom: 0.5rem;">🇵🇰 PSL</h4>
+                    <p style="font-size: 0.9rem; color: #666;">Pakistan Super League updates</p>
+                </div>
+                <div class="tournament-card" style="background: white; padding: 1rem; border-radius: 8px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <h4 style="color: var(--cricket-secondary); margin-bottom: 0.5rem;">🌍 International</h4>
+                    <p style="font-size: 0.9rem; color: #666;">Test, ODI & T20I match scores</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <script src="..js/footer-loader.js"></script>
+    <!-- JavaScript -->
+    <script src="../cricket-live-score/cricket-live-score.js?v=1.0&cache=20250909"></script>
+</html>

@@ -1,0 +1,57 @@
+{
+  "rewrites": [
+    {
+      "source": "/:shortId([a-zA-Z0-9]+)",
+      "destination": "/redirect.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "s-maxage=1, stale-while-revalidate"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/add-group",
+      "destination": "https://www.whatsuplink.online/?submit-form=true",
+      "permanent": true
+    },
+    {
+      "source": "/usa-whatsapp-group-links",
+      "destination": "https://www.whatsuplink.online/country/us",
+      "permanent": true
+    },
+    {
+      "source": "/active-pakistani-whatsapp-group-links",
+      "destination": "https://www.whatsuplink.online/country/pk",
+      "permanent": true
+    },
+    {
+      "source": "/indian-whatsapp-group-links",
+      "destination": "https://www.whatsuplink.online/country/in",
+      "permanent": true
+    },
+    {
+      "source": "/moovie",
+      "destination": "https://moovie-linkshare.vercel.app"
+    },
+    {
+      "source": "/moovie/:path*",
+      "destination": "https://moovie-linkshare.vercel.app/:path*"
+    },
+    {
+      "source": "/moovie-app",
+      "destination": "https://moovie-app-linkshare.vercel.app/moovie-app"
+    },
+    {
+      "source": "/moovie-app/:path*",
+      "destination": "https://moovie-app-linkshare.vercel.app/moovie-app/:path*"
+    }
+  ]
+}

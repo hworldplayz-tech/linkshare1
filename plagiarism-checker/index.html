@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Free Plagiarism Checker - Detect Duplicate Content Online | LinkShare</title>
+  <meta name="description"
+    content="Free online plagiarism checker tool. Check for duplicate content, detect copied text, and ensure originality. Supports multiple sources. 100% Free, No signup required.">
+  <meta name="keywords"
+    content="plagiarism checker, duplicate content checker, plagiarism detector, copy checker, content originality, free plagiarism checker, online plagiarism tool">
+  <meta name="author" content="LinkShare">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Free Plagiarism Checker - Detect Duplicate Content Online">
+  <meta property="og:description"
+    content="Check for plagiarism and duplicate content instantly. Free online tool with detailed similarity reports.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.linkshare.online/plagiarism-checker">
+  <meta property="og:image" content="https://www.linkshare.online/linkshare-favicon.png">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Plagiarism Checker Tool">
+  <meta name="twitter:description"
+    content="Check for plagiarism and duplicate content instantly. Free online tool with detailed reports.">
+  <meta name="twitter:image" content="https://www.linkshare.online/linkshare-favicon.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../plagiarism-checker/style.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/related-tools.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- adsense script-->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8130991342525434"
+    crossorigin="anonymous"></script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Plagiarism Checker Tool",
+        "url": "https://www.linkshare.online/plagiarism-checker",
+        "description": "Free online plagiarism checker. Detect duplicate content and ensure originality with detailed similarity reports.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Plagiarism Detection",
+            "Duplicate Content Check",
+            "Similarity Analysis",
+            "Source Detection",
+            "Free to Use",
+            "No Registration Required"
+        ]
+    }
+    </script>
+  <!-- navbar -->
+  <script src="js/nav-loader.js"></script>
+</head>
+
+<body>
+  <!-- Navigation (will be loaded dynamically) -->
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <h1><i class="fas fa-shield-alt"></i> Plagiarism Checker</h1>
+      <p class="hero-subtitle">Detect duplicate content and ensure originality - 100% Free</p>
+      <div class="hero-badges">
+        <span class="badge"><i class="fas fa-check-circle"></i> No Signup Required</span>
+        <span class="badge"><i class="fas fa-infinity"></i> Unlimited Checks</span>
+        <span class="badge"><i class="fas fa-lock"></i> Privacy Protected</span>
+      </div>
+    </section>
+
+    <!-- Plagiarism Checker Tool -->
+    <div class="tool-card">
+      <div class="card-header">
+        <h2><i class="fas fa-search-plus"></i> Check Your Content</h2>
+        <p>Paste your text below to check for plagiarism and duplicate content</p>
+      </div>
+
+      <div class="input-section">
+        <textarea id="text-input"
+          placeholder="Paste your text here to check for plagiarism. Minimum 50 characters required for accurate results..."
+          maxlength="5000"></textarea>
+        <div class="input-footer">
+          <div class="char-counter">
+            <span id="char-count">0</span> / 5000 characters
+          </div>
+          <div class="word-counter">
+            <span id="word-count">0</span> words
+          </div>
+        </div>
+      </div>
+
+      <button class="action-btn" id="check-btn">
+        <i class="fas fa-search"></i> Check for Plagiarism
+      </button>
+
+      <!-- Results Section -->
+      <div class="result-section" id="result-section" style="display: none;">
+        <div class="result-header">
+          <h3><i class="fas fa-chart-pie"></i> Plagiarism Report</h3>
+        </div>
+
+        <!-- Overall Score -->
+        <div class="score-display">
+          <div class="score-circle" id="plagiarism-circle">
+            <svg class="progress-ring" width="200" height="200">
+              <circle class="progress-ring-bg" cx="100" cy="100" r="85" />
+              <circle class="progress-ring-fill" id="progress-circle" cx="100" cy="100" r="85" />
+            </svg>
+            <div class="score-content">
+              <span class="score-value" id="plagiarism-score">0%</span>
+              <span class="score-label">Plagiarized</span>
+            </div>
+          </div>
+          <div class="score-circle" id="unique-circle">
+            <svg class="progress-ring" width="200" height="200">
+              <circle class="progress-ring-bg" cx="100" cy="100" r="85" />
+              <circle class="progress-ring-fill" id="unique-progress-circle" cx="100" cy="100" r="85" />
+            </svg>
+            <div class="score-content">
+              <span class="score-value" id="unique-score">100%</span>
+              <span class="score-label">Unique</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Result Message -->
+        <div class="result-message" id="result-message"></div>
+
+        <!-- Detailed Analysis -->
+        <div class="analysis-section">
+          <h4><i class="fas fa-list-alt"></i> Detailed Analysis</h4>
+          <div class="analysis-grid">
+            <div class="analysis-item">
+              <span class="analysis-label">Total Sentences:</span>
+              <span class="analysis-value" id="total-sentences">0</span>
+            </div>
+            <div class="analysis-item">
+              <span class="analysis-label">Unique Sentences:</span>
+              <span class="analysis-value" id="unique-sentences">0</span>
+            </div>
+            <div class="analysis-item">
+              <span class="analysis-label">Matched Sentences:</span>
+              <span class="analysis-value" id="matched-sentences">0</span>
+            </div>
+            <div class="analysis-item">
+              <span class="analysis-label">Similarity Score:</span>
+              <span class="analysis-value" id="similarity-score">0%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Matched Content -->
+        <div class="matched-content" id="matched-content" style="display: none;">
+          <h4><i class="fas fa-exclamation-triangle"></i> Potentially Plagiarized Content</h4>
+          <div id="matched-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO Content Section -->
+    <section class="seo-content">
+      <article class="content-article">
+        <h2>What is a Plagiarism Checker?</h2>
+        <p>A plagiarism checker is an essential tool that helps detect duplicate or copied content in your text. Our
+          free plagiarism checker analyzes your content against billions of web pages, academic papers, and published
+          works to identify any instances of plagiarism, ensuring your work is original and properly cited.</p>
+
+        <h3>How Does Our Plagiarism Checker Work?</h3>
+        <p>Our advanced plagiarism detection system uses sophisticated algorithms to:</p>
+        <ul>
+          <li><strong>Text Analysis:</strong> Breaks down your content into sentences and phrases</li>
+          <li><strong>Pattern Matching:</strong> Identifies similar patterns and structures in existing content</li>
+          <li><strong>Similarity Detection:</strong> Calculates percentage of matching content</li>
+          <li><strong>Source Identification:</strong> Highlights potentially plagiarized sections</li>
+          <li><strong>Comprehensive Report:</strong> Provides detailed analysis with similarity scores</li>
+        </ul>
+
+        <h3>Why Use a Plagiarism Checker?</h3>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <i class="fas fa-graduation-cap"></i>
+            <h4>For Students</h4>
+            <p>Ensure academic integrity and avoid unintentional plagiarism in essays and research papers</p>
+          </div>
+          <div class="benefit-card">
+            <i class="fas fa-pen-fancy"></i>
+            <h4>For Writers</h4>
+            <p>Verify content originality before publishing articles, blogs, and creative works</p>
+          </div>
+          <div class="benefit-card">
+            <i class="fas fa-briefcase"></i>
+            <h4>For Businesses</h4>
+            <p>Protect brand reputation with original marketing content and web copy</p>
+          </div>
+          <div class="benefit-card">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <h4>For Educators</h4>
+            <p>Check student submissions for plagiarism and maintain academic standards</p>
+          </div>
+        </div>
+
+        <h3>Features of Our Plagiarism Checker</h3>
+        <ul>
+          <li><strong>100% Free:</strong> No hidden charges or subscription fees</li>
+          <li><strong>No Registration:</strong> Start checking immediately without creating an account</li>
+          <li><strong>Privacy Protected:</strong> Your content is not stored or shared</li>
+          <li><strong>Instant Results:</strong> Get plagiarism reports in seconds</li>
+          <li><strong>Detailed Reports:</strong> View similarity percentages and matched content</li>
+          <li><strong>Easy to Use:</strong> Simple interface with clear results</li>
+          <li><strong>Mobile Friendly:</strong> Works perfectly on all devices</li>
+        </ul>
+
+        <h3>Types of Plagiarism Detected</h3>
+        <ol>
+          <li><strong>Direct Plagiarism:</strong> Word-for-word copying without citation</li>
+          <li><strong>Self-Plagiarism:</strong> Reusing your own previously published work</li>
+          <li><strong>Mosaic Plagiarism:</strong> Mixing copied phrases with original content</li>
+          <li><strong>Accidental Plagiarism:</strong> Unintentional copying due to improper citation</li>
+          <li><strong>Paraphrasing Plagiarism:</strong> Rewording without proper attribution</li>
+        </ol>
+
+        <h3>How to Avoid Plagiarism</h3>
+        <ul>
+          <li>Always cite your sources properly using appropriate citation styles</li>
+          <li>Use quotation marks when using exact words from sources</li>
+          <li>Paraphrase properly and add your own analysis</li>
+          <li>Keep track of all sources during research</li>
+          <li>Use plagiarism checkers before submitting work</li>
+          <li>Understand the difference between common knowledge and cited information</li>
+        </ul>
+
+        <h3>Common Use Cases</h3>
+        <ul>
+          <li><strong>Academic Papers:</strong> Check essays, theses, and dissertations</li>
+          <li><strong>Blog Posts:</strong> Ensure SEO content is unique</li>
+          <li><strong>Articles:</strong> Verify journalism and content writing originality</li>
+          <li><strong>Website Content:</strong> Check web pages for duplicate content</li>
+          <li><strong>Research Papers:</strong> Validate academic research integrity</li>
+          <li><strong>Books & eBooks:</strong> Ensure manuscript originality</li>
+        </ul>
+
+        <h3>Understanding Your Plagiarism Report</h3>
+        <ul>
+          <li><strong>0-15% Similarity:</strong> Excellent - Content is highly original</li>
+          <li><strong>15-25% Similarity:</strong> Good - Minor matches, mostly citations</li>
+          <li><strong>25-50% Similarity:</strong> Moderate - Review and revise matched content</li>
+          <li><strong>50%+ Similarity:</strong> High - Significant plagiarism detected, major revision needed</li>
+        </ul>
+
+        <h3>Tips for Best Results</h3>
+        <ul>
+          <li>Paste at least 50 words for accurate plagiarism detection</li>
+          <li>Check content before final submission or publication</li>
+          <li>Review highlighted sections and add proper citations</li>
+          <li>Rewrite or paraphrase heavily matched content</li>
+          <li>Use multiple plagiarism checkers for comprehensive results</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <script src="js/footer-loader.js"></script>
+
+  <!-- JavaScript -->
+  <script src="../plagiarism-checker/script.js"></script>
+  <script src="../js/related-tools-loader.js"></script>
+</body>
+
+</html>

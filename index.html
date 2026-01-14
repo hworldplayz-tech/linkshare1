@@ -1,0 +1,3614 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Share Buttons Panel HTML -->
+        <style>
+            /* Share Buttons Styles */
+            .share-buttons-panel {
+                position: fixed;
+                left: -200px; /* Hidden by default */
+                top: 50%;
+                transform: translateY(-50%);
+                background: white;
+                padding: 15px;
+                border-radius: 0 15px 15px 0;
+                box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+                transition: left 0.3s ease;
+                z-index: 999;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 200px;
+            }
+
+            .share-buttons-panel.active {
+                left: 0;
+            }
+
+            .share-toggle-btn {
+                position: absolute;
+                right: -40px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: #128C7E;
+                color: white;
+                border: none;
+                padding: 10px;
+                border-radius: 0 5px 5px 0;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                transition: background 0.3s ease;
+            }
+
+            .share-toggle-btn:hover {
+                background: #0d6b5e;
+            }
+
+            .share-buttons-panel .share-title {
+                font-size: 16px;
+                font-weight: 600;
+                color: #333;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+
+            .share-button {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 8px 15px;
+                border-radius: 5px;
+                color: white;
+                text-decoration: none;
+                font-size: 14px;
+                transition: transform 0.2s ease, opacity 0.2s ease;
+            }
+
+            .share-button:hover {
+                transform: translateX(5px);
+                opacity: 0.9;
+            }
+
+            .share-button i {
+                font-size: 18px;
+            }
+
+            .share-facebook { background: #1877f2; }
+            .share-twitter { background: #1da1f2; }
+            .share-whatsapp { background: #25d366; }
+            .share-telegram { background: #0088cc; }
+            .share-linkedin { background: #0077b5; }
+            .share-pinterest { background: #e60023; }
+            .share-reddit { background: #ff4500; }
+            .share-email { background: #ea4335; }
+        </style>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="🔥 Join 1000+ Active WhatsApp Groups Worldwide! Find Groups for Chat, Dating, Business & More. New Links Added Daily. All Groups Verified ✅ Join Now!"
+        />
+        <meta
+            name="keywords"
+            content="WhatsApp groups, group links, join WhatsApp groups, chat groups, dating groups, business groups"
+        />
+        <meta name="author" content="LinkShare" />
+        <meta
+            property="og:title"
+            content="🔥 Join 1000+ WhatsApp Groups - Active Links Updated Daily"
+        />
+        <meta
+            property="og:description"
+            content="Join 1000+ Active WhatsApp Groups Worldwide! Find Groups for Chat, Dating, Business & More. New Links Added Daily. All Groups Verified ✅ Join Now!"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:image"
+            content="https://www.linkshare.online/linkshare-favicon.png"
+        />
+        <meta property="og:url" content="https://www.linkshare.online/" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:title"
+            content="🔥 Join 1000+ WhatsApp Groups - Active Links Updated Daily"
+        />
+        <meta
+            name="twitter:description"
+            content="Join 1000+ Active WhatsApp Groups Worldwide! Find Groups for Chat, Dating, Business & More. New Links Added Daily. All Groups Verified ✅ Join Now!"
+        />
+        <meta
+            name="twitter:image"
+            content="https://www.linkshare.online/linkshare-favicon.png"
+        />
+
+        <meta name="msvalidate.01" content="DF2117AB28E11C1B199752DCEC9CBBE0" />
+     
+         
+        <!-- Reasonable cache prevention for fresh data -->
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <meta name="cache-control" content="no-cache">
+        <meta name="expires" content="0">
+        <meta name="pragma" content="no-cache">
+        <!-- Ezoic ads Script-->
+        <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
+        <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
+        <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
+        <script>
+            window.ezstandalone = window.ezstandalone || {};
+            ezstandalone.cmd = ezstandalone.cmd || [];
+        </script>
+        <!-- Adsense Script-->
+        <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8130991342525434"
+            crossorigin="anonymous"
+        ></script>
+        <!-- Favicon Implementation -->
+        <link rel="icon" type="image/x-icon" href="/favicon-96x96.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <title>
+            🔥 Join 1500+ WhatsApp Groups - Active Links Updated Daily |
+            LinkShare
+        </title>
+        <link rel="stylesheet" href="css/style.css?v=5.0&cache=20250823152500" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+
+        <!-- navbar -->
+        <script src="js/nav-loader.js"></script>
+        
+        <!-- Add structured data add-->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "LinkShare",
+                "url": "https://www.linkshare.online",
+                "description": "Share and discover WhatsApp group links. Join communities based on your interests, connect with like-minded people, and explore trending groups worldwide.",
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": "https://www.linkshare.online/search?q={search_term_string}",
+                    "query-input": "required name=search_term_string"
+                },
+                "logo": "https://www.linkshare.online/linkshare-favicon.png"
+            }
+        </script>
+        <style>
+            /* Share Buttons Styles */
+            .share-buttons-panel {
+                position: fixed;
+                left: -200px; /* Hidden by default */
+                top: 50%;
+                transform: translateY(-50%);
+                background: white;
+                padding: 15px;
+                border-radius: 0 15px 15px 0;
+                box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+                transition: left 0.3s ease;
+                z-index: 999;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 200px;
+            }
+
+            .share-buttons-panel.active {
+                left: 0;
+            }
+
+            .share-toggle-btn {
+                position: absolute;
+                right: -40px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: #128C7E;
+                color: white;
+                border: none;
+                padding: 10px;
+                border-radius: 0 5px 5px 0;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                transition: background 0.3s ease;
+            }
+
+            .share-toggle-btn:hover {
+                background: #0d6b5e;
+            }
+
+            .share-buttons-panel .share-title {
+                font-size: 16px;
+                font-weight: 600;
+                color: #333;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+
+            .share-button {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 8px 15px;
+                border-radius: 5px;
+                color: white;
+                text-decoration: none;
+                font-size: 14px;
+                transition: transform 0.2s ease, opacity 0.2s ease;
+            }
+
+            .share-button:hover {
+                transform: translateX(5px);
+                opacity: 0.9;
+            }
+
+            .share-button i {
+                font-size: 18px;
+            }
+
+            .share-facebook { background: #1877f2; }
+            .share-twitter { background: #1da1f2; }
+            .share-whatsapp { background: #25d366; }
+            .share-telegram { background: #0088cc; }
+            .share-linkedin { background: #0077b5; }
+            .share-pinterest { background: #e60023; }
+            .share-reddit { background: #ff4500; }
+            .share-email { background: #ea4335; }
+
+            /* SEO Blog Section Styles */
+            .seo-blog-section {
+                background: #f8f9fa;
+                padding: 4rem 0;
+                margin: 4rem 0;
+            }
+
+            .blog-content {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 1rem;
+            }
+
+            .blog-content h2 {
+                text-align: center;
+                color: #128c7e;
+                margin-bottom: 3rem;
+            }
+
+            .blog-content h3 {
+                color: #128c7e;
+                margin: 2rem 0 1rem;
+            }
+
+            .blog-content ul,
+            .blog-content ol {
+                margin: 1rem 0;
+                padding-left: 2rem;
+            }
+
+            .blog-content li {
+                margin: 0.5rem 0;
+                color: #333;
+            }
+
+            .group-types {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 2rem;
+                margin: 2rem 0;
+            }
+
+            .type-card {
+                background: white;
+                padding: 1.5rem;
+                border-radius: 10px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+                text-align: center;
+            }
+
+            .type-card h4 {
+                color: #128c7e;
+                margin-bottom: 1rem;
+            }
+
+            .cta-section {
+                text-align: center;
+                margin-top: 3rem;
+            }
+
+            .cta-button {
+                display: inline-block;
+                padding: 1rem 2rem;
+                margin: 0.5rem;
+                background: #128c7e;
+                color: white;
+                text-decoration: none;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+            }
+
+            .cta-button:hover {
+                background: #25d366;
+                transform: translateY(-2px);
+            }
+
+            @media (max-width: 768px) {
+                .group-types {
+                    grid-template-columns: 1fr;
+                }
+
+                .cta-section {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
+
+            /* Secondary Menu Styles */
+            .temporary-menu,
+            .secondary-menu {
+                padding: 0.75rem 0;
+                margin-bottom: 1.5rem;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                border-radius: 10px;
+            }
+
+            .temporary-nav-links,
+            .secondary-nav-links {
+                display: flex;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .temporary-nav-links,
+            .secondary-nav-links li {
+                position: relative;
+            }
+
+            .secondary-nav-links a {
+                display: block;
+                padding: 12px 20px;
+                color: white;
+                text-decoration: none;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                border-radius: 15px;
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(5px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                background: linear-gradient(135deg, #128c7e, #25d366);
+            }
+
+            .temporary-nav-links a {
+                display: block;
+                background: linear-gradient(135deg, #128c7e, #25d366);
+                padding: 4px 4px;
+                color: black;
+                text-decoration: none;
+                font-weight: 700;
+                transition: all 0.3s ease;
+                font-size: 12px;
+                border-radius: 2px;
+                backdrop-filter: blur(5px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                box-shadow: grey 1px 1px 5px 1px;
+            }
+
+            .temporary-nav-links a:hover,
+            .secondary-nav-links a:hover {
+                background: rgba(255, 255, 255, 0.2);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                border-color: green;
+                color: green;
+            }
+
+            /* Modern compact filter dropdown styles */
+            .filter-group .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            .filter-group .dropdown-btn {
+                background: linear-gradient(135deg, #128c7e, #25d366);
+                color: white;
+                padding: 10px 16px;
+                border: none;
+                border-radius: 25px;
+                cursor: pointer;
+                font-size: 13px;
+                font-weight: 500;
+                min-width: 140px;
+                text-align: left;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: 0 2px 8px rgba(18, 140, 126, 0.3);
+                backdrop-filter: blur(10px);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .filter-group .dropdown-btn::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.2),
+                    transparent
+                );
+                transition: left 0.5s;
+            }
+
+            .filter-group .dropdown-btn:hover::before {
+                left: 100%;
+            }
+
+            .filter-group .dropdown-btn:hover {
+                transform: translateY(-2px) scale(1.02);
+                box-shadow: 0 6px 20px rgba(18, 140, 126, 0.4);
+            }
+
+            .filter-group .dropdown-btn i {
+                transition: transform 0.3s ease;
+                font-size: 12px;
+            }
+
+            .filter-group .dropdown.active .dropdown-btn i {
+                transform: rotate(180deg);
+            }
+
+            .filter-group .dropdown-menu {
+                display: none;
+                position: absolute;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(20px);
+                min-width: 160px;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+                z-index: 1000;
+                border-radius: 16px;
+                padding: 6px;
+                list-style: none;
+                margin: 6px 0 0 0;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                max-height: 280px;
+                overflow-y: auto;
+                animation: dropdownSlide 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            @keyframes dropdownSlide {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px) scale(0.95);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
+            }
+
+            .filter-group .dropdown.active .dropdown-menu {
+                display: block;
+            }
+
+            .filter-group .dropdown-menu .filter-btn {
+                padding: 8px 12px;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                border-radius: 10px;
+                color: #333;
+                font-size: 13px;
+                margin: 2px 0;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .filter-group .dropdown-menu .filter-btn::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(135deg, #128c7e, #25d366);
+                transition: left 0.3s ease;
+                z-index: -1;
+            }
+
+            .filter-group .dropdown-menu .filter-btn:hover::before {
+                left: 0;
+            }
+
+            .filter-group .dropdown-menu .filter-btn:hover {
+                color: white;
+                transform: translateX(4px);
+            }
+
+            .filter-group .dropdown-menu .filter-btn.active {
+                background: linear-gradient(135deg, #128c7e, #25d366);
+                color: white;
+                box-shadow: 0 2px 8px rgba(18, 140, 126, 0.3);
+            }
+
+            .filter-group .dropdown-menu .filter-btn.active:hover {
+                background: linear-gradient(135deg, #25d366, #128c7e);
+                transform: translateX(4px);
+            }
+
+            /* Responsive dropdown styles */
+            @media (max-width: 768px) {
+                .filter-group .dropdown-btn {
+                    min-width: 120px;
+                    padding: 8px 12px;
+                    font-size: 12px;
+                }
+
+                .filter-group .dropdown-menu {
+                    min-width: 140px;
+                    max-height: 200px;
+                }
+
+                .filter-group .dropdown-menu .filter-btn {
+                    padding: 6px 10px;
+                    font-size: 12px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .filter-group .dropdown-btn {
+                    min-width: 100px;
+                    padding: 6px 10px;
+                    font-size: 11px;
+                }
+
+                .filter-group .dropdown-menu {
+                    min-width: 120px;
+                    left: 0;
+                    right: auto;
+                }
+            }
+
+            .secondary-dropdown {
+                position: relative;
+            }
+
+            .secondary-dropdown-content {
+                display: none;
+                position: absolute;
+                background: linear-gradient(135deg, #128c7e, #25d366);
+                min-width: 200px;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+                z-index: 1;
+                border-radius: 8px;
+                padding: 0.5rem 0;
+                list-style: none;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .secondary-dropdown:hover .secondary-dropdown-content {
+                display: block;
+            }
+
+            .secondary-dropdown-content a {
+                padding: 0.75rem 1.25rem;
+                font-weight: normal;
+                color: white;
+                background: rgba(255, 255, 255, 0.1);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .secondary-dropdown-content a:last-child {
+                border-bottom: none;
+            }
+
+            .secondary-dropdown-content a:hover {
+                background: rgba(255, 255, 255, 0.2);
+                transform: translateX(5px);
+            }
+
+            /* Group Slider Styles */
+            .group-slider-container {
+                position: relative;
+                margin-bottom: 2rem;
+                overflow: hidden;
+            }
+
+            .group-slider {
+                display: flex;
+                overflow-x: auto;
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+                padding: 1rem 0;
+                scrollbar-width: none; /* Firefox */
+            }
+
+            .group-slider::-webkit-scrollbar {
+                display: none; /* Chrome, Safari, Opera */
+            }
+
+            .group-slide {
+                flex: 0 0 auto;
+                width: 200px;
+                margin-right: 1rem;
+                background: white;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease;
+            }
+
+            .group-slide:hover {
+                transform: translateY(-5px);
+            }
+
+            .group-slide-img {
+                height: 120px;
+                background-size: cover;
+                background-position: center;
+                position: relative;
+            }
+
+            .group-slide-category {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                background: rgba(37, 211, 102, 0.9);
+                color: white;
+                font-size: 0.7rem;
+                padding: 0.2rem 0.5rem;
+                border-radius: 3px;
+            }
+
+            .group-slide-country {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                background: rgba(0, 0, 0, 0.6);
+                color: white;
+                font-size: 0.7rem;
+                padding: 0.2rem 0.5rem;
+                border-radius: 3px;
+            }
+
+            .group-slide-content {
+                padding: 0.8rem;
+            }
+
+            .group-slide-title {
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .group-slide-join {
+                display: block;
+                background: #25d366;
+                color: white;
+                text-align: center;
+                padding: 0.5rem;
+                border-radius: 5px;
+                text-decoration: none;
+                font-weight: 500;
+                transition: background 0.3s ease;
+            }
+
+            .group-slide-join:hover {
+                background: #128c7e;
+            }
+
+            .slider-controls {
+                display: flex;
+                justify-content: space-between;
+                margin-top: -8rem;
+                margin-bottom: 6rem;
+                position: relative;
+                z-index: 10;
+            }
+
+            .slider-arrow {
+                background: #25d366;
+                color: white;
+                border: none;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 0.5rem;
+                cursor: pointer;
+                transition: background 0.3s ease;
+            }
+
+            .slider-arrow:hover {
+                background: #128c7e;
+            }
+
+            .view-more-btn {
+                display: block;
+                background: #f8f9fa;
+                color: #333;
+                text-align: center;
+                padding: 0.8rem;
+                border-radius: 5px;
+                text-decoration: none;
+                font-weight: 500;
+                margin: 1rem auto;
+                max-width: 200px;
+                transition: all 0.3s ease;
+                border: 1px solid #ddd;
+            }
+
+            .view-more-btn:hover {
+                background: #25d366;
+                color: white;
+                border-color: #25d366;
+            }
+
+            /* URL Shortener Styles */
+            /*  .shortener-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+        .shortener-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .shortener-header h2 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .shortener-header p {
+            color: #6c757d;
+        }
+        
+        .shortener-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .custom-url {
+            display: flex;
+            align-items: center;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .custom-url span {
+            padding: 0.75rem;
+            background: #f1f1f1;
+            color: #6c757d;
+            border-right: 1px solid #ddd;
+            white-space: nowrap;
+        }
+        
+        .custom-url input {
+            border: none;
+            border-radius: 0;
+        }
+        
+        .btn {
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn i {
+            margin-right: 0.5rem;
+        }
+        
+        .btn:hover {
+            background: #128C7E;
+        }
+        
+        .result {
+            display: none;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: #e8f5e9;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .result-title {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        .short-url {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #25D366;
+            margin-bottom: 1rem;
+            word-break: break-all;
+        }
+        
+        .copy-btn {
+            background: #128C7E;
+        }
+        
+        .copy-btn:hover {
+            background: #0d6b5c;
+        }
+        
+        .error {
+            display: none;
+            margin-top: 1rem;
+            padding: 0.75rem;
+            background: #ffebee;
+            color: #c62828;
+            border-radius: 5px;
+        }*/
+            /* Manual Slider Styles */
+            .manual-slider-container {
+                position: relative;
+                margin-bottom: 2rem;
+                overflow: hidden;
+            }
+
+            .manual-slider {
+                display: flex;
+                overflow-x: auto;
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+                padding: 1rem 0;
+                scrollbar-width: none;
+                gap: 1rem;
+            }
+
+            .manual-slider::-webkit-scrollbar {
+                display: none;
+            }
+            .manual-slide {
+                flex: 0 0 auto;
+                width: 200px;
+                background: white;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease;
+            }
+
+            .manual-slide:hover {
+                transform: translateY(-5px);
+            }
+
+            .manual-slide-img {
+                height: 120px;
+                background-size: cover;
+                background-position: center;
+                position: relative;
+            }
+
+            .manual-slide-category,
+            .manual-slide-country {
+                position: absolute;
+                top: 10px;
+                padding: 0.2rem 0.5rem;
+                border-radius: 3px;
+                font-size: 0.7rem;
+            }
+
+            .manual-slide-category {
+                left: 10px;
+                background: rgba(37, 211, 102, 0.9);
+                color: white;
+            }
+
+            .manual-slide-country {
+                right: 10px;
+                background: rgba(0, 0, 0, 0.6);
+                color: white;
+            }
+
+            .manual-slide-content {
+                padding: 0.8rem;
+            }
+
+            .manual-slide-title {
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .manual-slide-join {
+                display: block;
+                background: #25d366;
+                color: white;
+                text-align: center;
+                padding: 0.5rem;
+                border-radius: 5px;
+                text-decoration: none;
+                font-weight: 500;
+                transition: background 0.3s ease;
+            }
+
+            .manual-slide-join:hover {
+                background: #128c7e;
+            }
+
+            /* WhatsApp Guide Section Styles */
+            .whatsapp-guide-section {
+                background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+                padding: 4rem 0;
+                margin-top: 3rem;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .whatsapp-guide-section::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+                opacity: 0.3;
+            }
+
+            .guide-content {
+                position: relative;
+                z-index: 2;
+            }
+
+            .guide-header {
+                text-align: center;
+                margin-bottom: 3rem;
+                color: white;
+            }
+
+            .guide-icon {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 80px;
+                height: 80px;
+                background: rgba(255, 255, 255, 0.2);
+                border-radius: 50%;
+                margin-bottom: 1.5rem;
+                backdrop-filter: blur(10px);
+                border: 2px solid rgba(255, 255, 255, 0.3);
+            }
+
+            .guide-icon i {
+                font-size: 2.5rem;
+                color: white;
+            }
+
+            .guide-header h2 {
+                font-size: 2.5rem;
+                font-weight: 700;
+                margin-bottom: 1rem;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+
+            .guide-header p {
+                font-size: 1.2rem;
+                opacity: 0.9;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            .guide-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 2rem;
+                margin-bottom: 3rem;
+            }
+
+            .guide-card {
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(15px);
+                border-radius: 20px;
+                padding: 2rem;
+                text-align: center;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                transition:
+                    transform 0.3s ease,
+                    box-shadow 0.3s ease;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .guide-card::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 4px;
+                background: linear-gradient(90deg, #25d366, #128c7e, #25d366);
+                background-size: 200% 100%;
+                animation: shimmer 3s ease-in-out infinite;
+            }
+
+            @keyframes shimmer {
+                0%,
+                100% {
+                    background-position: 200% 0;
+                }
+                50% {
+                    background-position: -200% 0;
+                }
+            }
+
+            .guide-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 15px 40px rgba(37, 211, 102, 0.2);
+            }
+
+            .card-icon {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 60px;
+                height: 60px;
+                background: linear-gradient(135deg, #25d366, #128c7e);
+                border-radius: 50%;
+                margin-bottom: 1.5rem;
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            }
+
+            .card-icon i {
+                font-size: 1.5rem;
+                color: white;
+            }
+
+            .guide-card h3 {
+                font-size: 1.4rem;
+                font-weight: 600;
+                color: #2c3e50;
+                margin-bottom: 1rem;
+            }
+
+            .guide-card p {
+                color: #666;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+            }
+
+            .card-features {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                justify-content: center;
+            }
+
+            .feature-tag {
+                background: linear-gradient(135deg, #25d366, #128c7e);
+                color: white;
+                padding: 0.3rem 0.8rem;
+                border-radius: 20px;
+                font-size: 0.8rem;
+                font-weight: 500;
+                white-space: nowrap;
+            }
+
+            .guide-cta {
+                text-align: center;
+                padding: 2rem;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 20px;
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            .guide-cta h3 {
+                color: white;
+                font-size: 2rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+            }
+
+            .guide-cta p {
+                color: rgba(255, 255, 255, 0.9);
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+            }
+
+            .cta-buttons {
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .cta-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 1rem 2rem;
+                border-radius: 50px;
+                text-decoration: none;
+                font-weight: 600;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .cta-btn.primary {
+                background: white;
+                color: #25d366;
+            }
+
+            .cta-btn.primary:hover {
+                background: #f8f9fa;
+                transform: translateY(-3px);
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            }
+
+            .cta-btn.secondary {
+                background: rgba(255, 255, 255, 0.2);
+                color: white;
+                border: 2px solid rgba(255, 255, 255, 0.3);
+            }
+
+            .cta-btn.secondary:hover {
+                background: rgba(255, 255, 255, 0.3);
+                transform: translateY(-3px);
+                box-shadow: 0 8px 30px rgba(255, 255, 255, 0.1);
+            }
+
+            /* Mobile responsiveness for guide section */
+            @media (max-width: 768px) {
+                .whatsapp-guide-section {
+                    padding: 3rem 0;
+                }
+
+                .guide-header h2 {
+                    font-size: 2rem;
+                }
+
+                .guide-grid {
+                    grid-template-columns: 1fr;
+                    gap: 1.5rem;
+                }
+
+                .guide-card {
+                    padding: 1.5rem;
+                }
+
+                .cta-buttons {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .cta-btn {
+                    width: 100%;
+                    max-width: 280px;
+                    justify-content: center;
+                }
+            }
+
+            .manual-slider-controls {
+                display: flex;
+                justify-content: space-between;
+                margin-top: -8rem;
+                margin-bottom: 6rem;
+                position: relative;
+                z-index: 10;
+            }
+
+            .manual-slider-arrow {
+                background: #25d366;
+                color: white;
+                border: none;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 0.5rem;
+                cursor: pointer;
+                transition: background 0.3s ease;
+            }
+
+            .manual-slider-arrow:hover {
+                background: #128c7e;
+            }
+            @media screen and (max-width: 480px) {
+                .secondary-menu {
+                    padding: 5px;
+                }
+                .secondary-nav-links {
+                    font-size: 12px;
+                }
+                .hero-btn {
+                    margin-top: 5px;
+                    margin-left: 0px;
+                }
+            }
+
+            /* Official WhatsApp Group Section Styles */
+            .official-whatsapp-section {
+                padding: 4rem 0;
+                background: linear-gradient(135deg, #25d366 0%, #128c7e 50%, #075e54 100%);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .official-whatsapp-section::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="bubble" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(255,255,255,0.1)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23bubble)"/><circle cx="800" cy="300" r="150" fill="url(%23bubble)"/><circle cx="300" cy="700" r="120" fill="url(%23bubble)"/><circle cx="700" cy="800" r="80" fill="url(%23bubble)"/></svg>');
+                animation: float 20s ease-in-out infinite;
+            }
+
+            @keyframes float {
+                0%, 100% { transform: translateY(0px) rotate(0deg); }
+                33% { transform: translateY(-20px) rotate(120deg); }
+                66% { transform: translateY(-10px) rotate(240deg); }
+            }
+
+            .official-group-card {
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(20px);
+                border-radius: 25px;
+                padding: 3rem 2rem;
+                text-align: center;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                position: relative;
+                z-index: 2;
+                max-width: 600px;
+                margin: 0 auto;
+                transform: translateY(0);
+                transition: all 0.3s ease;
+            }
+
+            .official-group-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+            }
+
+            .group-card-header {
+                margin-bottom: 2.5rem;
+            }
+
+            .whatsapp-logo {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 80px;
+                height: 80px;
+                background: linear-gradient(135deg, #25d366, #128c7e);
+                border-radius: 50%;
+                margin-bottom: 1.5rem;
+                box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+                animation: pulse 2s ease-in-out infinite;
+            }
+
+            @keyframes pulse {
+                0%, 100% { transform: scale(1); box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3); }
+                50% { transform: scale(1.05); box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4); }
+            }
+
+            .whatsapp-logo i {
+                font-size: 2.5rem;
+                color: white;
+            }
+
+            .group-card-header h2 {
+                font-size: 2.2rem;
+                font-weight: 700;
+                color: #2c3e50;
+                margin-bottom: 1rem;
+                background: linear-gradient(135deg, #25d366, #128c7e);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            .group-card-header p {
+                font-size: 1.1rem;
+                color: #6c757d;
+                line-height: 1.6;
+            }
+
+            .group-benefits {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 1.5rem;
+                margin: 2.5rem 0;
+                padding: 2rem;
+                background: linear-gradient(135deg, rgba(37, 211, 102, 0.1), rgba(18, 140, 126, 0.1));
+                border-radius: 15px;
+                border: 1px solid rgba(37, 211, 102, 0.2);
+            }
+
+            .benefit-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+                padding: 1rem;
+                transition: all 0.3s ease;
+                border-radius: 10px;
+            }
+
+            .benefit-item:hover {
+                background: rgba(255, 255, 255, 0.5);
+                transform: translateY(-5px);
+            }
+
+            .benefit-item i {
+                font-size: 1.5rem;
+                color: #25d366;
+                background: rgba(37, 211, 102, 0.1);
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .benefit-item span {
+                font-weight: 600;
+                color: #2c3e50;
+                text-align: center;
+                font-size: 0.9rem;
+            }
+
+            .join-button-container {
+                margin-top: 2.5rem;
+            }
+
+            .official-join-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.8rem;
+                padding: 1.2rem 2.5rem;
+                background: linear-gradient(135deg, #25d366, #128c7e);
+                color: white;
+                text-decoration: none;
+                border-radius: 50px;
+                font-size: 1.2rem;
+                font-weight: 600;
+                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                position: relative;
+                overflow: hidden;
+                border: none;
+                cursor: pointer;
+            }
+
+            .official-join-btn::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+                transition: left 0.6s;
+            }
+
+            .official-join-btn:hover {
+                transform: translateY(-3px) scale(1.05);
+                box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+                background: linear-gradient(135deg, #128c7e, #25d366);
+            }
+
+            .official-join-btn:hover::before {
+                left: 100%;
+            }
+
+            .official-join-btn:active {
+                transform: translateY(-1px) scale(1.02);
+            }
+
+            .official-join-btn i {
+                font-size: 1.3rem;
+            }
+
+            .group-info {
+                margin-top: 1.5rem;
+                color: #6c757d;
+                font-size: 1rem;
+                font-weight: 500;
+            }
+
+
+            /* Simple WhatsApp Alert Banner Styles */
+            .whatsapp-alert-banner {
+                background: linear-gradient(135deg, #25d366, #128c7e);
+                padding: 15px 0;
+                margin: 20px 0;
+                border-radius: 10px;
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            }
+
+            .alert-content {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+
+            .alert-left {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                flex: 1;
+            }
+
+            .alert-content > i {
+                font-size: 22px;
+                color: white;
+                animation: bounce 2s ease-in-out infinite;
+                flex-shrink: 0;
+            }
+
+            @keyframes bounce {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-3px); }
+            }
+
+            .alert-text {
+                color: white;
+                font-weight: 600;
+                font-size: 16px;
+                white-space: nowrap;
+            }
+
+            .simple-join-btn {
+                background: rgba(255, 255, 255, 0.9);
+                color: #25d366;
+                padding: 8px 18px;
+                border-radius: 25px;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 14px;
+                display: inline-flex;
+                align-items: center;
+                gap: 5px;
+                transition: all 0.3s ease;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                flex-shrink: 0;
+                white-space: nowrap;
+            }
+
+            .simple-join-btn:hover {
+                background: white;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            }
+
+            .simple-join-btn i {
+                font-size: 14px;
+            }
+
+            /* Mobile responsiveness for alert banner */
+            @media (max-width: 1024px) {
+                .alert-text {
+                    white-space: normal;
+                    font-size: 15px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .whatsapp-alert-banner {
+                    margin: 15px;
+                    border-radius: 8px;
+                }
+                
+                .alert-content {
+                    flex-direction: column;
+                    gap: 10px;
+                    padding: 0 15px;
+                    text-align: center;
+                }
+                
+                .alert-left {
+                    justify-content: center;
+                }
+                
+                .alert-text {
+                    font-size: 15px;
+                    text-align: center;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .alert-content {
+                    gap: 8px;
+                }
+                
+                .alert-text {
+                    font-size: 14px;
+                }
+                
+                .simple-join-btn {
+                    padding: 10px 20px;
+                    font-size: 13px;
+                }
+            }
+        </style>
+
+  
+    </head>
+    <body>
+        <!-- Add skip link for accessibility -->
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+
+   
+        <header class="hero homepage-hero" role="banner">
+            <h1>LinkShare - The largest WhatsApp Group Links Hub</h1>
+            <p>Discover and Promote Your Active WhatsApp Group Links!</p>
+            <a href="https://www.whatsuplink.online/?submit-form=true" class="hero-btn">➕ Add Group</a>
+            <a
+                href="../apps"
+                class="hero-btn"
+                style="
+                    margin-left: 10px;
+                    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+                    padding-left: 30px;
+                "
+                ><img
+                    src="https://cdn.prod.website-files.com/64ea57571d50b02423c4505d/64fb219ade937671b42e011e_capcut%20logo%20png.png"
+                    alt="CapCut Pro Logo"
+                    style="width: 24px; height: 24px; margin-right: 10px"
+                />CapCut Pro</a
+            >
+            <style>
+                .dicover-tools{
+                    margin-top: 15px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    justify-content: center;
+                }
+                .dicover-tools a{
+                    background: #25d366;
+                    color: white;
+                    padding: 2px 10px;
+                    border-radius: 20px;
+                    text-decoration: none;
+                    font-weight: 500;
+                    font-size: 14px;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                    transition: all 0.3s ease;
+                    border: 0.3px solid #ddd;
+                }
+                .dicover-tools a:hover{
+                    background: #128c7e;
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                }
+            </style>
+            <div class="dicover-tools"> <h4>Dicover Tools:</h4>
+                <a href="/plagiarism-checker">🔥 Plagiarism Checker</a>
+                        <a href="/ai-detector">🔥 AI Detector & Humanizer</a>
+                        <a href="/word-counter">📝 Word Counter</a>
+                        <a href="/cv-maker-free-online"> CV Maker</a>        
+                        <a href="/image-to-pdf">Image to PDF</a>
+                        <a href="/pdf-merger">Free Pdf Merger</a>
+                        <a href="/pdf-editor-online">PDF Editor</a>
+                        <a href="/image-editor">Image Editor</a>
+                        <a href="/fake-whatsapp-screenshot">Fake Whatsapp Screenshot</a>
+                        <a href="/stylish-text-generator">Stylish Text Generator</a>
+                        <a href="/qr-code-generator">QR Code Generator</a>
+                        <a href="/qr-code-reader">QR Code Scanner/Reader</a>
+                        <a href="/short-url-generator">Short URL Generator</a>
+                        <a href="/document-converter">Document Converter</a>
+                        <a href="/m3u-playlist-viewer">M3U Playlist viewer</a>
+                        <a href="/math-problem-solver">Math Problem Solver</a>
+                       
+                </div>
+        </header>
+        <!-- temporary  Menu -->
+        <section class="temporary-menu">
+            <div class="container">
+                <ul class="temporary-nav-links">
+                    <li>
+                        <a href="../apps">🔥CapCut Pro</a>
+                    </li>
+                    <li>
+                        <a href="../apps">🔥Moviebox Premium</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- Secondary Menu -->
+        <section class="secondary-menu">
+            <div class="container">
+                <ul class="secondary-nav-links">
+                    <li>
+                        <a href="/usa-whatsapp-group-links"
+                            >🔥 USA Whatsapp Group Links</a
+                        >
+                    </li>
+                    <li>
+                        <a href="/active-pakistani-whatsapp-group-links"
+                            >🔥 Pakistani Whatsappp Groups</a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+                <!-- Share Buttons Panel -->
+        <div class="share-buttons-panel" id="sharePanel">
+            <button class="share-toggle-btn" id="shareToggle">
+                <i class="fas fa-share-alt"></i>
+            </button>
+            <div class="share-title">Share This Page</div>
+            <a href="#" class="share-button share-facebook" id="shareFacebook">
+                <i class="fab fa-facebook-f"></i>
+                Facebook
+            </a>
+            <a href="#" class="share-button share-twitter" id="shareTwitter">
+                <i class="fab fa-twitter"></i>
+                Twitter
+            </a>
+            <a href="#" class="share-button share-whatsapp" id="shareWhatsApp">
+                <i class="fab fa-whatsapp"></i>
+                WhatsApp
+            </a>
+            <a href="#" class="share-button share-telegram" id="shareTelegram">
+                <i class="fab fa-telegram-plane"></i>
+                Telegram
+            </a>
+            <a href="#" class="share-button share-linkedin" id="shareLinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+                LinkedIn
+            </a>
+            <a href="#" class="share-button share-pinterest" id="sharePinterest">
+                <i class="fab fa-pinterest-p"></i>
+                Pinterest
+            </a>
+            <a href="#" class="share-button share-reddit" id="shareReddit">
+                <i class="fab fa-reddit-alien"></i>
+                Reddit
+            </a>
+            <a href="#" class="share-button share-email" id="shareEmail">
+                <i class="fas fa-envelope"></i>
+                Email
+            </a>
+        </div>
+
+        <!-- Main Content -->
+        <main id="main-content" class="container" role="main">
+            <!-- first slder 
+        
+        <section class="groups-section">
+            <div class="groups-header">
+                <h2>📱 Browse Groups</h2>
+            </div>
+            
+            <div class="group-slider-container">
+                <div class="group-slider" id="groupSlider">
+                    
+                </div>
+                
+                <div class="slider-controls">
+                    <button class="slider-arrow" id="prevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-arrow" id="nextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <a href="/join-group" class="view-more-btn">
+                <i class="fas fa-th-list"></i> Join More Groups
+            </a>
+        </section>
+    -->
+    <!-- Featured Tools Section -->
+    <style>
+        .featured-tools-section {
+            padding: 3rem 0;
+            background: #f8f9fa; /* Light background for contrast */
+            margin-bottom: 3rem;
+        }
+
+        .tools-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .tools-header h2 {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .tools-header p {
+            color: #6c757d;
+            font-size: 1.1rem;
+        }
+
+        .tools-grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 0 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            height: 100%;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border-color: #25d366;
+        }
+
+        .tool-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #e0f2f1, #e8f5e9);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            color: #128c7e;
+            font-size: 24px;
+        }
+
+        .tool-card:hover .tool-icon {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: white;
+        }
+
+        .tool-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .tool-desc {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        .tool-btn {
+            padding: 8px 20px;
+            background: transparent;
+            color: #128c7e;
+            border: 1px solid #128c7e;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: auto;
+        }
+
+        .tool-card:hover .tool-btn {
+            background: #128c7e;
+            color: white;
+        }
+    </style>
+
+    <section class="featured-tools-section">
+        <div class="tools-header">
+            <h2>🔥 Discover Powerful Tools</h2>
+            <p>Free online tools to boost your productivity</p>
+        </div>
+        <div class="tools-grid-container">
+            <!-- Tool 1 -->
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-check-double"></i></div>
+                <h3 class="tool-title">Plagiarism Checker</h3>
+                <p class="tool-desc">Ensure your content is 100% original and free from plagiarism with our advanced checker.</p>
+                <a href="/plagiarism-checker" class="tool-btn">Try Now</a>
+            </div>
+
+            <!-- Tool 2 -->
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-robot"></i></div>
+                <h3 class="tool-title">AI Detector & Humanizer</h3>
+                <p class="tool-desc">Detect AI-generated content and humanize it to bypass detection algorithms.</p>
+                <a href="/ai-detector" class="tool-btn">Try Now</a>
+            </div>
+
+            <!-- Tool 3 -->
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-file-word"></i></div>
+                <h3 class="tool-title">Word Counter</h3>
+                <p class="tool-desc">Count words, characters, sentences, and paragraphs in your text instantly.</p>
+                <a href="/word-counter" class="tool-btn">Try Now</a>
+            </div>
+
+            <!-- Tool 4 -->
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-id-card"></i></div>
+                <h3 class="tool-title">CV Maker</h3>
+                <p class="tool-desc">Create professional resumes and CVs in minutes with our easy-to-use builder.</p>
+                <a href="/cv-maker-free-online" class="tool-btn">Try Now</a>
+            </div>
+
+            <!-- Tool 5 -->
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-file-pdf"></i></div>
+                <h3 class="tool-title">Image to PDF</h3>
+                <p class="tool-desc">Convert your images (JPG, PNG) into high-quality PDF documents quickly.</p>
+                <a href="/image-to-pdf" class="tool-btn">Try Now</a>
+            </div>
+
+            <!-- Tool 6 -->
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-object-group"></i></div>
+                <h3 class="tool-title">Free PDF Merger</h3>
+                <p class="tool-desc">Combine multiple PDF files into a single, organized document for free.</p>
+                <a href="/pdf-merger" class="tool-btn">Try Now</a>
+            </div>
+
+            <!-- Tool 7 -->
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-edit"></i></div>
+                <h3 class="tool-title">PDF Editor</h3>
+                <p class="tool-desc">Edit, annotate, and sign your PDF documents directly in your browser.</p>
+                <a href="/pdf-editor-online" class="tool-btn">Try Now</a>
+            </div>
+
+            <!-- Tool 8 -->
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-image"></i></div>
+                <h3 class="tool-title">Image Editor</h3>
+                <p class="tool-desc">Crop, resize, filter, and enhance your photos with our powerful online editor.</p>
+                <a href="/image-editor" class="tool-btn">Try Now</a>
+            </div>
+
+            <!-- Tool 9 -->
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fab fa-whatsapp"></i></div>
+                <h3 class="tool-title">Fake WhatsApp Screenshot</h3>
+                <p class="tool-desc">Create realistic-looking fake WhatsApp chat screenshots for fun and pranks.</p>
+                <a href="/fake-whatsapp-screenshot" class="tool-btn">Try Now</a>
+            </div>
+
+            <!-- Tool 10 -->
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-font"></i></div>
+                <h3 class="tool-title">Stylish Text Generator</h3>
+                <p class="tool-desc">Generate cool, fancy text styles and fonts for social media bios and posts.</p>
+                <a href="/stylish-text-generator" class="tool-btn">Try Now</a>
+            </div>
+
+            <!-- Tool 11 -->
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-qrcode"></i></div>
+                <h3 class="tool-title">QR Code Generator</h3>
+                <p class="tool-desc">Create custom QR codes for URLs, text, Wi-Fi, and more in seconds.</p>
+                <a href="/qr-code-generator" class="tool-btn">Try Now</a>
+            </div>
+
+            <!-- Tool 12 -->
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-expand"></i></div>
+                <h3 class="tool-title">QR Code Scanner</h3>
+                <p class="tool-desc">Scan and read QR codes instantly using your device's camera or from an image.</p>
+                <a href="/qr-code-reader" class="tool-btn">Try Now</a>
+            </div>
+
+            <!-- Tool 13 -->
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-link"></i></div>
+                <h3 class="tool-title">Short URL Generator</h3>
+                <p class="tool-desc">Shorten long, messy URLs into clean, manageable links for easier sharing.</p>
+                <a href="/short-url-generator" class="tool-btn">Try Now</a>
+            </div>
+
+            <!-- Tool 14 -->
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-file-alt"></i></div>
+                <h3 class="tool-title">Document Converter</h3>
+                <p class="tool-desc">Convert documents between various formats (Word, PDF, Excel, etc.) easily.</p>
+                <a href="/document-converter" class="tool-btn">Try Now</a>
+            </div>
+
+            <!-- Tool 15 -->
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-list"></i></div>
+                <h3 class="tool-title">M3U Playlist Viewer</h3>
+                <p class="tool-desc">Stream and manage your M3U IPTV playlists with our online player.</p>
+                <a href="/m3u-playlist-viewer" class="tool-btn">Try Now</a>
+            </div>
+
+            <!-- Tool 16 -->
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-calculator"></i></div>
+                <h3 class="tool-title">Math Problem Solver</h3>
+                <p class="tool-desc">Get step-by-step solutions to complex math problems and equations.</p>
+                <a href="/math-problem-solver" class="tool-btn">Try Now</a>
+            </div>
+
+            <!-- Tool 17 -->
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fab fa-youtube" style="color: #FF0000;"></i></div>
+                <h3 class="tool-title">YouTube Thumbnail Downloader</h3>
+                <p class="tool-desc">Download high-quality thumbnails from any YouTube video in seconds.</p>
+                <a href="/youtube-thumbnail-downloader" class="tool-btn">Try Now</a>
+            </div>
+
+            <!-- Tool 18 -->
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-sync"></i></div>
+                <h3 class="tool-title">Text Repeater</h3>
+                <p class="tool-desc">Repeat text or emojis up to 10,000 times instantly for WhatsApp fun.</p>
+                <a href="/text-repeater" class="tool-btn">Try Now</a>
+            </div>
+
+            <!-- Tool 19 -->
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-images"></i></div>
+                <h3 class="tool-title">Image Extractor</h3>
+                <p class="tool-desc">Extract all images, logos, and favicons from any website URL freely.</p>
+                <a href="/image-extractor" class="tool-btn">Try Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- After the existing slider section, add this new manual slider -->
+            <section
+                class="groups-section manual-slider-section"
+                style="width: 100%; margin: auto; padding: 0"
+            >
+                <div
+                    class="groups-header"
+                    style="
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 10px 0;
+                        flex-direction: row;
+                    "
+                >
+                    <h2
+                        style="
+                            margin: 0;
+                            display: flex;
+                            align-items: center;
+                            gap: 5px;
+                        "
+                    >
+                        <span>🔥</span>
+                        <span style="margin-left: 5px; font-size: large"
+                            >Featured Groups</span
+                        >
+                    </h2>
+                    <a
+                        href="/join-group"
+                        style="
+                            text-decoration: none;
+                            color: #128c7e;
+                            font-weight: 500;
+                            display: flex;
+                            align-items: center;
+                            gap: 5px;
+                            font-size: 15px;
+                        "
+                    >
+                        View All
+                        <i
+                            class="fas fa-arrow-right"
+                            style="font-size: 12px"
+                        ></i>
+                    </a>
+                </div>
+                <!-- Promote Your Group Here in Featured Groups on Top Contact us -->
+                <h3
+                    style="
+                        animation: wave 1s linear infinite;
+                        color: #e71c1c;
+                        font-weight: bold;
+                        text-align: center;
+                    "
+                >
+                    Promote Your Group Here in Featured Groups on Top Contact us
+                </h3>
+                <style>
+                    @keyframes wave {
+                        0% {
+                            transform: translateX(0);
+                        }
+                        50% {
+                            transform: translateX(-3px);
+                        }
+                        100% {
+                            transform: translateX(0);
+                        }
+                    }
+                </style>
+
+                <div class="manual-slider-container">
+                    <div class="manual-slider" id="manualGroupSlider">
+                       
+                      <!-- Manual Group Ad 1 -->
+                        
+                            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8130991342525434"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-7h+f1-18-54+ds"
+     data-ad-client="ca-pub-8130991342525434"
+     data-ad-slot="4008318379"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                        
+                        <!-- Manual Group Ad 1 -->
+
+                        
+                        <!-- Manual Group Card 1 
+                        <div class="manual-slide">
+                            <div
+                                class="manual-slide-img"
+                                style="
+                                    background-image: url(&quot;https://pps.whatsapp.net/v/t61.24694-24/491886134_1044863904472593_3915055472667620973_n.jpg?ccb=11-4&oh=01_Q5Aa2gFXYHcuHeQQeTPY2-2ehWtEbhHdASlARHqemyBgpOtUIQ&oe=68CCFE3B&_nc_sid=5e03e0&_nc_cat=102&quot;);
+                                "
+                            >
+                                <span class="manual-slide-category"
+                                    >Earning/Business</span
+                                >
+                                <span class="manual-slide-country"
+                                    >Pakistan</span
+                                >
+                            </div>
+                            <div class="manual-slide-content">
+                                <h3 class="manual-slide-title">
+                                    YouTube Earnings
+                                </h3>
+                                <a
+                                    href="https://chat.whatsapp.com/C8ogOg5RBEjBW1rZF99DOC?mode=ac_t"
+                                    class="manual-slide-join"
+                                    >Join Group</a
+                                >
+                            </div>
+                        </div>
+                         Manual Group Card 1 -->
+                         
+                            <div class="manual-slide">
+                            <div
+                                class="manual-slide-img"
+                                style="
+                                    background-image: url(&quot;https://pps.whatsapp.net/v/t61.24694-24/518672748_1123788909810679_1017243440007131454_n.jpg?ccb=11-4&oh=01_Q5Aa3AFltT-TS35Cmuoxalite_jj2EPIhxHnEIpJRYc_MJV3hQ&oe=692AB45B&_nc_sid=5e03e0&_nc_cat=109&quot;);
+                                "
+                            >
+                                <span class="manual-slide-category"
+                                    >Movies</span
+                                >
+                                <span class="manual-slide-country"
+                                    >Pakistan</span
+                                >
+                            </div>
+                            <div class="manual-slide-content">
+                                <h3 class="manual-slide-title">🎥 𝖉𝖆𝖎𝖑𝖞 𝖒𝖔𝖛𝖎𝖊𝖘 🎥</h3>
+                                <a
+                                    href="https://chat.whatsapp.com/JRh7AupEZew0Lu7J2OuPNW"
+                                    class="manual-slide-join"
+                                    >Join Group</a
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Manual Group Card 2 -->
+                        <div class="manual-slide">
+                            <div
+                                class="manual-slide-img"
+                                style="
+                                    background-image: url(&quot;https://pps.whatsapp.net/v/t61.24694-24/473398307_1014480350507996_983726194671410989_n.jpg?ccb=11-4&oh=01_Q5Aa3AEYcvavw-xt3Lummv4uY1cI-D3HrahJkVc8EL7nBkWQ_Q&oe=692AADA4&_nc_sid=5e03e0&_nc_cat=111&quot;);
+                                "
+                            >
+                                <span class="manual-slide-category"
+                                    >Movies</span
+                                >
+                                <span class="manual-slide-country"
+                                    >Pakistan</span
+                                >
+                            </div>
+                            <div class="manual-slide-content">
+                                <h3 class="manual-slide-title">MOOVIE.FUN</h3>
+                                <a
+                                    href="https://chat.whatsapp.com/J185xw8qa5m0m3hHf7yAmL"
+                                    class="manual-slide-join"
+                                    >Join Group</a
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Manual Group Card 3 
+                        <div class="manual-slide">
+                            <div
+                                class="manual-slide-img"
+                                style="
+                                    background-image: url(&quot;https://pps.whatsapp.net/v/t61.24694-24/424625634_407365281966026_8840792065896691261_n.jpg?ccb=11-4&oh=01_Q5Aa3AHm4pjtFgGor6Qm204M9ywdglbDDzpmOP147XmEDHFKrQ&oe=691D2396&_nc_sid=5e03e0&_nc_cat=104&quot;);
+                                "
+                            >
+                                <span class="manual-slide-category"
+                                    >Politics</span
+                                >
+                                <span class="manual-slide-country"
+                                    >Pakistan</span
+                                >
+                            </div>
+                            <div class="manual-slide-content">
+                                <h3 class="manual-slide-title">
+                                    KHAN SB SUPERMACY ♥️
+                                </h3>
+                                <a
+                                    href="https://chat.whatsapp.com/EJA5IM6Pr9yIlZGfs9il8U?mode=ac_t"
+                                    class="manual-slide-join"
+                                    >Join Group</a
+                                >
+                            </div>
+                        </div>
+-->
+                        <!-- Manual Group Card 4 -->
+                        <div class="manual-slide">
+                            <div
+                                class="manual-slide-img"
+                                style="
+                                    background-image: url(&quot;https://pps.whatsapp.net/v/t61.24694-24/386451176_286293764215187_4239227016328392389_n.jpg?ccb=11-4&oh=01_Q5Aa3AFcGMHr9jEEv29uPylMhS8C7AHo0vi8u_sxySc5XxF-ww&oe=692AB0D7&_nc_sid=5e03e0&_nc_cat=102&quot;);
+                                "
+                            >
+                                <span class="manual-slide-category"
+                                    >Education</span
+                                >
+                                <span class="manual-slide-country"
+                                    >Pakistan</span
+                                >
+                            </div>
+                            <div class="manual-slide-content">
+                            
+                                <h3 class="manual-slide-title">MCQs Group</h3>
+                                <a
+                                    href="https://chat.whatsapp.com/KM4VvVqG2QDL7lhplizyGF"
+                                    class="manual-slide-join"
+                                    >Join Group</a
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Manual Group Card 5 -->
+
+                        <!-- Manual Group Card 6 -->
+                        
+                    </div>
+
+                    <div class="manual-slider-controls">
+                        <button class="manual-slider-arrow" id="manualPrevBtn">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="manual-slider-arrow" id="manualNextBtn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Simple Official WhatsApp Group Alert Banner -->
+            <div class="whatsapp-alert-banner">
+                <div class="container">
+                    <div class="alert-content">
+                        <div class="alert-left">
+                            <i class="fab fa-whatsapp"></i>
+                            <span class="alert-text">Join Our Official WhatsApp Group for Exclusive Updates!</span>
+                        </div>
+                        <!-- TODO: Replace '#' with actual WhatsApp group link when ready -->
+                        <!-- Example: href="https://chat.whatsapp.com/YOUR_GROUP_INVITE_LINK" -->
+                         <!-- Oficial link: https://chat.whatsapp.com/FnoJJwFjoYuBdd4Ww6rMlp -->
+                        <a href="https://chat.whatsapp.com/FnoJJwFjoYuBdd4Ww6rMlp" class="simple-join-btn" id="officialWhatsAppBtn">
+                            <i class="fab fa-whatsapp"></i>
+                            Join Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <section class="groups-section">
+                <!-- Groups Grid start-->
+                <div class="groups-header">
+                    <h2>📱 Browse Groups</h2>
+                </div>
+
+                <div class="filter-section">
+                    <!-- Search Box -->
+                    <div class="search-bar">
+                        <input
+                            type="text"
+                            id="searchGroups"
+                            placeholder="Search groups..."
+                        />
+                        <i class="fas fa-search"></i>
+                    </div>
+
+                    <!-- Filter Container -->
+                    <div class="filter-container">
+                        <!-- Topics Dropdown -->
+                        <div class="filter-group">
+                            <div class="dropdown">
+                                <button class="dropdown-btn">
+                                    Select Topic
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <ul class="dropdown-menu" id="topicFilters">
+                                    <li
+                                        class="filter-btn active"
+                                        data-category="all"
+                                    >
+                                        All Topics
+                                    </li>
+                                    <li
+                                        class="filter-btn"
+                                        data-category="Adult"
+                                    >
+                                        Adult/18+
+                                    </li>
+                                    <li
+                                        class="filter-btn"
+                                        data-category="Movies"
+                                    >
+                                        Movies & TV Shows
+                                    </li>
+                                    <li
+                                        class="filter-btn"
+                                        data-category="Dramas"
+                                    >
+                                        Dramas & Series
+                                    </li>
+                                    <li
+                                        class="filter-btn"
+                                        data-category="Music"
+                                    >
+                                        Music & Audio
+                                    </li>
+                                    <li
+                                        class="filter-btn"
+                                        data-category="Gaming"
+                                    >
+                                        Gaming
+                                    </li>
+                                    <li
+                                        class="filter-btn"
+                                        data-category="Sports"
+                                    >
+                                        Sports
+                                    </li>
+                                    <li
+                                        class="filter-btn"
+                                        data-category="Education"
+                                    >
+                                        Education
+                                    </li>
+                                    <li
+                                        class="filter-btn"
+                                        data-category="Technology"
+                                    >
+                                        Technology
+                                    </li>
+                                    <li
+                                        class="filter-btn"
+                                        data-category="Science"
+                                    >
+                                        Science
+                                    </li>
+                                    <li
+                                        class="filter-btn"
+                                        data-category="Business"
+                                    >
+                                        Business
+                                    </li>
+                                    <li class="filter-btn" data-category="Jobs">
+                                        Jobs & Career
+                                    </li>
+                                    <li class="filter-btn" data-category="News">
+                                        News & Media
+                                    </li>
+                                    <li
+                                        class="filter-btn"
+                                        data-category="Politics"
+                                    >
+                                        Politics
+                                    </li>
+                                    <li
+                                        class="filter-btn"
+                                        data-category="Lifestyle"
+                                    >
+                                        Lifestyle
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Countries Dropdown -->
+                        <div class="filter-group">
+                            <div class="dropdown">
+                                <button class="dropdown-btn">
+                                    Select Country
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <ul class="dropdown-menu" id="countryFilters">
+                                    <li
+                                        class="filter-btn active"
+                                        data-country="all"
+                                    >
+                                        All Countries
+                                    </li>
+                                    <li
+                                        class="filter-btn"
+                                        data-country="Australia"
+                                    >
+                                        Australia
+                                    </li>
+                                    <li
+                                        class="filter-btn"
+                                        data-country="Bangladesh"
+                                    >
+                                        Bangladesh
+                                    </li>
+                                    <li
+                                        class="filter-btn"
+                                        data-country="Canada"
+                                    >
+                                        Canada
+                                    </li>
+                                    <li class="filter-btn" data-country="India">
+                                        India
+                                    </li>
+                                    <li
+                                        class="filter-btn"
+                                        data-country="Indonesia"
+                                    >
+                                        Indonesia
+                                    </li>
+                                    <li
+                                        class="filter-btn"
+                                        data-country="Malaysia"
+                                    >
+                                        Malaysia
+                                    </li>
+                                    <li
+                                        class="filter-btn"
+                                        data-country="Pakistan"
+                                    >
+                                        Pakistan
+                                    </li>
+                                    <li
+                                        class="filter-btn"
+                                        data-country="Philippines"
+                                    >
+                                        Philippines
+                                    </li>
+                                    <li
+                                        class="filter-btn"
+                                        data-country="Singapore"
+                                    >
+                                        Singapore
+                                    </li>
+                                    <li class="filter-btn" data-country="UAE">
+                                        UAE
+                                    </li>
+                                    <li class="filter-btn" data-country="UK">
+                                        United Kingdom
+                                    </li>
+                                    <li class="filter-btn" data-country="USA">
+                                        United States
+                                    </li>
+                                    <li class="filter-btn" data-country="Other">
+                                        Other Countries
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Groups Grid -->
+                <div id="groupsGrid" class="groups-grid"></div>
+
+                <!-- Load More Button -->
+                <div class="load-more-container">
+                    <button id="loadMoreBtn" class="load-more-btn">
+                        <i class="fas fa-sync"></i> Load More
+                    </button>
+                </div>
+            </section>
+            <!-- adsence Banner ads here-->
+            <script
+                async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8130991342525434"
+                crossorigin="anonymous"
+            ></script>
+            <!-- linkshare banner horizontal ad -->
+            <ins
+                class="adsbygoogle"
+                style="display: block"
+                data-ad-client="ca-pub-8130991342525434"
+                data-ad-slot="4773775873"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+            ></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            
+            <!-- Share Buttons Script -->
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const sharePanel = document.getElementById('sharePanel');
+                    const shareToggle = document.getElementById('shareToggle');
+                    const pageUrl = encodeURIComponent(window.location.href);
+                    const pageTitle = encodeURIComponent(document.title);
+
+                    // Toggle share panel
+                    shareToggle.addEventListener('click', function() {
+                        sharePanel.classList.toggle('active');
+                    });
+
+                    // Close panel when clicking outside
+                    document.addEventListener('click', function(event) {
+                        if (!sharePanel.contains(event.target)) {
+                            sharePanel.classList.remove('active');
+                        }
+                    });
+
+                    // Share button click handlers
+                    document.getElementById('shareFacebook').href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+                    document.getElementById('shareTwitter').href = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+                    document.getElementById('shareWhatsApp').href = `https://api.whatsapp.com/send?text=${pageTitle}%20${pageUrl}`;
+                    document.getElementById('shareTelegram').href = `https://telegram.me/share/url?url=${pageUrl}&text=${pageTitle}`;
+                    document.getElementById('shareLinkedIn').href = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
+                    document.getElementById('sharePinterest').href = `https://pinterest.com/pin/create/button/?url=${pageUrl}&description=${pageTitle}`;
+                    document.getElementById('shareReddit').href = `https://reddit.com/submit?url=${pageUrl}&title=${pageTitle}`;
+                    document.getElementById('shareEmail').href = `mailto:?subject=${pageTitle}&body=Check%20this%20out:%20${pageUrl}`;
+
+                    // Open share links in new window
+                    document.querySelectorAll('.share-button').forEach(button => {
+                        button.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            window.open(this.href, 'ShareWindow', 'width=600,height=400,left=200,top=200');
+                        });
+                    });
+                });
+            </script>
+
+            <!-- Scripts moved to bottom of page -->
+            <!-- Tools Section -->
+            <section
+                class="groups-section"
+                style="
+                    width: 98%;
+                    margin: 2rem auto;
+                    padding: 2rem;
+                    background: var(--white);
+                    border-radius: 15px;
+                "
+            >
+                <div class="groups-header">
+                    <h2 style="text-align: center; margin-bottom: 2rem">
+                          WhatsApp Tips & Tricks
+                    </h2>
+                    <div class="tips-tricks-container" id="tipsTricks">
+                        <style>
+                            .tips-tricks-container {
+                                margin: 2rem 0;
+                                padding: 2rem;
+                                background: linear-gradient(135deg, #25D366, #128C7E);
+                                border-radius: 15px;
+                                color: white;
+                            }
+                            .tips-list {
+                                display: grid;
+                                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                                gap: 1.5rem;
+                                margin-top: 1.5rem;
+                            }
+                            .tip-card {
+                                background: rgba(255, 255, 255, 0.1);
+                                backdrop-filter: blur(10px);
+                                padding: 1.5rem;
+                                border-radius: 10px;
+                                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                                border: 1px solid rgba(255, 255, 255, 0.2);
+                            }
+                            .tip-card:hover {
+                                transform: translateY(-5px);
+                                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                            }
+                            .tip-card a {
+                                color: white;
+                                text-decoration: none;
+                                font-weight: 500;
+                                display: block;
+                                padding: 0.5rem;
+                            }
+                            .tip-card a:hover {
+                                text-decoration: underline;
+                            }
+                            .section-intro {
+                                text-align: center;
+                                margin-bottom: 2rem;
+                                color: white;
+                            }
+                        </style>
+                        <div class="section-intro">
+                            <p>Discover our latest collection of WhatsApp guides and tricks to enhance your messaging experience!</p>
+                        </div>
+                        <div class="tips-list">
+                            <div class="tip-card">
+                                <a href="/read-whatsapp-without-blue-ticks">
+                                    📱 How to Read WhatsApp Messages Without 'Blue Tick'
+                                </a>
+                            </div>
+                            <div class="tip-card">
+                                <a href="/recover-deleted-whatsapp-messages">
+                                    🔄 How to Recover Deleted WhatsApp Messages Without Backup
+                                </a>
+                            </div>
+                            <div class="tip-card">
+                                <a href="/whatsapp-emoji-shortcuts">
+                                    😊 5 Hidden Emoji Shortcuts in WhatsApp You Never Knew
+                                </a>
+                            </div>
+                            <div class="tip-card">
+                                <a href="/whatsapp-secret-codes">
+                                    🔐 Secret WhatsApp Codes You Can Type to Unlock Hidden Menus
+                                </a>
+                            </div>
+                            <div class="tip-card">
+                                <a href="/whatsapp-blank-messages">
+                                    ⚡ How to Send Blank Messages or Invisible Names in WhatsApp Groups
+                                </a>
+                            </div>
+                            <div class="tip-card">
+                                <a href="/create-whatsapp-stickers">
+                                    🎨 How to Make WhatsApp Stickers from Any Photo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="section-title">
+                         🛠️ Explore Linkshare Tools
+                    </h2>
+                </div>
+
+                <div
+                    class="tools-grid"
+                    style="
+                        display: grid;
+                        grid-template-columns: repeat(
+                            auto-fit,
+                            minmax(280px, 1fr)
+                        );
+                        gap: 1.5rem;
+                        box-shadow: none;
+                    "
+                >
+                    <!-- QR Code Generator Card -->
+                    <div
+                        style="
+                            background: white;
+                            border-radius: 12px;
+                            padding: 1.5rem;
+                            transition:
+                                transform 0.3s ease,
+                                box-shadow 0.3s ease;
+                            cursor: pointer;
+                            border: 1px solid #e1e1e1;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            text-align: center;
+                        "
+                        onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 10px 20px rgba(0,0,0,0.1)'"
+                        onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'"
+                        onclick="window.location.href='/qr-code-generator'"
+                    >
+                        <div
+                            style="
+                                background: linear-gradient(
+                                    135deg,
+                                    #25d366,
+                                    #128c7e
+                                );
+                                width: 60px;
+                                height: 60px;
+                                border-radius: 50%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                margin-bottom: 1rem;
+                            "
+                        >
+                            <i
+                                class="fas fa-qrcode"
+                                style="color: white; font-size: 24px"
+                            ></i>
+                        </div>
+                        <h3 style="color: #333; margin-bottom: 0.5rem">
+                            QR Code Generator
+                        </h3>
+                        <p style="color: #6c757d; font-size: 0.9rem">
+                            Create custom QR codes for URLs, text, contact info
+                            & more
+                        </p>
+                    </div>
+
+                    <!-- QR Code Reader Card -->
+                    <div
+                        style="
+                            background: white;
+                            border-radius: 12px;
+                            padding: 1.5rem;
+                            transition:
+                                transform 0.3s ease,
+                                box-shadow 0.3s ease;
+                            cursor: pointer;
+                            border: 1px solid #e1e1e1;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            text-align: center;
+                        "
+                        onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 10px 20px rgba(0,0,0,0.1)'"
+                        onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'"
+                        onclick="window.location.href='/qr-code-reader'"
+                    >
+                        <div
+                            style="
+                                background: linear-gradient(
+                                    135deg,
+                                    #ff5722,
+                                    #e64a19
+                                );
+                                width: 60px;
+                                height: 60px;
+                                border-radius: 50%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                margin-bottom: 1rem;
+                            "
+                        >
+                            <i
+                                class="fas fa-camera"
+                                style="color: white; font-size: 24px"
+                            ></i>
+                        </div>
+                        <h3 style="color: #333; margin-bottom: 0.5rem">
+                            QR Code Scanner
+                        </h3>
+                        <p style="color: #6c757d; font-size: 0.9rem">
+                            Scan any QR code with your device camera
+                        </p>
+                    </div>
+
+                    <!-- Stylish Text Generator Card -->
+                    <div
+                        style="
+                            background: white;
+                            border-radius: 12px;
+                            padding: 1.5rem;
+                            transition:
+                                transform 0.3s ease,
+                                box-shadow 0.3s ease;
+                            cursor: pointer;
+                            border: 1px solid #e1e1e1;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            text-align: center;
+                        "
+                        onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 10px 20px rgba(0,0,0,0.1)'"
+                        onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'"
+                        onclick="window.location.href='/stylish-text-generator'"
+                    >
+                        <div
+                            style="
+                                background: linear-gradient(
+                                    135deg,
+                                    #9c27b0,
+                                    #7b1fa2
+                                );
+                                width: 60px;
+                                height: 60px;
+                                border-radius: 50%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                margin-bottom: 1rem;
+                            "
+                        >
+                            <i
+                                class="fas fa-font"
+                                style="color: white; font-size: 24px"
+                            ></i>
+                        </div>
+                        <h3 style="color: #333; margin-bottom: 0.5rem">
+                            Stylish Text Generator
+                        </h3>
+                        <p style="color: #6c757d; font-size: 0.9rem">
+                            Create fancy text styles for social media profiles
+                        </p>
+                    </div>
+
+                    <!-- M3U Playlist Viewer Card -->
+                    <div
+                        style="
+                            background: white;
+                            border-radius: 12px;
+                            padding: 1.5rem;
+                            transition:
+                                transform 0.3s ease,
+                                box-shadow 0.3s ease;
+                            cursor: pointer;
+                            border: 1px solid #e1e1e1;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            text-align: center;
+                        "
+                        onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 10px 20px rgba(0,0,0,0.1)'"
+                        onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'"
+                        onclick="window.location.href='/m3u-playlist-viewer'"
+                    >
+                        <div
+                            style="
+                                background: linear-gradient(
+                                    135deg,
+                                    #4caf50,
+                                    #388e3c
+                                );
+                                width: 60px;
+                                height: 60px;
+                                border-radius: 50%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                margin-bottom: 1rem;
+                            "
+                        >
+                            <i
+                                class="fas fa-list"
+                                style="color: white; font-size: 24px"
+                            ></i>
+                        </div>
+                        <h3 style="color: #333; margin-bottom: 0.5rem">
+                            M3U Playlist Viewer
+                        </h3>
+                        <p style="color: #6c757d; font-size: 0.9rem">
+                            View and play M3U playlist files online
+                        </p>
+                    </div>
+
+                    <!-- Math Problem Solver Card -->
+                    <div
+                        style="
+                            background: white;
+                            border-radius: 12px;
+                            padding: 1.5rem;
+                            transition:
+                                transform 0.3s ease,
+                                box-shadow 0.3s ease;
+                            cursor: pointer;
+                            border: 1px solid #e1e1e1;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            text-align: center;
+                        "
+                        onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 10px 20px rgba(0,0,0,0.1)'"
+                        onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'"
+                        onclick="window.location.href='/math-problem-solver'"
+                    >
+                        <div
+                            style="
+                                background: linear-gradient(
+                                    135deg,
+                                    #3f51b5,
+                                    #303f9f
+                                );
+                                width: 60px;
+                                height: 60px;
+                                border-radius: 50%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                margin-bottom: 1rem;
+                            "
+                        >
+                            <i
+                                class="fas fa-calculator"
+                                style="color: white; font-size: 24px"
+                            ></i>
+                        </div>
+                        <h3 style="color: #333; margin-bottom: 0.5rem">
+                            Math Problem Solver
+                        </h3>
+                        <p style="color: #6c757d; font-size: 0.9rem">
+                            Get step-by-step solutions for any math problem with
+                            AI
+                        </p>
+                    </div>
+
+                    <!-- Document Converter Card -->
+                    <div
+                        style="
+                            background: white;
+                            border-radius: 12px;
+                            padding: 1.5rem;
+                            transition:
+                                transform 0.3s ease,
+                                box-shadow 0.3s ease;
+                            cursor: pointer;
+                            border: 1px solid #e1e1e1;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            text-align: center;
+                        "
+                        onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 10px 20px rgba(0,0,0,0.1)';"
+                        onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';"
+                        onclick="window.location.href='/document-converter'"
+                    >
+                        <div
+                            style="
+                                background: linear-gradient(
+                                    135deg,
+                                    #2196f3,
+                                    #1976d2
+                                );
+                                width: 60px;
+                                height: 60px;
+                                border-radius: 50%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                margin-bottom: 1rem;
+                            "
+                        >
+                            <i
+                                class="fas fa-file-alt"
+                                style="color: white; font-size: 24px"
+                            ></i>
+                        </div>
+                        <h3 style="color: #333; margin-bottom: 0.5rem">
+                            Document Converter
+                        </h3>
+                        <p style="color: #6c757d; font-size: 0.9rem">
+                            Convert between PDF, Word, and text formats easily
+                        </p>
+                    </div>
+
+                    <!-- Image to PDF Card -->
+                    <div
+                        style="
+                            background: white;
+                            border-radius: 12px;
+                            padding: 1.5rem;
+                            transition:
+                                transform 0.3s ease,
+                                box-shadow 0.3s ease;
+                            cursor: pointer;
+                            border: 1px solid #e1e1e1;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            text-align: center;
+                        "
+                        onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 10px 20px rgba(0,0,0,0.1)';"
+                        onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';"
+                        onclick="window.location.href='/image-to-pdf'"
+                    >
+                        <div
+                            style="
+                                background: linear-gradient(
+                                    135deg,
+                                    #4CAF50,
+                                    #388E3C
+                                );
+                                width: 60px;
+                                height: 60px;
+                                border-radius: 50%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                margin-bottom: 1rem;
+                            "
+                        >
+                            <i
+                                class="fas fa-images"
+                                style="color: white; font-size: 24px"
+                            ></i>
+                        </div>
+                        <h3 style="color: #333; margin-bottom: 0.5rem">
+                            Image to PDF
+                        </h3>
+                        <p style="color: #6c757d; font-size: 0.9rem">
+                            Convert multiple images into a single PDF document
+                        </p>
+                    </div>
+
+                    <!-- Free ChatGPT Plus Card -->
+                    <div
+                        style="
+                            background: white;
+                            border-radius: 12px;
+                            padding: 1.5rem;
+                            transition:
+                                transform 0.3s ease,
+                                box-shadow 0.3s ease;
+                            cursor: pointer;
+                            border: 1px solid #e1e1e1;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            text-align: center;
+                        "
+                        onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 10px 20px rgba(0,0,0,0.1)';"
+                        onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';"
+                        onclick="window.location.href='/free-chatgpt-plus'"
+                    >
+                        <div
+                            style="
+                                background: linear-gradient(
+                                    135deg,
+                                    #74ebd5,
+                                    #acb6e5
+                                );
+                                width: 60px;
+                                height: 60px;
+                                border-radius: 50%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                margin-bottom: 1rem;
+                            "
+                        >
+                            <i
+                                class="fas fa-robot"
+                                style="color: white; font-size: 24px"
+                            ></i>
+                        </div>
+                        <h3 style="color: #333; margin-bottom: 0.5rem">
+                            Free ChatGPT Plus
+                        </h3>
+                        <p style="color: #6c757d; font-size: 0.9rem">
+                            Get free access to premium ChatGPT features
+                        </p>
+                    </div>
+
+                    <!-- URL Shortener Card -->
+                    <div
+                        style="
+                            background: white;
+                            border-radius: 12px;
+                            padding: 1.5rem;
+                            transition:
+                                transform 0.3s ease,
+                                box-shadow 0.3s ease;
+                            cursor: pointer;
+                            border: 1px solid #e1e1e1;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            text-align: center;
+                        "
+                        onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 10px 20px rgba(0,0,0,0.1)';"
+                        onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';"
+                        onclick="window.location.href='/short-url-generator'"
+                    >
+                        <div
+                            style="
+                                background: linear-gradient(
+                                    135deg,
+                                    #ff9800,
+                                    #f57c00
+                                );
+                                width: 60px;
+                                height: 60px;
+                                border-radius: 50%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                margin-bottom: 1rem;
+                            "
+                        >
+                            <i
+                                class="fas fa-link"
+                                style="color: white; font-size: 24px"
+                            ></i>
+                        </div>
+                        <h3 style="color: #333; margin-bottom: 0.5rem">
+                            URL Shortener
+                        </h3>
+                        <p style="color: #6c757d; font-size: 0.9rem">
+                            Create short, shareable links for your long URLs
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- adsence ads here -->
+        <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8130991342525434"
+            crossorigin="anonymous"
+        ></script>
+        <!-- linkshare banner horizontal ad -->
+        <ins
+            class="adsbygoogle"
+            style="display: block"
+            data-ad-client="ca-pub-8130991342525434"
+            data-ad-slot="4773775873"
+            data-ad-format="auto"
+            data-full-width-responsive="true"
+        ></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <!-- SEO Blog Section -->
+        <section class="seo-blog-section">
+            <div class="container">
+                <h2>WhatsApp Group Links Guide</h2>
+
+                <div class="blog-content">
+                    <article>
+                        <h3>What are WhatsApp Group Links?</h3>
+                        <p>
+                            WhatsApp group links are unique URLs that allow
+                            users to join WhatsApp groups directly from their
+                            browser or mobile device. These links are essential
+                            for expanding your network and connecting with
+                            like-minded individuals.
+                        </p>
+
+                        <h3>Why Join WhatsApp Groups?</h3>
+                        <ul>
+                            <li>
+                                Meet new people and expand your social circle
+                            </li>
+                            <li>Share and receive valuable information</li>
+                            <li>Find business opportunities and networking</li>
+                            <li>Join communities based on your interests</li>
+                            <li>Get real-time updates and news</li>
+                        </ul>
+
+                        <h3>How to Use WhatsApp Group Links?</h3>
+                        <ol>
+                            <li>Click on a group link from our collection</li>
+                            <li>Open the link in your WhatsApp app</li>
+                            <li>Join the group instantli</li>
+                            <li>Start participating in group conversations</li>
+                        </ol>
+
+                        <h3>Types of WhatsApp Groups Available</h3>
+                        <div class="group-types">
+                            <div class="type-card">
+                                <h4>Community Groups</h4>
+                                <p>
+                                    Join local communities, hobby groups, and
+                                    interest-based chats
+                                </p>
+                            </div>
+                            <div class="type-card">
+                                <h4>Business Groups</h4>
+                                <p>
+                                    Network with professionals and find business
+                                    opportunities
+                                </p>
+                            </div>
+                            <div class="type-card">
+                                <h4>Education Groups</h4>
+                                <p>
+                                    Study groups, learning communities, and
+                                    educational resources
+                                </p>
+                            </div>
+                            <div class="type-card">
+                                <h4>Entertainment Groups</h4>
+                                <p>
+                                    Movie discussions, music sharing, and fun
+                                    activities
+                                </p>
+                            </div>
+                        </div>
+
+                        <h3>Tips for Using WhatsApp Groups</h3>
+                        <ul>
+                            <li>Always check group rules before joining</li>
+                            <li>
+                                Be respectful and follow community guidelines
+                            </li>
+                            <li>Share valuable content with the group</li>
+                            <li>Participate actively in discussions</li>
+                            <li>Report any inappropriate behavior</li>
+                        </ul>
+
+                        <h3>How to Add Your Own Group</h3>
+                        <p>
+                            Want to share your WhatsApp group with others? Use
+                            our easy group submission form to add your group
+                            link to our collection. Make sure your group follows
+                            WhatsApp's terms and conditions.
+                        </p>
+
+                        <div class="cta-section">
+                            <a href="https://www.whatsuplink.online/?submit-form=true" class="cta-button"
+                                >Add Your Group</a
+                            >
+                            <a
+                                href="/active-pakistani-whatsapp-group-links"
+                                class="cta-button"
+                                >Join Pakistani Groups</a
+                            >
+                            <a
+                                href="/usa-whatsapp-group-links"
+                                class="cta-button"
+                                >Join USA Groups</a
+                            >
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- WhatsApp Group Links Guide Section -->
+        <section class="whatsapp-guide-section">
+            <div class="container">
+                <div class="guide-content">
+                    <div class="guide-header">
+                        <div class="guide-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h2>WhatsApp Group Links Guide</h2>
+                        <p>
+                            Everything you need to know about joining and
+                            sharing WhatsApp groups
+                        </p>
+                    </div>
+
+                    <div class="guide-grid">
+                        <div class="guide-card">
+                            <div class="card-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h3>How to Find whatsapp Groups</h3>
+                            <p>
+                                Browse our extensive collection of categorized
+                                WhatsApp groups. Use filters to find groups that
+                                match your interests and location.
+                            </p>
+                            <div class="card-features">
+                                <span class="feature-tag"
+                                    >Search by Category</span
+                                >
+                                <span class="feature-tag"
+                                    >Filter by Country</span
+                                >
+                                <span class="feature-tag">Latest Groups</span>
+                            </div>
+                        </div>
+
+                        <div class="guide-card">
+                            <div class="card-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>How to Join Groups</h3>
+                            <p>
+                                Simply click on any group link to join
+                                instantly. Make sure you follow group rules and
+                                be respectful to all members.
+                            </p>
+                            <div class="card-features">
+                                <span class="feature-tag">One-Click Join</span>
+                                <span class="feature-tag">Instant Access</span>
+                                <span class="feature-tag">Active Groups</span>
+                            </div>
+                        </div>
+
+                        <div class="guide-card">
+                            <div class="card-icon">
+                                <i class="fas fa-plus-circle"></i>
+                            </div>
+                            <h3>How to Share Your Group</h3>
+                            <p>
+                                Submit your WhatsApp group to reach thousands of
+                                potential members. Fill out our simple form and
+                                get your group featured.
+                            </p>
+                            <div class="card-features">
+                                <span class="feature-tag">Free Submission</span>
+                                <span class="feature-tag">Quick Approval</span>
+                                <span class="feature-tag">More Members</span>
+                            </div>
+                        </div>
+
+                        <div class="guide-card">
+                            <div class="card-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Safety Guidelines</h3>
+                            <p>
+                                Stay safe while joining groups. Verify group
+                                authenticity, respect privacy, and report any
+                                suspicious or inappropriate content.
+                            </p>
+                            <div class="card-features">
+                                <span class="feature-tag">Verified Groups</span>
+                                <span class="feature-tag"
+                                    >Privacy Protected</span
+                                >
+                                <span class="feature-tag"
+                                    >Community Moderated</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-cta">
+                        <h3>Ready to Get Started?</h3>
+                        <p>
+                            Join thousands of WhatsApp groups or share your own
+                            group with our community
+                        </p>
+                        <div class="cta-buttons">
+                            <a
+                                href="#groups"
+                                class="cta-btn primary"
+                                onclick="scrollToGroups()"
+                            >
+                                <i class="fas fa-th-list"></i>
+                                Browse Groups
+                            </a>
+                            <a href="https://www.whatsuplink.online/" class="cta-btn secondary">
+                                <i class="fas fa-plus"></i>
+                                Add Your Group
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <!-- Footer -->
+    <script src="js/footer-loader.js"></script>
+
+
+                <!-- Firebase SDK -->
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+        <!-- Firebase Configuration -->
+        <script src="js/firebase-config.js"></script>
+        <script src="js/optimized-group-loader.js"></script>
+
+
+        <script>
+            // Scroll to groups function
+            function scrollToGroups() {
+                const groupsSection =
+                    document.querySelector(".groups-section") ||
+                    document.querySelector("#groups") ||
+                    document.querySelector(".groups-container");
+                if (groupsSection) {
+                    groupsSection.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                    });
+                } else {
+                    // Fallback to scroll to top of main content
+                    document.querySelector("#main-content").scrollIntoView({
+                        behavior: "smooth",
+                    });
+                }
+            }
+         </script>
+         
+        <script>
+            // Manual Slider JavaScript
+            document.addEventListener("DOMContentLoaded", function () {
+                const manualSlider =
+                    document.getElementById("manualGroupSlider");
+                const manualPrevBtn = document.getElementById("manualPrevBtn");
+                const manualNextBtn = document.getElementById("manualNextBtn");
+
+                if (manualSlider && manualPrevBtn && manualNextBtn) {
+                    manualPrevBtn.addEventListener("click", () => {
+                        manualSlider.scrollBy({
+                            left: -220,
+                            behavior: "smooth",
+                        });
+                    });
+
+                    manualNextBtn.addEventListener("click", () => {
+                        manualSlider.scrollBy({
+                            left: 220,
+                            behavior: "smooth",
+                        });
+                    });
+                }
+            });
+        </script>
+
+        <!-- Fixed Add Group Button -->
+        <a href="https://www.whatsuplink.online/?submit-form=true" class="fixed-add-group-btn">
+            <i class="fas fa-plus"></i>
+            Add Group
+        </a>
+
+        <!-- Optimized Loading Styles -->
+        <link rel="stylesheet" href="css/optimized-loading.css">
+        
+        <!-- All scripts loaded once at the end -->        
+        <script src="js/main.js"></script>
+        
+        <!-- Smart initialization script - DISABLED to prevent double loading -->
+        <script>
+            // DISABLED: This was causing double loading and blinking
+            // window.addEventListener('load', function() {
+            //     console.log('🚀 Page loaded - ensuring fresh data...');
+            //     
+            //     // Smart initialization - no aggressive cache clearing
+            //     console.log('🧠 Using smart initialization...');
+            //     
+            //     // Use smart loader immediately - NO DELAYS!
+            //     if (window.initializeSmartLoader) {
+            //         console.log('⚡ Starting smart loader instantly...');
+            //         window.initializeSmartLoader();
+            //     } else if (window.loadGroupsOptimized) {
+            //         console.log('⚡ Fallback to optimized loader instantly...');
+            //         window.loadGroupsOptimized();
+            //     }
+            // });
+            
+            // Single initialization handled by optimized-group-loader.js
+            //console.log('✨ Single initialization enabled - no double loading');
+        </script>
+        
+        <!-- Official WhatsApp Group Script -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const officialBtn = document.getElementById('officialWhatsAppBtn');
+                
+                if (officialBtn) {
+                    officialBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        // Check if WhatsApp link is set
+                        if (this.href === '#' || !this.href.includes('chat.whatsapp.com')) {
+                            // Show message that link will be added soon
+                            alert('🔥 Official WhatsApp group link will be available soon! Stay tuned!');
+                        } else {
+                            // Open WhatsApp group
+                            window.open(this.href, '_blank');
+                        }
+                    });
+                }
+            });
+        </script>
+    <!-- Promo Popup Styles -->
+    <style>
+        .promo-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .promo-popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .promo-popup {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 90%;
+            width: 400px;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+        }
+
+        .promo-popup-overlay.active .promo-popup {
+            transform: scale(1);
+        }
+
+        .promo-popup h3 {
+            color: #128c7e;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .promo-popup p {
+            color: #444;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .promo-popup-btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, #128c7e, #25d366);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .promo-popup-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+        }
+
+        .promo-popup-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #888;
+            cursor: pointer;
+            padding: 0;
+            line-height: 0.5;
+            transition: color 0.2s, transform 0.2s;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .promo-popup-close:hover {
+            color: #333;
+            background: rgba(0,0,0,0.05);
+            transform: rotate(90deg);
+        }
+    </style>
+
+    <!-- Promo Popup HTML -->
+    <div class="promo-popup-overlay" id="promoPopup">
+        <div class="promo-popup">
+            <button class="promo-popup-close" onclick="closePromoPopup()">&times;</button>
+            <h3>Breaking News! 🎬</h3>
+            <p>Moovie is now a part of LinkShare! <br>Explore Hindi dubbed multi-audio movies and much more.</p>
+            <a href="https://moovie.linkshare.online" class="promo-popup-btn">Visit Moovie</a>
+        </div>
+    </div>
+
+    <!-- Promo Popup Script -->
+    <script>
+        function showPromoPopup() {
+            const popup = document.getElementById('promoPopup');
+            if (popup) {
+                // Show immediately without delay
+                popup.classList.add('active');
+            }
+        }
+
+        function closePromoPopup() {
+            const popup = document.getElementById('promoPopup');
+            if (popup) {
+                popup.classList.remove('active');
+            }
+        }
+
+        // Show as soon as DOM is ready, don't wait for full page load
+        document.addEventListener('DOMContentLoaded', showPromoPopup);
+        
+        // Fallback: if DOM is already ready by the time this runs
+        if (document.readyState === 'interactive' || document.readyState === 'complete') {
+            showPromoPopup();
+        }
+    </script>
+    </body>
+</html>

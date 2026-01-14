@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Free AI Detector & Text Humanizer - Check AI Content Online | LinkShare</title>
+    <meta name="description"
+        content="Free AI Detector & Text Humanizer tool. Detect AI-generated content from ChatGPT, GPT-4, Bard. Convert AI text to human-like writing. 100% Free, No signup required.">
+    <meta name="keywords"
+        content="ai detector, ai text detector, chatgpt detector, ai content detector, humanize ai text, ai to human text, detect ai writing, free ai detector">
+    <meta name="author" content="LinkShare">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Free AI Detector & Text Humanizer - Check AI Content Online">
+    <meta property="og:description"
+        content="Detect AI-generated content and humanize AI text instantly. Free online tool with no signup required.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.linkshare.online/ai-detector">
+    <meta property="og:image" content="https://www.linkshare.online/linkshare-favicon.png">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free AI Detector & Text Humanizer">
+    <meta name="twitter:description"
+        content="Detect AI-generated content and humanize AI text instantly. Free online tool.">
+    <meta name="twitter:image" content="https://www.linkshare.online/linkshare-favicon.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon-96x96.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../ai-detector/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/related-tools.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- adsense script-->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8130991342525434"
+        crossorigin="anonymous"></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "AI Detector & Text Humanizer",
+        "url": "https://www.linkshare.online/ai-detector",
+        "description": "Free AI content detector and text humanizer. Detect AI-generated text and convert it to human-like writing.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "AI Content Detection",
+            "Text Humanization",
+            "ChatGPT Detection",
+            "Free to Use",
+            "No Registration Required"
+        ]
+    }
+    </script>
+    <!-- navbar -->
+    <script src="js/nav-loader.js"></script>
+</head>
+
+<body>
+    <!-- Navigation (will be loaded dynamically) -->
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1><i class="fas fa-robot"></i> AI Detector & Text Humanizer</h1>
+            <p class="hero-subtitle">Detect AI-generated content and convert it to human-like writing - 100% Free</p>
+            <div class="hero-badges">
+                <span class="badge"><i class="fas fa-check-circle"></i> No Signup Required</span>
+                <span class="badge"><i class="fas fa-infinity"></i> Unlimited Use</span>
+                <span class="badge"><i class="fas fa-lock"></i> Privacy Protected</span>
+            </div>
+        </section>
+
+        <!-- Tab Navigation -->
+        <div class="tab-container">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="detector">
+                    <i class="fas fa-search"></i> AI Detector
+                </button>
+                <button class="tab-btn" data-tab="humanizer">
+                    <i class="fas fa-user-edit"></i> Text Humanizer
+                </button>
+            </div>
+        </div>
+
+        <!-- AI Detector Tab -->
+        <div class="tab-content active" id="detector-tab">
+            <div class="tool-card">
+                <div class="card-header">
+                    <h2><i class="fas fa-search"></i> AI Content Detector</h2>
+                    <p>Paste your text below to check if it's AI-generated</p>
+                </div>
+
+                <div class="input-section">
+                    <textarea id="detector-input"
+                        placeholder="Paste your text here to detect if it's written by AI (ChatGPT, GPT-4, Bard, etc.)..."
+                        maxlength="5000"></textarea>
+                    <div class="char-counter">
+                        <span id="detector-char-count">0</span> / 5000 characters
+                    </div>
+                </div>
+
+                <button class="action-btn" id="detect-btn">
+                    <i class="fas fa-search"></i> Analyze Text
+                </button>
+
+                <div class="result-section" id="detector-result" style="display: none;">
+                    <div class="result-header">
+                        <h3><i class="fas fa-chart-pie"></i> Analysis Results</h3>
+                    </div>
+                    <div class="result-content">
+                        <div class="score-display">
+                            <div class="score-circle" id="ai-score-circle">
+                                <span class="score-value" id="ai-score">0%</span>
+                                <span class="score-label">AI Probability</span>
+                            </div>
+                            <div class="score-circle" id="human-score-circle">
+                                <span class="score-value" id="human-score">0%</span>
+                                <span class="score-label">Human Probability</span>
+                            </div>
+                        </div>
+                        <div class="result-message" id="result-message"></div>
+                        <div class="result-details" id="result-details"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Text Humanizer Tab -->
+        <div class="tab-content" id="humanizer-tab">
+            <div class="tool-card">
+                <div class="card-header">
+                    <h2><i class="fas fa-user-edit"></i> AI Text Humanizer</h2>
+                    <p>Convert AI-generated text to natural, human-like writing</p>
+                </div>
+
+                <div class="input-section">
+                    <textarea id="humanizer-input"
+                        placeholder="Paste your AI-generated text here to make it sound more human and natural..."
+                        maxlength="5000"></textarea>
+                    <div class="char-counter">
+                        <span id="humanizer-char-count">0</span> / 5000 characters
+                    </div>
+                </div>
+
+                <button class="action-btn" id="humanize-btn">
+                    <i class="fas fa-magic"></i> Humanize Text
+                </button>
+
+                <div class="result-section" id="humanizer-result" style="display: none;">
+                    <div class="result-header">
+                        <h3><i class="fas fa-check-circle"></i> Humanized Text</h3>
+                        <button class="copy-btn" id="copy-humanized">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                    </div>
+                    <div class="result-content">
+                        <div class="humanized-text" id="humanized-output"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Content Section -->
+        <section class="seo-content">
+            <article class="content-article">
+                <h2>What is an AI Detector?</h2>
+                <p>An AI detector is a powerful tool that analyzes text to determine whether it was written by
+                    artificial intelligence (like ChatGPT, GPT-4, Bard, or other AI models) or by a human. Our free AI
+                    detector uses advanced algorithms to identify patterns, writing styles, and linguistic markers
+                    commonly found in AI-generated content.</p>
+
+                <h3>How Does AI Detection Work?</h3>
+                <p>Our AI detector analyzes multiple factors including:</p>
+                <ul>
+                    <li><strong>Writing Patterns:</strong> AI-generated text often follows predictable patterns and
+                        structures</li>
+                    <li><strong>Vocabulary Usage:</strong> AI tends to use certain words and phrases more frequently
+                    </li>
+                    <li><strong>Sentence Structure:</strong> Analysis of sentence complexity and variation</li>
+                    <li><strong>Coherence Analysis:</strong> How ideas flow and connect throughout the text</li>
+                    <li><strong>Stylistic Markers:</strong> Identifying unique characteristics of AI writing</li>
+                </ul>
+
+                <h3>What is AI Text Humanization?</h3>
+                <p>AI text humanization is the process of transforming AI-generated content to make it sound more
+                    natural, conversational, and human-like. Our text humanizer tool rewrites AI content while
+                    maintaining the original meaning, making it:</p>
+                <ul>
+                    <li>More engaging and relatable</li>
+                    <li>Less robotic and formulaic</li>
+                    <li>Better suited for human readers</li>
+                    <li>More likely to pass AI detection tools</li>
+                </ul>
+
+                <h3>Why Use Our AI Detector & Humanizer?</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h4>For Students</h4>
+                        <p>Ensure your essays and assignments are original and check if sources used AI</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-briefcase"></i>
+                        <h4>For Professionals</h4>
+                        <p>Verify content authenticity and improve AI-generated drafts</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-pen"></i>
+                        <h4>For Content Creators</h4>
+                        <p>Make AI-assisted content sound more natural and engaging</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-user-tie"></i>
+                        <h4>For Educators</h4>
+                        <p>Check student submissions for AI-generated content</p>
+                    </div>
+                </div>
+
+                <h3>Features of Our Tool</h3>
+                <ul>
+                    <li><strong>100% Free:</strong> No hidden charges or subscription required</li>
+                    <li><strong>No Registration:</strong> Start using immediately without creating an account</li>
+                    <li><strong>Privacy Protected:</strong> Your text is not stored or shared</li>
+                    <li><strong>Instant Results:</strong> Get analysis in seconds</li>
+                    <li><strong>Dual Functionality:</strong> Both detect and humanize AI text in one tool</li>
+                    <li><strong>Mobile Friendly:</strong> Works perfectly on all devices</li>
+                </ul>
+
+                <h3>Common Use Cases</h3>
+                <ol>
+                    <li><strong>Academic Integrity:</strong> Verify essays, research papers, and assignments</li>
+                    <li><strong>Content Quality:</strong> Ensure blog posts and articles sound authentic</li>
+                    <li><strong>Hiring Process:</strong> Check job applications and cover letters</li>
+                    <li><strong>SEO Content:</strong> Make AI-generated SEO content more natural</li>
+                    <li><strong>Social Media:</strong> Humanize AI-generated social media posts</li>
+                </ol>
+
+                <h3>Tips for Best Results</h3>
+                <ul>
+                    <li>Paste at least 100 words for accurate AI detection</li>
+                    <li>Use the humanizer on AI-detected text for best transformation</li>
+                    <li>Review humanized text and make personal adjustments</li>
+                    <li>Combine with your own writing style for authenticity</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+
+    <script src="js/footer-loader.js"></script>
+
+    <!-- JavaScript -->
+    <script src="../ai-detector/script.js"></script>
+    <script src="../js/related-tools-loader.js"></script>
+</body>
+
+</html>

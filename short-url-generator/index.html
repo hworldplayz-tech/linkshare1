@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Create free short, shareable links quickly and easily with LinkShare URL Shortener"
+        />
+        <meta
+            name="keywords"
+            content="free URL shortener, free link shortener, free short links, free LinkShare"
+        />
+        <meta name="author" content="LinkShare" />
+        <meta property="og:title" content="LinkShare - Free URL Shortener" />
+        <meta
+            property="og:description"
+            content="Create free short, shareable links quickly and easily with LinkShare URL Shortener"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:image"
+            content="https://www.linkshare.online/linkshare-favicon.png"
+        />
+        <meta
+            property="og:url"
+            content="https://www.linkshare.online/short-url-generator/"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="LinkShare - Free URL Shortener" />
+        <meta
+            name="twitter:description"
+            content="Create free short, shareable links quickly and easily with LinkShare URL Shortener"
+        />
+        <meta
+            name="twitter:image"
+            content="https://www.linkshare.online/linkshare-favicon.png"
+        />
+
+        <!-- Favicon Implementation -->
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link
+            rel="icon"
+            type="image/png"
+            href="/favicon-16x16.png"
+            sizes="16x16"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            href="/favicon-32x32.png"
+            sizes="32x32"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            href="/favicon-96x96.png"
+            sizes="96x96"
+        />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+
+        <title>Short URL Generator Free - LinkShare</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        />
+        <link rel="stylesheet" href="../short-url-generator/style.css" />
+    
+       
+    </head>
+    <body>
+        <!-- Add skip link for accessibility -->
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+
+       
+        <div class="main-container">
+            <header class="page-header">
+                <h1 class="page-header-h1">URL Shortener</h1>
+                <p class="page-header-p">
+                    Create Free short, memorable links in seconds with
+                    LinkShare's free URL shortener
+                </p>
+            </header>
+            <div class="content-section">
+                <main id="main-content" class="container" role="main">
+                    <div class="shortener-card">
+                        <div class="input-group">
+                            <label for="url"
+                                ><i class="fas fa-link"></i> Enter your long
+                                URL</label
+                            >
+                            <input
+                                type="url"
+                                id="url"
+                                placeholder="https://example.com/very-long-url-that-needs-shortening"
+                                required
+                            />
+                        </div>
+
+                        <div class="input-group">
+                            <label for="custom-alias"
+                                ><i class="fas fa-tag"></i> Custom alias
+                                (optional)</label
+                            >
+                            <div class="custom-url">
+                                <span>linkshare.online/</span>
+                                <input
+                                    type="text"
+                                    id="custom-alias"
+                                    placeholder="mylink"
+                                />
+                            </div>
+                        </div>
+
+                        <button id="shorten-btn" class="btn">
+                            <i class="fas fa-cut"></i> Create Short Link
+                        </button>
+
+                        <div id="result" class="result">
+                            <p class="result-title">
+                                Your short link is ready! 🎉
+                            </p>
+                            <p class="short-url" id="short-url"></p>
+                            <button class="btn copy-btn" id="copy-btn">
+                                <i class="fas fa-copy"></i> Copy to Clipboard
+                            </button>
+                        </div>
+
+                        <div id="error" class="error"></div>
+                    </div>
+                    <!--
+        <div class="user-id-container">
+            <div class="user-id-header">
+                <h2><i class="fas fa-fingerprint"></i> Your Device ID</h2>
+                <div class="user-id-actions">
+                    <button id="copy-id-btn" class="btn user-id-btn">
+                        <i class="fas fa-copy"></i> Copy ID
+                    </button>
+                    <button id="reset-id-btn" class="btn user-id-btn reset-btn">
+                        <i class="fas fa-sync-alt"></i> Reset ID
+                    </button>
+                </div>
+            </div>
+            <p>This ID is used to identify your shortened links. You'll only see links created with this ID.</p>
+            <div id="user-id-display" class="user-id-display"></div>
+            <p><small>Note: If you use a different device or browser, you'll need to copy this ID to see the same links.</small></p>
+        </div>
+-->
+                    <div class="links-container">
+                        <div class="links-header">
+                            <h2>
+                                <i class="fas fa-history"></i> Your Recent Links
+                            </h2>
+                            <button
+                                id="clear-all-btn"
+                                class="btn clear-all-btn"
+                            >
+                                <i class="fas fa-trash-alt"></i> Clear All
+                            </button>
+                        </div>
+                        <div id="links-list" class="links-list"></div>
+                    </div>
+                </main>
+
+                <!-- User Guide Section -->
+                <div class="user-guide-container">
+                    <h2>
+                        <i class="fas fa-book"></i> How to Use URL Shortener
+                    </h2>
+                    <div class="user-guide-content">
+                        <h3>Creating Short Links</h3>
+                        <ul>
+                            <li>
+                                <strong>Enter your long URL</strong> - Make sure
+                                to include http:// or https:// at the beginning
+                            </li>
+                            <li>
+                                <strong>Custom alias (optional)</strong> -
+                                Create a memorable name for your link
+                            </li>
+                            <li>
+                                <strong>Click "Create Short Link"</strong> -
+                                Your shortened URL will be generated instantly
+                            </li>
+                            <li>
+                                <strong>Copy to clipboard</strong> - Use the
+                                copy button to easily share your link
+                            </li>
+                        </ul>
+
+                        <h3>Custom Alias Tips</h3>
+                        <ul>
+                            <li>
+                                <strong>Use only letters and numbers</strong> -
+                                Don't use dashes, underscores, spaces or other
+                                symbols
+                            </li>
+                            <li>
+                                <strong>Keep it simple</strong> - Use single
+                                words like "mylink" instead of "my-link" or
+                                "my_link"
+                            </li>
+                            <li>
+                                <strong>Be unique</strong> - If your alias is
+                                already taken, you'll need to choose another one
+                            </li>
+                            <li>
+                                <strong>Be memorable</strong> - Choose something
+                                easy to remember and type
+                            </li>
+                        </ul>
+
+                        <h3>Managing Your Links</h3>
+                        <ul>
+                            <li>
+                                <strong>View your links</strong> - All your
+                                shortened links appear in the "Your Recent
+                                Links" section
+                            </li>
+                            <li>
+                                <strong>Copy links</strong> - Click the copy
+                                icon to copy any of your previously created
+                                links
+                            </li>
+                            <li>
+                                <strong>Delete links</strong> - Remove
+                                individual links with the delete button
+                            </li>
+                            <li>
+                                <strong>Clear all</strong> - Remove all your
+                                links at once with the "Clear All" button
+                            </li>
+                        </ul>
+
+                        <div class="user-guide-note">
+                            <p><strong>Note:</strong></p>
+                            <ul style="list-style: disc; color: #e53e3e">
+                                <li>
+                                    If you delete your link Or Clear all your
+                                    Links it will be permantly deleted from
+                                    database and you wouldn't be able to access
+                                    again.
+                                </li>
+                                <li>
+                                    Your links are private and can only be seen
+                                    on your device. If you use multiple devices,
+                                    your links won't automatically sync between
+                                    them.
+                                </li>
+                                <li>
+                                    We don't collect any personal information
+                                    when you create short links.
+                                </li>
+                                <li>
+                                    Each device has its own unique ID that is
+                                    stored locally on your device only.
+                                </li>
+                                <li>
+                                    Only you can see and manage the links you've
+                                    created - no one else can access them.
+                                </li>
+                                <li>
+                                    Your browsing history and link usage are not
+                                    tracked or monitored.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    <!-- Footer -->
+    <script src="js/footer-loader.js"></script>
+
+        <!-- Custom Popup Elements -->
+        <div class="popup-overlay" id="confirmPopup">
+            <div class="popup-container slide-up">
+                <div class="popup-header">
+                    <h3 class="popup-title">Confirm Action</h3>
+                    <button class="popup-close" id="closeConfirmPopup">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="popup-content">
+                    <i class="fas fa-question-circle popup-icon warning"></i>
+                    <p id="confirmMessage">
+                        Are you sure you want to proceed with this action?
+                    </p>
+                </div>
+                <div class="popup-actions">
+                    <button
+                        class="popup-btn popup-btn-secondary"
+                        id="cancelAction"
+                    >
+                        Cancel
+                    </button>
+                    <button
+                        class="popup-btn popup-btn-danger"
+                        id="confirmAction"
+                    >
+                        Confirm
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="popup-overlay" id="successPopup">
+            <div class="popup-container slide-up">
+                <div class="popup-header">
+                    <h3 class="popup-title">Success</h3>
+                    <button class="popup-close" id="closeSuccessPopup">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="popup-content">
+                    <i class="fas fa-check-circle popup-icon success"></i>
+                    <p id="successMessage">Action completed successfully!</p>
+                </div>
+                <div class="popup-actions">
+                    <button
+                        class="popup-btn popup-btn-primary"
+                        id="okSuccessBtn"
+                    >
+                        OK
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Container -->
+        <div class="toast-container" id="toastContainer"></div>
+
+        
+      
+        <!-- Our Scripts -->
+    <!-- Firebase SDK -->
+        <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-database-compat.js"></script>
+        
+        <!-- Core Scripts -->
+        <script src="../js/nav-loader.js"></script>
+        <script src="../js/firebase-shorturl-config.js"></script>
+        
+    </body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free PDF Merger Tool - Combine unlimited PDF files into one document instantly. No registration required, 100% secure, works directly in browser. Best free online PDF merger with drag & drop support.">
+    <meta name="keywords" content="free PDF merger, combine PDF files, merge PDF online, PDF joiner, PDF combiner, merge PDF files free, PDF tools, online PDF merger, best PDF merger, secure PDF merger, unlimited PDF merger">
+    <meta name="author" content="LinkShare">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="generator" content="LinkShare PDF Tools">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Free PDF Merger - Combine PDF Files Online | LinkShare">
+    <meta property="og:description" content="Merge unlimited PDF files for free. No registration, no watermark, 100% secure. Best free online PDF merger tool that works directly in your browser.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.linkshare.online/linkshare-favicon.png">
+    <meta property="og:url" content="https://www.linkshare.online/pdf-merger">
+    <meta property="og:site_name" content="LinkShare PDF Merger">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free PDF Merger - Combine PDF Files Online | LinkShare">
+    <meta name="twitter:description" content="Merge unlimited PDF files for free. No registration, no watermark, 100% secure. Works directly in your browser.">
+    <meta name="twitter:image" content="https://www.linkshare.online/linkshare-favicon.png">
+    
+    <!-- Canonical URL -->
+    <meta rel="canonical" href="https://www.linkshare.online/pdf-merger">
+    
+    <!-- Favicon Implementation -->
+    <link rel="icon" type="image/x-icon" href="/favicon-96x96.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+     <!-- Adsense Script-->
+        <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8130991342525434"
+            crossorigin="anonymous"
+        ></script>
+
+
+    <title>Free PDF Merger - Combine PDF Files Online | LinkShare</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../pdf-merger/style.css">
+    <!-- PDF.js Library -->
+    <script src="https://unpkg.com/pdf-lib@1.17.1"></script>
+    <!-- Sortable.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+    <!-- Download.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.8/download.min.js"></script>
+       <!-- navbar -->
+        <script src="js/nav-loader.js"></script>
+
+</head>
+<body>
+    <main class="container">
+        <header class="page-header">
+            <h1 class="page-header-h1">Free PDF Merger</h1>
+            <p class="page-header-p">Combine multiple PDF files into a single document</p>
+        </header>
+
+        <div class="pdf-merger-container">
+            <div class="file-input-zone" id="dropZone">
+                <i class="fas fa-file-pdf"></i>
+                <h3>Drag & Drop PDF Files Here</h3>
+                <p>or</p>
+                <input type="file" id="fileInput" accept=".pdf" multiple style="display: none">
+                <button class="action-button merge-button" onclick="document.getElementById('fileInput').click()">
+                    <i class="fas fa-plus"></i> Select PDF Files
+                </button>
+            </div>
+
+            <div class="file-list" id="fileList"></div>
+
+            <div class="progress-bar" id="progressBar">
+                <div class="progress" id="progress"></div>
+            </div>
+
+            <div class="file-order-controls" id="orderControls" style="display: none;">
+                <h4><i class="fas fa-sort"></i> Reorder Files</h4>
+                <p>Drag files to reorder them before merging</p>
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-button merge-button" id="mergeButton" disabled>
+                    <i class="fas fa-object-group"></i> Merge PDFs
+                </button>
+                <button class="action-button clear-button" id="clearButton" disabled>
+                    <i class="fas fa-trash"></i> Clear All
+                </button>
+            </div>
+
+            <div id="mergedResult" style="display: none;" class="merged-result">
+                <h3><i class="fas fa-check-circle"></i> PDF Merged Successfully!</h3>
+                <div class="download-section">
+                    <div class="filename-input">
+                        <input type="text" id="mergedFileName" placeholder="Enter file name (optional)" class="filename-field">
+                        <p class="filename-hint">File will be saved as: <span id="finalFileName">linkshare_merger_[date].pdf</span></p>
+                    </div>
+                    <button class="action-button download-button" id="downloadButton">
+                        <i class="fas fa-download"></i> Download Merged PDF
+                    </button>
+                    <p class="file-info">Size: <span id="mergedFileSize">0 KB</span></p>
+                </div>
+            </div>
+
+            <div class="recent-files">
+                <div class="recent-files-header">
+                    <h3><i class="fas fa-history"></i> Recent Merges</h3>
+                    <button id="clearRecentBtn" class="clear-recent-button">
+                        <i class="fas fa-trash-alt"></i> Clear All History
+                    </button>
+                </div>
+                <div id="recentFilesList" class="recent-files-list">
+                    <!-- Recent files will be populated here -->
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- Instructions Section -->
+        <div class="instructions-section">
+            <h2>How to Use PDF Merger</h2>
+            <div class="instruction-grid">
+                <div class="instruction-card">
+                    <i class="fas fa-file-upload"></i>
+                    <h3>1. Upload Files</h3>
+                    <p>Drag and drop your PDF files or click to select them from your computer.</p>
+                </div>
+                <div class="instruction-card">
+                    <i class="fas fa-sort"></i>
+                    <h3>2. Arrange Order</h3>
+                    <p>Drag and drop the files in the list to arrange them in your desired order.</p>
+                </div>
+                <div class="instruction-card">
+                    <i class="fas fa-object-group"></i>
+                    <h3>3. Merge Files</h3>
+                    <p>Click the "Merge PDFs" button to combine your files into a single PDF.</p>
+                </div>
+                <div class="instruction-card">
+                    <i class="fas fa-download"></i>
+                    <h3>4. Download</h3>
+                    <p>Download your merged PDF file and you're done!</p>
+                </div>
+            </div>
+
+            <div class="tips-section">
+                <h3>Pro Tips</h3>
+                <ul>
+                    <li><i class="fas fa-info-circle"></i> Supports multiple PDF files of any size</li>
+                    <li><i class="fas fa-shield-alt"></i> 100% secure - files are processed in your browser</li>
+                    <li><i class="fas fa-history"></i> Access your recent merges for 30 days</li>
+                    <li><i class="fas fa-mobile-alt"></i> Works on all devices - desktop, tablet, and mobile</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <script src="js/footer-loader.js"></script>
+<script src="../pdf-merger/script.js"></script>
+</body>
+</html>

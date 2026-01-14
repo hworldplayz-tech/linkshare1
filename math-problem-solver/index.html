@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advanced Math Problem Solver with step-by-step solutions using AI. Upload images, PDFs, or type your math problems.">
+    <meta name="keywords" content="math solver, AI math solver, Gemini API, equation solver, math solutions, image math solver, PDF math solver">
+    <meta name="author" content="LinkShare">
+    <meta property="og:title" content="AI Math Problem Solver - Step-by-Step Solutions | LinkShare">
+    <meta property="og:description" content="Advanced Math Problem Solver with step-by-step solutions using AI. Upload images, PDFs, or type your math problems.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.linkshare.online/linkshare-favicon.png">
+    <meta property="og:url" content="https://www.linkshare.online/math-problem-solver-gemini/">
+    
+    <!-- Favicon Implementation -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <title>AI Math Problem Solver - Step-by-Step Solutions | LinkShare</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="math-problem-solver/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
+    <!-- PDF.js for PDF processing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+  <!-- Adsense Script-->    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8130991342525434"
+     crossorigin="anonymous"></script>
+    <!-- navbar -->
+        <script src="js/nav-loader.js"></script>
+</head>
+<body>
+    <!-- Add skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+   
+    <main id="main-content" class="container" role="main">
+        <div class="math-container">
+            <div class="math-header">
+                <h1>AI Math Problem Solver</h1>
+                <p>Get step-by-step solutions for any math problem using advanced AI</p>
+            </div>
+
+            <!-- API Key Status Section -->
+            <div class="api-key-section">
+                <h3><i class="fas fa-key"></i> API Key Status</h3>
+                <p>This tool uses the Gemini API to solve math problems with advanced AI capabilities.</p>
+                <div id="api-key-status"></div>
+            </div>
+
+            <!-- Input Methods Section -->
+            <div class="input-container">
+                <div class="input-tabs">
+                    <button type="button" class="input-tab active" data-tab="text">
+                        <i class="fas fa-keyboard"></i> Text Input
+                    </button>
+                    <button type="button" class="input-tab" data-tab="image">
+                        <i class="fas fa-image"></i> Image Upload
+                    </button>
+                    <button type="button" class="input-tab" data-tab="pdf">
+                        <i class="fas fa-file-pdf"></i> PDF Upload
+                    </button>
+                </div>
+
+                <!-- Text Input -->
+                <div class="input-content active" id="text-input">
+                    <div class="form-group">
+                        <label for="math-problem">Enter your math problem:</label>
+                        <textarea id="math-problem" class="form-control" placeholder="Example: Solve for x: 2x + 5 = 15"></textarea>
+                    </div>
+                    <button type="button" class="btn" id="solve-text-btn">
+                        <i class="fas fa-calculator"></i> Solve Problem
+                    </button>
+                </div>
+
+                <!-- Image Upload -->
+                <div class="input-content" id="image-input">
+                    <div class="form-group">
+                        <label for="image-upload">Upload an image of your math problem:</label>
+                        <div class="file-input-container">
+                            <input type="file" id="image-upload" class="file-input" accept="image/*">
+                        </div>
+                        <img id="image-preview" class="file-preview" alt="Image preview">
+                    </div>
+                    <button type="button" class="btn" id="solve-image-btn" disabled>
+                        <i class="fas fa-calculator"></i> Solve Problem
+                    </button>
+                </div>
+
+                <!-- PDF Upload -->
+                <div class="input-content" id="pdf-input">
+                    <div class="form-group">
+                        <label for="pdf-upload">Upload a PDF with your math problem:</label>
+                        <div class="file-input-container">
+                            <input type="file" id="pdf-upload" class="file-input" accept=".pdf">
+                        </div>
+                        <div id="pdf-preview" class="pdf-preview-container"></div>
+                    </div>
+                    <button type="button" class="btn" id="solve-pdf-btn" disabled>
+                        <i class="fas fa-calculator"></i> Solve Problem
+                    </button>
+                </div>
+            </div>
+
+            <!-- Error Message -->
+            <div class="error-message" id="error-message"></div>
+
+            <!-- Solution Output -->
+            <div class="output-container" id="output-container">
+                <h2 class="solution-title">Solution will appear here</h2>
+                <div id="solution-output"></div>
+            </div>
+
+            <!-- Example Problems -->
+            <div class="explanation">
+                <h3>Example Problems</h3>
+                <p>Click on any example to try it:</p>
+                <div class="example-problems">
+                    <button class="example-problem" data-problem="Solve for x: 3x + 7 = 22">Solve for x: 3x + 7 = 22</button>
+                    <button class="example-problem" data-problem="Find the derivative of f(x) = x^3 + 2x^2 - 5x + 3">Find the derivative of f(x) = x^3 + 2x^2 - 5x + 3</button>
+                    <button class="example-problem" data-problem="Simplify: (2x + 3)(4x - 5)">Simplify: (2x + 3)(4x - 5)</button>
+                    <button class="example-problem" data-problem="Solve the system of equations: 2x + y = 5, 3x - 2y = 4">Solve the system of equations: 2x + y = 5, 3x - 2y = 4</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <script src="js/footer-loader.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    
+    <!-- Math Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjs@11.0.0/lib/browser/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="../math-problem-solver/script.js"></script>
+</body>
+</html>

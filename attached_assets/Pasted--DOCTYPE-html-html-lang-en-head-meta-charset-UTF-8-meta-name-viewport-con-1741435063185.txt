@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Group Hub</title>
+    <link rel="stylesheet" href="C:\Users\Hamza\Desktop\LinkShare Project\style.css">
+</head>
+
+<style>
+</style>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>WhatsApp Group Hub</h1>
+        <p>Find and share the best WhatsApp groups!</p>
+    </header>
+
+    <!-- SUBMISSION FORM -->
+    <section class="submit-section">
+        <h2>Submit Your WhatsApp Group</h2>
+        <input type="text" id="groupTitle" placeholder="Group Title" required>
+       <!-- <input type="text" id="groupLink" placeholder="WhatsApp Group Link" required> -->
+	<input type="text" id="groupLink" placeholder="Paste group link here" required>
+<div id="preview"></div>
+
+        <input type="text" id="groupCategory" placeholder="Category (e.g., Tech, Study)" required>
+        <textarea id="groupDescription" placeholder="Enter a short description" required></textarea>
+ <!--<input type="file" id="groupImage" accept="image/*">-->
+
+        <button onclick="submitGroup()">Submit Group</button>
+    </section>
+
+
+
+<div id="previewImage">
+    <img id="ogPreviewImg" src="" alt="Group Preview" style="max-width: 100px; display: none;">
+    <h3 id="ogTitle"></h3>
+    <p id="ogDescription"></p>
+</div>
+
+    <!-- GROUP LIST -->
+    <section class="group-list">
+        <h2>Latest WhatsApp Groups</h2>
+        <div id="groupContainer"></div>
+    </section>
+
+<h2>📌 Latest Groups</h2>
+<div id="groupArchive"></div>
+
+
+
+
+
+
+
+
+<!-- Preview Box -->
+<script>
+async function fetchOpenGraph(url) {
+    try {
+        const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
+        const data = await response.json();
+
+        // Parse HTML response
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(data.contents, "text/html");
+
+        // Extract Open Graph metadata
+        const ogTitle = doc.querySelector('meta[property="og:title"]')?.content || "No Title Found";
+        const ogImage = doc.querySelector('meta[property="og:image"]')?.content || "https://via.placeholder.com/150";
+        const ogDescription = doc.querySelector('meta[property="og:description"]')?.content || "No Description Available";
+
+        // Display Preview
+        document.getElementById("preview").innerHTML = `
+            <div style="border: 1px solid #ddd; padding: 10px; display: flex; gap: 10px; align-items: center;">
+                <img src="${ogImage}" alt="Preview Image" width="100">
+                <div>
+                    <h3 style="margin: 0;">${ogTitle}</h3>
+                    <p style="margin: 0; font-size: 14px; color: #555;">${ogDescription}</p>
+                </div>
+            </div>
+        `;
+    } catch (error) {
+        console.error("❌ Error fetching Open Graph data:", error);
+        document.getElementById("preview").innerHTML = "<p style='color: red;'>⚠️ Failed to fetch preview.</p>";
+    }
+}
+
+// Event listener for the input field
+document.getElementById("groupLink").addEventListener("input", function () {
+    const url = this.value.trim();
+    if (url.startsWith("http")) {
+        fetchOpenGraph(url);
+    } else {
+        document.getElementById("preview").innerHTML = ""; // Clear preview if invalid URL
+    }
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="module">
+  // ✅ Import Firebase SDKs (Ensure Same Version)
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+  import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+
+  // ✅ Firebase Configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAOUI5JCbOa3ZnsZ_wXRFjv3-QfY0L8v-0",
+    authDomain: "linkshare-5635c.firebaseapp.com",
+    projectId: "linkshare-5635c",
+    storageBucket: "linkshare-5635c.appspot.com",  // ✅ Fixed: Correct URL
+    messagingSenderId: "119032426237",
+    appId: "1:119032426237:web:98d085bd9bd1a63c1ed894",
+    measurementId: "G-5VEQPNG163"
+  };
+
+  // ✅ Initialize Firebase & Firestore
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const db = getFirestore(app);  // ✅ Firestore Initialized
+
+  // ✅ Make `db` global so it can be accessed in other scripts
+  window.db = db;
+</script>
+
+<script type="module">
+  // ✅ Import Firestore functions
+  import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+
+  // ✅ Ensure `db` is available globally (from the first script)
+  if (!window.db) {
+    console.error("❌ Firestore is not initialized! Check Firebase setup.");
+  }
+
+  // ✅ Correct Firestore Data Submission
+  async function submitGroup() {
+    try {
+      const groupTitle = document.getElementById("groupTitle").value.trim();
+      const groupLink = document.getElementById("groupLink").value.trim();
+      const groupCategory = document.getElementById("groupCategory").value.trim();
+      const groupDescription = document.getElementById("groupDescription").value.trim();
+
+      if (!groupTitle || !groupLink || !groupCategory || !groupDescription) {
+        alert("All fields are required!");
+        return;
+      }
+
+      const docRef = await addDoc(collection(window.db, "groups"), {  // ✅ Using global `db`
+        title: groupTitle,
+        link: groupLink,
+        category: groupCategory,
+        description: groupDescription,
+        timestamp: serverTimestamp()
+      });
+
+      console.log("✅ Document added with ID:", docRef.id);
+      alert("Group added successfully!");
+
+    } catch (error) {
+      console.error("❌ Error adding document:", error);
+    }
+  }
+
+  // ✅ Make function global (so `onclick` works)
+  window.submitGroup = submitGroup;
+</script>
+
+
+
+
+
+
+
+<script>
+// Function to handle form submission
+function submitGroup() {
+    console.log("Submit button clicked!");
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="module">
+import { collection, getDocs, addDoc, getFirestore, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+
+// ✅ Initialize Firestore
+const db = getFirestore();
+
+// ✅ Function to Fetch & Display Groups
+async function displayGroups() {
+    try {
+        const querySnapshot = await getDocs(collection(db, "groups"));
+        const archiveDiv = document.getElementById("groupArchive");
+        archiveDiv.innerHTML = ""; // Clear old posts
+
+        querySnapshot.forEach((doc) => {
+            const data = doc.data();
+            if (!data.title || !data.link) return; // Prevent blank posts
+
+            console.log("📸 Retrieved Image:", data.image); // Debugging Step
+
+            // ✅ Fix Missing Image Issue
+            let imageHTML = "";
+            if (data.image) {
+                imageHTML = `<img src="${data.image}" alt="Group Thumbnail" width="150">`;
+            } else {
+                console.warn("❌ No image found for:", data.title);
+            }
+
+            // ✅ Post Template
+            const postHTML = `
+                <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 10px;">
+                    <h3>${data.title}</h3>
+                    <a href="${data.link}" target="_blank">🔗 Visit Group</a>
+                    <p><strong>Category:</strong> ${data.category || "N/A"}</p>
+                    <p>${data.description || "No description"}</p>
+                    ${imageHTML} <!-- Image now appears -->
+                    <small>🕒 ${data.timestamp ? new Date(data.timestamp.seconds * 1000).toLocaleString() : "N/A"}</small>
+                </div>
+            `;
+            archiveDiv.innerHTML += postHTML; // Append new post
+        });
+
+    } catch (error) {
+        console.error("❌ Error loading groups:", error);
+    }
+}
+
+// ✅ Function to Submit Group
+
+
+
+
+async function submitGroup() {
+    const title = document.getElementById("groupTitle").value;
+    const link = document.getElementById("groupLink").value;
+    const category = document.getElementById("groupCategory").value;
+    const description = document.getElementById("groupDescription").value;
+
+    // 🔥 Check if the preview image exists before using .src
+    const previewImage = document.getElementById("previewImage");
+    const image = previewImage ? previewImage.src : ""; 
+
+    console.log("🚀 Submitting Data...");
+    console.log("📸 Image URL:", image); // Debugging step
+
+    if (!title || !link || !category) {
+        alert("Please fill out all required fields!");
+        return;
+    }
+
+    try {
+        await addDoc(collection(db, "groups"), {
+            title,
+            link,
+            category,
+            description,
+            image, // ✅ Now it won't throw an error
+            timestamp: serverTimestamp()
+        });
+
+        console.log("✅ Group successfully added!");
+        displayGroups(); // Refresh posts
+    } catch (error) {
+        console.error("❌ Error adding document:", error);
+    }
+}
+
+/*Old working code 
+async function submitGroup() {
+    try {
+        const groupTitle = document.getElementById("groupTitle").value.trim();
+        const groupLink = document.getElementById("groupLink").value.trim();
+        const groupCategory = document.getElementById("groupCategory").value.trim();
+        const groupDescription = document.getElementById("groupDescription").value.trim();
+        
+        // ✅ Extract Preview Image
+        const previewImgElement = document.getElementById("previewImage");
+        const previewImage = previewImgElement ? previewImgElement.src : "";
+
+        console.log("📸 Image before saving:", previewImage); // 🔥 Debugging step
+
+        if (!groupTitle || !groupLink || !groupCategory || !groupDescription) {
+            alert("❌ All fields are required!");
+            return;
+        }
+
+        // ✅ Add to Firestore
+        const docRef = await addDoc(collection(db, "groups"), {
+            title: groupTitle,
+            link: groupLink,
+            category: groupCategory,
+            description: groupDescription,
+            image: previewImage, // ✅ Save Image
+            timestamp: serverTimestamp()
+        });
+
+        console.log("✅ Document added with ID:", docRef.id);
+        alert("✅ Group added successfully!");
+
+        // ✅ Instantly Update UI Without Refresh
+        displayGroups();
+
+    } catch (error) {
+        console.error("❌ Error adding document:", error);
+    }
+}
+*/
+// ✅ Load Groups When Page Loads
+window.onload = displayGroups;
+
+// ✅ Make Function Global (for Button Click)
+window.submitGroup = submitGroup;
+
+</script>
+
+
+</body>
+</html>

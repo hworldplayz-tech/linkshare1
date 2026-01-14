@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> AnyWebPlayer Free Online Player | M3U8, MP4, MKV Files play online</title>
+    <!-- All CSS files in the folder -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modern-player.css">
+    <link rel="stylesheet" href="embed-style.css">
+    <link rel="stylesheet" href="player-styles.css">
+    
+    <!-- Essential JavaScript libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    
+
+    <style>
+        /* Inline critical CSS to ensure it loads */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        body {
+            background-color: #121212;
+            color: #fff;
+        }
+        .input-div {
+            width: 98%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .inputheadingtxt {
+            font-size: 20px;
+            font-weight: 600;
+            color: #00e676;
+            text-shadow: 0 0 10px rgba(0, 230, 118, 0.3);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .logoinputheadingtxt {
+            color: #ffeb3b;
+            text-shadow: 0 0 10px rgba(255, 235, 59, 0.3);
+        }
+        .user-input {
+            width: 100%;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 0 15px;
+            font-size: 16px;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+        .user-btn {
+            background: linear-gradient(45deg, #00c853, #00e676);
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 18px;
+            padding: 12px 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 230, 118, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            height: auto;
+            width: auto;
+            align-self: center;
+            margin: 10px 0;
+            min-width: 150px;
+        }
+        .video-container {
+            width: 98%;
+            max-width: 1200px;
+            aspect-ratio: 16/9;
+            margin: 20px auto;
+            position: relative;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .video-container:hover .controls {
+            opacity: 1;
+        }
+        .progress-container {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            cursor: pointer;
+            position: relative;
+        }
+        .progress-bar {
+            height: 100%;
+            background: #00e676;
+            border-radius: 3px;
+            width: 0;
+            position: relative;
+        }
+    </style>
+    <link rel="stylesheet" href="player-styles.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modern-player.css">
+    <meta name="description" content="Play any video format online including M3U8, MP4, MKV files with AnyWebPlayer - a free online media player with quality selection, screenshot, PiP and more features.">
+    <meta name="keywords" content="online player, m3u8 player, video player, mp4 player, mkv player, hls player, streaming player">
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script type="nomodule" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+        
+
+<!--Plyr Styling script
+<link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+<script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+-->
+<!--JS cdn link-->
+<script src="https://cdn.jsdelivr.net/npm/hls.js@canary"></script>
+<!--Or if you want the latest version from the main branch-->
+<!--<script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>-->
+    </head>
+
+<body>
+<!-- Add skip link for accessibility -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a href="https://www.linkshare.online/" class="nav-brand">
+        <img src="/linkshare-favicon.png" class="logo" alt="LinkShare Logo">           
+        <span class="nav-brand-link-text">LinkShare</span>
+    </a>
+
+    <button class="nav-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+    <ul class="nav-links">
+        <li><a href="https://www.linkshare.online/" class="active">Home</a></li>
+        <li><a href="/add-group">Add Group</a></li>
+        <li><a href="/join-group">Join Group</a></li>
+        <li class="nav-dropdown"><a href="#" class="dropbtn">Tools ▾</a>
+          <ul class="nav-dropdown-content">
+              <li><a href="/stylish-text-generator">Stylish Text Generator</a></li>
+              <li><a href="/qr-code-generator" >QR Code Generator</a></li>
+              <li><a href="/qr-code-reader" >QR Code Scanner/Reader</a></li>
+              <li><a href="/short-url-generator" >Short URL Generator</a></li>
+              <li><a href="/m3u-playlist-viewer">M3U Playlist viewer</a></li>
+          </ul>
+      </li>
+      <li class="nav-dropdown">
+          <a href="#" class="dropbtn">Blog ▾</a>
+          <ul class="nav-dropdown-content">
+              <li><a href="/Psl-live">🔴PSL Live</a></li>
+              <li><a href="/usa-whatsapp-group-links">USA WhatsApp Group Links</a></li>
+              <li><a href="/active-pakistani-whatsapp-group-links">Pakistani WhatsApp Group Links</a></li>
+              <li><a href="/indian-whatsapp-group-links">Indian WhatsApp Group Links</a></li>
+              <li><a href="/how-to-join-whatsapp-groups">How to Join WhatsApp Group</a></li>
+          </ul>
+        </li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/privacy">Privacy</a></li>
+        <li><a href="/terms">Terms</a></li>
+        
+    </ul>
+</nav>
+
+<!-- Uswer Media Input HTML -->
+   <div class="input-div">
+    <h4 class="inputheadingtxt mediainputheadingtxt" > Paste Your Media Source MP4, MKV, M3U8, MP3 and Other Live source Link here </h4>
+    <input type="text" class="user-input" id="mediaLink" placeholder="Paste your media link here">
+    <button class="user-btn" id="input-play-btn" onclick="playMedia()">Play</button>
+<!-- Uswer Logo Input HTML -->
+<p class="inputheadingtxt logoinputheadingtxt"> Paste Your Logo Url.Your Logo will display on top right corner of the player.</p>
+    <input type="text" class="user-input" id="logoUrl" placeholder="Paste your logo URL here"> 
+    <div class="btn-inline-div">
+    <button class="user-btn" id="update-logo-btn" onclick="updateLogo()">Update Logo</button>
+    <button class="user-btn" id="remove-logo-btn" onclick="removeLogo()">Remove Logo</button>
+    </div>
+
+    <!-- Advanced Player Options -->
+    <div class="advanced-options">
+        <h4 class="inputheadingtxt">Advanced Player Options</h4>
+        <div class="option-row">
+            <div class="option-item">
+                <label for="autoplay-option">Autoplay</label>
+                <input type="checkbox" id="autoplay-option">
+            </div>
+            <div class="option-item">
+                <label for="loop-option">Loop Video</label>
+                <input type="checkbox" id="loop-option">
+            </div>
+            <div class="option-item">
+                <label for="volume-option">Initial Volume (%)</label>
+                <input type="number" id="volume-option" min="0" max="100" value="100">
+            </div>
+        </div>
+    </div>
+
+    <!-- Subtitle Input -->
+    <div class="subtitle-input">
+        <p class="inputheadingtxt">Add Subtitle File (Optional)</p>
+        <input type="text" class="user-input" id="subtitleUrl" placeholder="Paste subtitle file URL (.srt or .vtt)">
+        <button class="user-btn" id="add-subtitle-btn" onclick="addSubtitle()">Add Subtitle</button>
+    </div>
+
+    <!-- Embed Code Generator -->
+    <div class="embed-code-generator">
+        <h4 class="inputheadingtxt">Embed This Player On Your Website</h4>
+        <div class="embed-options">
+            <div class="embed-option">
+                <label for="embed-width">Width (px)</label>
+                <input type="number" id="embed-width" value="640" min="200" max="1920">
+            </div>
+            <div class="embed-option">
+                <label for="embed-height">Height (px)</label>
+                <input type="number" id="embed-height" value="360" min="200" max="1080">
+            </div>
+            <div class="embed-option">
+                <label for="responsive-embed">Responsive</label>
+                <input type="checkbox" id="responsive-embed" checked>
+            </div>
+        </div>
+        <button class="user-btn" id="generate-embed-btn" onclick="generateEmbedCode()">Generate Embed Code</button>
+        <div class="embed-code-display">
+            <textarea id="embed-code" readonly></textarea>
+            <button class="user-btn" id="copy-embed-btn" onclick="copyEmbedCode()">Copy Code</button>
+        </div>
+    </div>
+</div>
+
+    <!-- Player HTML-->
+    <div class="video-container" id="video-container">
+        <video id="video" src="" oncontextmenu="showContextMenu(event)"></video>
+              <!-- Logo element -->
+            <img src="C:\Users\Hamza\Downloads\TextToImage_19_20240413.jpeg" class="player-logo" id="videoLogo">
+                <!-- Context Menu -->
+               
+                    
+               
+                  <div id="context-menu">
+                    <ul>
+                      <li><span>&#8226;</span> AnyWebPlayer</li>
+                    </ul>
+                  </div>   
+
+        <script>
+//              https://cdn23lhr.tamashaweb.com:8087/jazzauth/ARYdigital-abr/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9Mi8xOC8yMDI0IDQ6MTE6MDcgUE0maGFzaF92YWx1ZT1wVGlhQmIrTkYreGdmWHlac242VVV3PT0mdmFsaWRtaW51dGVzPTE= 
+        </script>
+        <!--http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4 -->
+        <span class="custom-loader"></span>
+        <!-- Subtitle container -->
+        <div class="subtitle-container"></div>
+        <!-- Share options -->
+        <div class="share-options">
+            <div class="share-header">
+                <h3>Share Media</h3>
+                <span class="close-share">×</span>
+            </div>
+            <div class="share-buttons">
+                <button class="share-facebook"><ion-icon name="logo-facebook"></ion-icon> Facebook</button>
+                <button class="share-twitter"><ion-icon name="logo-twitter"></ion-icon> Twitter</button>
+                <button class="share-whatsapp"><ion-icon name="logo-whatsapp"></ion-icon> WhatsApp</button>
+                <button class="share-copy"><ion-icon name="copy-outline"></ion-icon> Copy Link</button>
+            </div>
+        </div>
+        <div class="player-state">
+            <span class="state-btn state-backward">
+                <ion-icon name="play-back-outline"></ion-icon>
+                <span class="backward-duration">5</span>
+            </span>
+            <span class="main-state state-btn">
+                <ion-icon name="play-outline"></ion-icon>
+            </span>
+            <span class="state-btn state-forward">
+                <span class="forward-duration">5</span>
+                <ion-icon name="play-forward-outline"></ion-icon>
+            </span>
+        </div>
+        <div class="controls">
+            <div class="duration">
+                <div class="current-time"></div>
+                <div class="hover-time">
+                    <span class="hover-duration"></span>
+                </div>
+                <div class="buffer"></div>
+            </div>
+            <div class="btn-controls">
+                <div class="btn-con">
+                    <span class="play-pause control-btn">
+                        <ion-icon name="play-outline"></ion-icon>
+                    </span>
+                    <span class="volume">
+                        <span class="mute-unmute control-btn">
+                            <ion-icon name="volume-high-outline"></ion-icon>
+                        </span>
+                        <div class="max-vol">
+                            <div class="current-vol"></div>
+                        </div>
+                    </span>
+                    <span class="time-container">
+                        <span class="current-duration">0:00</span>
+                        <span>/</span>
+                        <span class="total-duration">0:00</span>
+                    </span>
+                </div>
+                <div class="right-controls">
+                    <span class="backward control-btn" title="5 backward">
+                        <ion-icon name="play-back-outline"></ion-icon>
+                    </span>
+                    <span class="forward control-btn" title="5 forward">
+                        <ion-icon name="play-forward-outline"></ion-icon>
+                    </span>
+                    <span class="loop-btn control-btn" title="Loop video">
+                        <ion-icon name="repeat-outline"></ion-icon>
+                    </span>
+                    <span class="pip-btn control-btn" title="Picture in Picture">
+                        <ion-icon name="albums-outline"></ion-icon>
+                    </span>
+                    <span class="settings control-btn">
+                        <span class="setting-btn">
+                            <ion-icon name="options-outline"></ion-icon>
+                        </span>
+                        <ul class="setting-menu">
+                            <li class="menu-header">Playback Speed</li>
+                            <li data-value="0.25">0.25x</li>
+                            <li data-value="0.5">0.5x</li>
+                            <li data-value="0.75">0.75x</li>
+                            <li data-value="1" class="speed-active">1x</li>
+                            <li data-value="1.25">1.25x</li>
+                            <li data-value="1.5">1.5x</li>
+                            <li data-value="1.75">1.75x</li>
+                            <li data-value="2">2x</li>
+                            <li class="menu-header">Quality</li>
+                            <li class="quality-auto quality-active" data-quality="auto">Auto</li>
+                            <!-- Quality options will be populated dynamically -->
+                        </ul>
+                    </span>
+                    <span class="screenshot-btn control-btn" title="Take screenshot">
+                        <ion-icon name="camera-outline"></ion-icon>
+                    </span>
+                    <span class="share-btn control-btn" title="Share">
+                        <ion-icon name="share-social-outline"></ion-icon>
+                    </span>
+                    <span class="fullscreen-btn control-btn" title="fullscreen">
+                        <span class="full">
+                            <ion-icon name="scan-outline"></ion-icon>
+                        </span>
+                        <span class="contract">
+                            <ion-icon name="contract-outline"></ion-icon>
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <script src="..js/footer-loader.js"></script>
+<!-- Navigation loader -->
+    <script src="../js/nav-loader.js"></script>
+
+    <!-- Player Scripts -->
+    <script src="script.js"></script>
+    <script src="enhanced-player.js"></script>
+<script>
+    // Video.js script for hls/m3u files
+              // Set the default media link for demonstration
+              var defaultVideoSrc = "https://live-par-2-cdn-alt.livepush.io/live/bigbuckbunnyclip/index.m3u8";
+      
+        
+      // Initialize the video element
+      var video = document.getElementById('video');
+      var defaultVideoLoaded = false; // Flag to track if default video is loaded
+
+      // Function to play the media
+      function playMedia() {
+          // Get the media link from the input field
+          var mediaLink = document.getElementById('mediaLink').value;
+          // Check if the link is not empty
+          if (mediaLink.trim() !== '') {
+              loadMedia(mediaLink);
+          }else{
+            alert("Please paste media URL")
+          }
+      }
+  
+  /*===========New Load media testing */
+
+
+// Extract media URL from URL parameters
+const urlParams = new URLSearchParams(window.location.search);
+const mediaUrl = urlParams.get('media');
+
+  
+  function loadMedia(mediaSrc) {
+    // Check if the link is for MP3 file
+    if (mediaSrc.toLowerCase().endsWith('.mp3')) {
+        // Set the source directly to the video element for MP3 files
+        video.src = mediaSrc;
+      mediaSrc = mediaUrl;
+    } else {
+        // Handle other formats like M3U8, MP4, MKV
+        if (Hls.isSupported()) {
+            var hls = new Hls();
+            hls.loadSource(mediaSrc);
+            hls.attachMedia(video);
+            video.load();
+            video.play();
+          audio.play();
+             handleMediaSource(mediaSrc);
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = mediaSrc;
+            handleMediaSource(mediaSrc);
+          mediaSrc = mediaUrl;
+            
+        }
+    }
+}
+
+  
+  function handleMediaSource(mediaSrc) {
+    // Check if the media source is a live stream
+    var isLive = mediaSrc.toLowerCase().includes('m3u8') || mediaSrc.toLowerCase().includes('rtmp');
+    
+    // Get the live indicator element
+    var liveIndicator = document.querySelector('.live-indicator');
+
+    // If the media source is live, show the live indicator
+    if (isLive) {
+        liveIndicator.style.display = 'inline-block';
+    } else {
+        liveIndicator.style.display = 'none';
+    }
+}
+  /*
+      // Function to load media into the video element
+      function loadMedia(mediaSrc) {
+          // Check if HLS is supported
+          if (Hls.isSupported()) {
+              var hls = new Hls();
+              hls.loadSource(mediaSrc);
+              hls.attachMedia(video);
+              video.load();
+            video.play();
+          }
+          // HLS.js is not supported on platforms that do not have Media Source
+          // Extensions (MSE) enabled.
+          //
+          // When the browser has built-in HLS support (check using `canPlayType`),
+          // we can provide an HLS manifest (i.e. .m3u8 URL) directly to the video
+          // element through the `src` property. This is using the built-in support
+          // of the plain video element, without using HLS.js.
+          else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+              video.src = mediaSrc;
+          }
+      }
+*/
+      // Load default media when the page is loaded
+      window.onload = function() {
+          loadMedia(defaultVideoSrc);
+          defaultVideoLoaded = true;
+      };
+
+      // Check if default video is loaded, if not, load default video when user clicks play
+      function playDefaultVideoIfNeeded() {
+          if (!defaultVideoLoaded) {
+              loadMedia(defaultVideoSrc);
+              defaultVideoLoaded = true;
+          }
+      }
+
+    
+    </script>
+
+
+    <!-- Player Scripts -->
+    <script src="script.js"></script>
+    <script src="enhanced-player.js"></script>
+</body>
+
+</html>

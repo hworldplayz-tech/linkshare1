@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page not found - LinkShare">
+    
+    <!-- Favicon Implementation -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <title>404 - Page Not Found | LinkShare</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Adsense Script-->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8130991342525434"
+     crossorigin="anonymous"></script>
+    <style>
+        .error-container {
+            text-align: center;
+            padding: 4rem 1rem;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 2rem auto;
+            transition: var(--transition);
+        }
+        
+        .error-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+        
+        .error-message {
+            font-size: 2rem;
+            color: var(--text-color);
+            margin-bottom: 2rem;
+        }
+        
+        .error-description {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            background: var(--primary-color);
+            border-radius: 30px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .back-link:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+        }
+        
+        .error-icon {
+            font-size: 5rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Add skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+
+    <!-- 404 Error Content -->
+    <main id="main-content" class="container" role="main">
+        <div class="error-container">
+            <i class="fas fa-search error-icon"></i>
+            <div class="error-code">404</div>
+            <div class="error-message">Page Not Found</div>
+            <p class="error-description">The WhatsApp group link you're looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+            <a href="/" class="back-link">
+                <i class="fas fa-home"></i> Back to Homepage
+            </a>
+        </div>
+    </main>
+    <!-- Footer -->
+    <script src="js/footer-loader.js"></script>
+    <!-- Navbar -->     
+    <script src="/js/nav-loader.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

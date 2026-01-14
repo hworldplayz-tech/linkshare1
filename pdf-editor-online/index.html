@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PDF Editor Online — LinkShare</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- PDF.js (rendering), jsPDF (export) -->
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.16.347/build/pdf.min.js"></script>
+    <script>
+      // Normalize PDF.js to `window.pdfjsLib` and set worker to jsDelivr worker
+      (function(){
+        try {
+          window.pdfjsLib = window.pdfjsLib || window['pdfjs-dist/build/pdf'] || window['pdfjs-dist/build/pdf.js'] || window['pdfjs-dist'] || null;
+          if (window.pdfjsLib && window.pdfjsLib.GlobalWorkerOptions) {
+            window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@2.16.347/build/pdf.worker.min.js';
+          }
+          console.log('pdfjsLib available:', !!window.pdfjsLib);
+        } catch (e) {
+          console.warn('Could not normalize pdfjsLib', e);
+        }
+      })();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  </head>
+  <body>
+    <main class="page">
+      <header class="header">
+        <h1>PDF Editor Online</h1>
+        <p>Edit PDF pages in-browser: insert images, add text, draw, then export.</p>
+      </header>
+
+      <div class="toolbar">
+        <input id="pdfInput" type="file" accept="application/pdf" style="display:none">
+        <button id="openPdfBtn" class="btn">Open PDF</button>
+        <button id="insertImageBtn" class="btn" disabled>Insert Image</button>
+        <button id="addTextTool" class="btn" data-tool="text" disabled>Add Text</button>
+        <button id="drawTool" class="btn" data-tool="draw" disabled>Draw</button>
+        <div class="tool-spacer"></div>
+        <button id="downloadBtn" class="btn primary" disabled>Download Edited PDF</button>
+      </div>
+
+      <div class="editor-area">
+        <aside class="pages-list" id="pagesList">
+          <div class="placeholder">Open a PDF to see pages</div>
+        </aside>
+
+        <section class="canvas-stage">
+          <div id="pageContainer" class="page-container">
+            <!-- Rendered PDF canvases + Fabric overlays will be inserted here -->
+          </div>
+        </section>
+      </div>
+
+      <footer class="footer">Free, client-side. Pages never leave your browser.</footer>
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>

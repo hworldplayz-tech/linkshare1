@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkShare - URL Shortener</title>
+    <meta name="description" content="Create short, shareable links quickly and easily">
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-database-compat.js"></script>
+    
+    <style>
+        /* * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f3e7ff 0%, #e9edff 100%);
+            padding: 2rem;
+        }*/
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            color: #6b46c1;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .header p {
+            color: #4a5568;
+        }
+
+        .shortener-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #6b46c1;
+            box-shadow: 0 0 0 3px rgba(107, 70, 193, 0.2);
+        }
+
+        .custom-url {
+            display: flex;
+            align-items: center;
+        }
+
+        .custom-url span {
+            background: #f7fafc;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-right: none;
+            border-radius: 0.5rem 0 0 0.5rem;
+            color: #4a5568;
+        }
+
+        .custom-url input {
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            background: #6b46c1;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            background: #553c9a;
+        }
+
+        button:disabled {
+            background: #a0aec0;
+            cursor: not-allowed;
+        }
+
+        .result {
+            display: none;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 0.5rem;
+        }
+
+        .result.show {
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .short-url {
+            color: #6b46c1;
+            font-weight: 500;
+            word-break: break-all;
+        }
+
+        .copy-btn {
+            margin-top: 0.5rem;
+            background: #4a5568;
+        }
+
+        .copy-btn:hover {
+            background: #2d3748;
+        }
+
+        .error {
+            color: #e53e3e;
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .links-list {
+            margin-top: 2rem;
+        }
+
+        .link-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .link-item .original-url {
+            color: #4a5568;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+            word-break: break-all;
+        }
+
+        .link-item .short-url-display {
+            color: #6b46c1;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            word-break: break-all;
+        }
+
+        .link-item .stats {
+            font-size: 0.875rem;
+            color: #718096;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>LinkShare</h1>
+            <p>Create short, memorable links in seconds</p>
+        </div>
+
+        <div class="shortener-card">
+            <div class="input-group">
+                <label for="url">Enter your long URL</label>
+                <input type="url" id="url" placeholder="https://example.com/very-long-url">
+            </div>
+
+            <div class="input-group">
+                <label for="custom-alias">Custom alias (optional)</label>
+                <div class="custom-url">
+                    <span>linkshare.online/</span>
+                    <input type="text" id="custom-alias" placeholder="my-link">
+                </div>
+            </div>
+
+            <button id="shorten-btn">Create Short Link</button>
+
+            <div id="result" class="result">
+                <p>Your short link:</p>
+                <p class="short-url" id="short-url"></p>
+                <button class="copy-btn" id="copy-btn">Copy to Clipboard</button>
+            </div>
+
+            <p id="error" class="error"></p>
+        </div>
+
+        <div class="links-list" id="links-list"></div>
+    </div>
+
+    <script>
+        // Initialize Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyB1Nejcpv0jubaq85ufjZwll-k62aIjFuQ",
+            authDomain: "short-url-generator-9ab67.firebaseapp.com",
+            databaseURL: "https://short-url-generator-9ab67-default-rtdb.firebaseio.com",
+            projectId: "short-url-generator-9ab67",
+            storageBucket: "short-url-generator-9ab67.appspot.com",
+            messagingSenderId: "375644970022",
+            appId: "1:375644970022:web:be24008ed6f3a57a66dae7",
+            measurementId: "G-1Q7PCGD8TM"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // DOM Elements
+        const urlInput = document.getElementById('url');
+        const customAliasInput = document.getElementById('custom-alias');
+        const shortenBtn = document.getElementById('shorten-btn');
+        const result = document.getElementById('result');
+        const shortUrlDisplay = document.getElementById('short-url');
+        const copyBtn = document.getElementById('copy-btn');
+        const errorDisplay = document.getElementById('error');
+        const linksList = document.getElementById('links-list');
+
+        // Generate random ID
+        function generateId(length = 6) {
+            const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return result;
+        }
+
+        // Create short URL
+        async function createShortUrl() {
+            const url = urlInput.value.trim();
+            const customAlias = customAliasInput.value.trim();
+            
+            // Validate URL
+            try {
+                new URL(url);
+            } catch {
+                errorDisplay.textContent = 'Please enter a valid URL (include http:// or https://)';
+                return;
+            }
+
+            shortenBtn.disabled = true;
+            errorDisplay.textContent = '';
+
+            try {
+                const shortId = customAlias || generateId();
+                
+                // Check if custom alias is available
+                if (customAlias) {
+                    const snapshot = await database.ref(`links/${shortId}`).once('value');
+                    if (snapshot.exists()) {
+                        throw new Error('This custom alias is already taken');
+                    }
+                }
+
+                // Save to Firebase
+                await database.ref(`links/${shortId}`).set({
+                    originalUrl: url,
+                    shortUrl: `https://linkshare.online/${shortId}`,
+                    clicks: 0,
+                    createdAt: Date.now()
+                });
+
+                // Display result
+                const shortUrl = `https://linkshare.online/${shortId}`;
+                shortUrlDisplay.textContent = shortUrl;
+                result.classList.add('show');
+                
+                // Clear inputs
+                urlInput.value = '';
+                customAliasInput.value = '';
+                
+                // Refresh links list
+                loadLinks();
+            } catch (error) {
+                errorDisplay.textContent = error.message;
+            } finally {
+                shortenBtn.disabled = false;
+            }
+        }
+
+        // Copy to clipboard
+        async function copyToClipboard() {
+            try {
+                await navigator.clipboard.writeText(shortUrlDisplay.textContent);
+                copyBtn.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyBtn.textContent = 'Copy to Clipboard';
+                }, 2000);
+            } catch (error) {
+                errorDisplay.textContent = 'Failed to copy to clipboard';
+            }
+        }
+
+        // Load and display links
+        function loadLinks() {
+            database.ref('links').orderByChild('createdAt').limitToLast(10).on('value', (snapshot) => {
+                linksList.innerHTML = '';
+                const links = [];
+                
+                snapshot.forEach((childSnapshot) => {
+                    links.unshift({
+                        id: childSnapshot.key,
+                        ...childSnapshot.val()
+                    });
+                });
+
+                links.forEach(link => {
+                    const linkElement = document.createElement('div');
+                    linkElement.className = 'link-item';
+                    linkElement.innerHTML = `
+                        <p class="original-url">${link.originalUrl}</p>
+                        <p class="short-url-display">
+                            <a href="${link.shortUrl}" target="_blank">${link.shortUrl}</a>
+                        </p>
+                        <p class="stats">${link.clicks} clicks • ${new Date(link.createdAt).toLocaleDateString()}</p>
+                    `;
+                    linksList.appendChild(linkElement);
+                });
+            });
+        }
+
+        // Event listeners
+        shortenBtn.addEventListener('click', createShortUrl);
+        copyBtn.addEventListener('click', copyToClipboard);
+
+        // Load initial links
+        loadLinks();
+    </script>
+</body>
+</html>

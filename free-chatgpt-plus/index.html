@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get free access to ChatGPT Plus features. Learn how to activate premium ChatGPT features without paying for a subscription.">
+    <meta name="keywords" content="free ChatGPT Plus, ChatGPT premium, free AI tools, ChatGPT activation, AI assistant">
+    <meta name="author" content="LinkShare">
+    <meta property="og:title" content="Get Free ChatGPT Plus - LinkShare">
+    <meta property="og:description" content="Access premium ChatGPT features for free. Simple activation steps for advanced AI capabilities.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free ChatGPT Plus Access - LinkShare">
+    <meta name="twitter:description" content="Get free access to ChatGPT Plus features with our simple activation guide.">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    
+    <title>Get Free ChatGPT Plus - LinkShare</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Adsense Script-->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8130991342525434"
+     crossorigin="anonymous"></script>
+     
+    <style>
+        .chatgpt-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .chatgpt-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .chatgpt-header h1 {
+            color: #128C7E;
+            margin-bottom: 1rem;
+        }
+        
+        .chatgpt-header p {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .activate-btn {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .activate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+        }
+        
+        .activation-steps {
+            display: none;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-left: 4px solid #25D366;
+        }
+        
+        .activation-steps h3 {
+            color: #128C7E;
+            margin-bottom: 1rem;
+        }
+        
+        .activation-steps ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .activation-steps li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .activation-steps li:before {
+            content: "✓";
+            color: #25D366;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .copy-btn {
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 4px;
+            padding: 0.2rem 0.5rem;
+            margin-left: 0.5rem;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+        }
+        
+        .copy-btn:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .warning {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .warning p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .loader {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(37, 211, 102, 0.2);
+            border-radius: 50%;
+            border-top-color: #25D366;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .benefits {
+            margin-top: 3rem;
+        }
+        
+        .benefits h2 {
+            color: #128C7E;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .benefit-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: #25D366;
+            margin-bottom: 1rem;
+        }
+        
+        .benefit-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .faq-section {
+            margin-top: 3rem;
+        }
+        
+        .faq-section h2 {
+            color: #128C7E;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .faq-answer {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .chatgpt-container {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+     <!-- navbar -->
+        <script src="js/nav-loader.js"></script>
+</head>
+<body>
+  
+    <main class="container">
+        <div class="chatgpt-container">
+            <div class="chatgpt-header">
+                <h1>Get Free ChatGPT Plus Access</h1>
+                <p>Access premium AI features without paying for a subscription. Unlock GPT-4, DALL-E 3, and other advanced capabilities with our simple activation method.</p>
+            </div>
+            
+            <button id="activate-btn" class="activate-btn">Activate Free ChatGPT Plus</button>
+            
+            <div id="loading" class="loading">
+                <div class="loader"></div>
+                <p>Generating activation credentials...</p>
+            </div>
+            
+            <div id="activation-steps" class="activation-steps">
+                <h3>Steps to Activate Free ChatGPT Plus</h3>
+                <ul>
+                    <li>Visit chatgpt.com and click Log in.</li>
+                    <li>Sign in with the credentials below:
+                        <br>Email ➜ oxaamcgn265@oxaam.com <button class="copy-btn" data-copy="oxaamcgn265@oxaam.com"><i class="fas fa-copy"></i></button>
+                        <br>Password ➜ oxaam1082766 <button class="copy-btn" data-copy="oxaam1082766"><i class="fas fa-copy"></i></button>
+
+                        <br>Email ➜ oxaamcgn266@oxaam.com <button class="copy-btn" data-copy="oxaamcgn266@oxaam.com"><i class="fas fa-copy"></i></button>
+                        <br>Password ➜ oxaam4213519<button class="copy-btn" data-copy="oxaam4213519"><i class="fas fa-copy"></i></button>
+                    </li>
+                    <li style="overflow: auto;">If a verification code is requested, use the link below.
+                        <br><a href="https://www.oxaam.com/cgcode2.php" target="_blank" style="font-size: 10px;">https://www.oxaam.com/cgcode2.php</a> <button class="copy-btn" data-copy="https://www.oxaam.com/cgcode2.php"><i class="fas fa-copy"></i></button>
+                    </li>
+                </ul>
+                
+                <div class="warning">
+                    <p>⚠️ After logging in, select the oxaam.com workspace to enable premium features.</p>
+                    <p>⚠️ This is a public account; occasional hiccups are normal.</p>
+                    <p>⚠️ Do not invite anyone, otherwise your Oxaam account may be banned.</p>
+                    <p>⚠️ If the credentials or link don't work, check back in a few hours—new accounts are added hourly.</p>
+                </div>
+            </div>
+            
+            <div class="benefits">
+                <h2>Benefits of ChatGPT Plus</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-bolt"></i></div>
+                        <div class="benefit-title">GPT-4 Access</div>
+                        <p>Experience the most advanced AI model with improved reasoning and problem-solving capabilities.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-image"></i></div>
+                        <div class="benefit-title">DALL-E 3 Integration</div>
+                        <p>Generate stunning, high-quality images from text descriptions with incredible detail.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <div class="benefit-title">Faster Response Times</div>
+                        <p>Get priority access during peak times with significantly reduced waiting periods.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-plug"></i></div>
+                        <div class="benefit-title">Plugin Access</div>
+                        <p>Use third-party plugins to enhance ChatGPT's capabilities for specific tasks and workflows.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Is this method legal and safe?</div>
+                    <div class="faq-answer">Yes, this method simply provides access to shared accounts that already have premium features enabled. There's no hacking or illegal activity involved. However, as these are shared accounts, we recommend not using them for sensitive or personal information.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Why are the credentials sometimes not working?</div>
+                    <div class="faq-answer">Since these are shared accounts, they may occasionally reach usage limits or be temporarily locked due to suspicious activity. If you encounter issues, simply try again later or check back for updated credentials.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How often are new accounts added?</div>
+                    <div class="faq-answer">New accounts are added regularly, typically every few hours. If you're unable to access with the current credentials, check back later for updates.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Can I use this for commercial purposes?</div>
+                    <div class="faq-answer">While the access method is provided for educational and personal use, we recommend subscribing to an official ChatGPT Plus account for commercial or professional applications to ensure reliability and compliance with OpenAI's terms of service.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How do I get the most out of ChatGPT Plus features?</div>
+                    <div class="faq-answer">To maximize your experience, explore the different models available (like GPT-4), try using plugins for specialized tasks, experiment with DALL-E for image generation, and learn effective prompting techniques to get better results from the AI.</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+   <script>         
+            // Activate button functionality
+            const activateBtn = document.getElementById('activate-btn');
+            const loadingDiv = document.getElementById('loading');
+            const activationSteps = document.getElementById('activation-steps');
+            
+            activateBtn.addEventListener('click', function() {
+                // Show loading animation
+                activateBtn.style.display = 'none';
+                loadingDiv.style.display = 'block';
+                
+                // Simulate loading (3 seconds)
+                setTimeout(function() {
+                    loadingDiv.style.display = 'none';
+                    activationSteps.style.display = 'block';
+                }, 3000);
+            });
+            
+            // Copy button functionality
+            const copyButtons = document.querySelectorAll('.copy-btn');
+            
+            copyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const textToCopy = this.getAttribute('data-copy');
+                    
+                    // Create temporary textarea element
+                    const textarea = document.createElement('textarea');
+                    textarea.value = textToCopy;
+                    document.body.appendChild(textarea);
+                    
+                    // Select and copy text
+                    textarea.select();
+                    document.execCommand('copy');
+                    
+                    // Remove temporary element
+                    document.body.removeChild(textarea);
+                    
+                    // Change button text temporarily
+                    const originalHTML = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-check"></i>';
+                    
+                    setTimeout(() => {
+                        this.innerHTML = originalHTML;
+                    }, 2000);
+                });
+            });
+    
+    </script>
+    <!-- Footer -->
+    <script src="js/footer-loader.js"></script>
+
+
+        <script src="js/main.js"></script>
+</body>
+</html>

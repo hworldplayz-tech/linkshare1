@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LinkShare - Share and discover WhatsApp group links. Join communities based on your interests, connect with like-minded people, and explore trending groups worldwide.">
+    <meta name="keywords" content="LinkShare, WhatsApp groups, WhatsApp community, group links, join WhatsApp groups links, share WhatsApp groups links">
+    <meta name="author" content="LinkShare">
+    <meta property="og:title" content="LinkShare - Promote WhatsApp Your Group Links Directory">
+    <meta property="og:description" content="Discover and Promote WhatsApp Your Group Links. Join communities based on your interests and connect with people worldwide.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.linkshare.online/linkshare-favicon.png">
+    <meta property="og:url" content="https://www.linkshare.online/add-group/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LinkShare - Promote WhatsApp Your Group Links Directory">
+    <meta name="twitter:description" content="Discover and share WhatsApp groups links. Join communities based on your interests and connect with people worldwide.">
+    <meta name="twitter:image" content="https://www.linkshare.online/linkshare-favicon.png">
+    
+    <!-- Favicon Implementation -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <title>LinkShare - Add Your Whatsapp Group Link</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Adsense Script-->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8130991342525434"
+     crossorigin="anonymous"></script>
+      <!-- navbar -->
+        <script src="js/nav-loader.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="https://www.linkshare.online/" class="nav-brand">
+            <img src="/linkshare-favicon.png" class="logo" alt="LinkShare Logo">           
+            <span class="nav-brand-link-text">LinkShare</span>
+        </a>
+    
+        <button class="nav-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    
+        <ul class="nav-links">
+            <li><a href="https://www.linkshare.online/" >Home</a></li>
+            <li><a href="/add-group" class="active">Add Group</a></li>
+            <li class="nav-dropdown">
+                <a href="#" class="dropbtn"> 🔥 Pro Unlocked  ▾</a>
+                <ul class="nav-dropdown-content">
+                    <li><a href="/tiktok-live">TikTok Live</a></li>
+                    <li><a href="/capcut-pro">CapCut Pro</a></li>
+                    <li><a href="/moviebox-premium">MovieBox Premium</a></li>
+                    <li><a href="/free-chatgpt-plus">Free ChatGPT Plus</a></li>
+                </ul>
+            </li>
+            <li class="nav-dropdown"><a href="#" class="dropbtn">Tools ▾</a>
+                <ul class="nav-dropdown-content">
+                    <li><a href="/pdf-merger">Free Pdf Merger</a></li>
+                    <li><a href="/stylish-text-generator" >Stylish Text Generator</a></li>
+                    <li><a href="/qr-code-generator" >QR Code Generator</a></li>
+                    <li><a href="/qr-code-reader" >QR Code Scanner/Reader</a></li>
+                    <li><a href="/short-url-generator">Short URL Generator</a></li>
+                    <li><a href="/m3u-playlist-viewer">M3U Playlist viewer</a></li>
+                    <li><a href="/document-converter">Document Converter</a></li>
+                    <li><a href="/math-problem-solver">Math Problem Solver</a></li>
+                </ul>
+            </li>
+            <li class="nav-dropdown">
+                <a href="#" class="dropbtn">Blog ▾</a>
+                <ul class="nav-dropdown-content">
+                    <li><a href="/new-tools-update">New Tools Updates</a></li>
+                    <li><a href="/usa-whatsapp-group-links" >USA WhatsApp Group Links</a></li>
+                    <li><a href="/active-pakistani-whatsapp-group-links">Pakistani WhatsApp Group Links</a></li>
+                    <li><a href="/indian-whatsapp-group-links" >Indian WhatsApp Group Links</a></li>
+                    <li><a href="/how-to-join-whatsapp-groups">How to Join WhatsApp Group</a></li>
+                </ul>
+            </li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact" >Contact</a></li>
+            <li><a href="/privacy" >Privacy</a></li>
+            <li><a href="/terms" >Terms</a></li>
+            
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section class="submit-section">
+            <h2>Submit Your WhatsApp Group</h2>
+            <form id="groupForm" class="group-form">
+                <div class="form-group">
+                    <input type="text" id="groupTitle" placeholder="Group Title" required>
+                    <span class="validation-feedback"></span>
+                </div>
+                
+                <div class="form-group">
+                    <input type="text" id="groupLink" placeholder="Paste group link here" required>
+                    <div id="preview" class="link-preview">
+                        <p class="preview-tip">Paste a WhatsApp group link to see a preview</p>
+                    </div>
+                    <input type="hidden" id="groupImageUrl" name="groupImageUrl">
+                    <span class="validation-feedback"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="upload-label">Custom Group Image (Required)</label>
+                    <div class="image-upload-container">
+                        <input type="file" id="groupImage" name="group_image" accept="image/*" class="image-input" required>
+                        <div class="image-upload-preview" id="imagePreview">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Click to upload custom group image<br><small>JPG, PNG, GIF up to 5MB</small></p>
+                        </div>
+                    </div>
+                    <small class="upload-hint">Custom image upload is required since auto-extraction is disabled</small>
+                </div>
+
+                <div class="form-group">
+                    <select id="groupCategory" required>
+                        <option value="">Select Topic Category</option>
+                        <!-- Entertainment -->
+                        <option value="Adult">Adult/18+</option>
+                        <option value="Movies">Movies & TV Shows</option>
+                        <option value="Dramas">Dramas & Series</option>
+                        <option value="Music">Music & Audio</option>
+                        <option value="Gaming">Gaming</option>
+                        <option value="Sports">Sports</option>
+
+                        <!-- Education & Professional -->
+                        <option value="Education">Education</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Science">Science</option>
+                        <option value="Business">Business</option>
+                        <option value="Jobs">Jobs & Career</option>
+
+                        <!-- News & Current Affairs -->
+                        <option value="News">News & Media</option>
+                        <option value="Politics">Politics</option>
+                        <option value="Lifestyle">Lifestyle</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <select id="groupCountry" required>
+                        <option value="">Select Country</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Bangladesh">Bangladesh</option>
+                        <option value="Canada">Canada</option>
+                        <option value="India">India</option>
+                        <option value="Indonesia">Indonesia</option>
+                        <option value="Malaysia">Malaysia</option>
+                        <option value="Pakistan">Pakistan</option>
+                        <option value="Philippines">Philippines</option>
+                        <option value="Singapore">Singapore</option>
+                        <option value="UAE">UAE</option>
+                        <option value="UK">United Kingdom</option>
+                        <option value="USA">United States</option>
+                        <option value="Other">Other Countries</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <textarea id="groupDescription" placeholder="Enter a short description" required></textarea>
+                    <span class="validation-feedback"></span>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <span class="btn-text">Submit Group</span>
+                    <span class="loading-spinner"></span>
+                </button>
+            </form>
+        </section>
+   
+        </section>
+    </main>
+
+  <script src="../js/footer-loader.js"></script>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+    
+    <!-- Our Scripts -->
+    <script src="/js/firebase-config.js"></script>
+    <script src="/js/advanced-metadata-extractor.js"></script>
+    <script src="/js/whatsapp-metadata-extractor.js"></script>
+    <script src="/js/enhanced-preview.js"></script>
+    <script src="/js/image-upload-handler.js"></script>
+    <script src="/js/form-handler.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

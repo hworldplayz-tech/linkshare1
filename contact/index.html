@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact LinkShare - Get in touch with our team for any questions about WhatsApp group sharing, support, or feedback. We're here to help you connect with the right communities.">
+    <meta name="keywords" content="LinkShare contact, WhatsApp groups support, contact form, customer service, group sharing help">
+    <meta name="author" content="LinkShare">
+    <meta property="og:title" content="Contact Us - LinkShare">
+    <meta property="og:description" content="Need help with WhatsApp group sharing? Contact LinkShare's support team for assistance and quick responses.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact Us - LinkShare">
+    <meta name="twitter:description" content="Get in touch with LinkShare for any questions about WhatsApp group sharing.">
+    <link rel="icon" type="image/png" href="favicon-96x96.png"  sizes="96x96" />
+<title>Contact Us - LinkShare</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+ <!-- navbar -->
+        <script src="js/nav-loader.js"></script>
+</head>
+<body>
+   
+
+    <main class="page-container">
+        <div class="page-header">
+            <h1 class="page-header-h1">Contact Us</h1>
+            <p class="page-header-p">Get in touch with us for any questions or support</p>
+        </div>
+        <div class="content-section">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Contact Information</h2>
+                    <p>Have questions or need assistance? We're here to help!</p>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> Email: syedhamzaalinaqvi4@gmail.com</li>
+                        <li><i class="fas fa-clock"></i> Response Time: Within 24 hours</li>
+                    </ul>
+                </div>
+
+                <div class="contact-form">
+                    <h2>Send us a Message</h2>
+                    <form id="contactForm" action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="page-btn submit-btn">
+                        <span class="btn-text">Send Message</span>
+                        <span class="loading-spinner" style="display: none;"><i class="fas fa-spinner fa-spin"></i></span>
+                    </button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <script src="js/footer-loader.js"></script>
+    <!--        // Initialize EmailJS with your public key -->
+    <script>
+        // Initialize EmailJS with your public key
+        (function() {
+            emailjs.init("HqfPvAECrychv8JIh");
+        })();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Contact form handling
+            const contactForm = document.getElementById('contactForm');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    const submitBtn = contactForm.querySelector('.submit-btn');
+                    const btnText = submitBtn.querySelector('.btn-text');
+                    const spinner = submitBtn.querySelector('.loading-spinner');
+                    
+                    try {
+                        // Show spinner and hide text
+                        btnText.style.display = 'none';
+                        spinner.style.display = 'inline-block';
+                        submitBtn.disabled = true;
+                        
+                        // Get form data
+                        const formData = {
+                            from_name: document.getElementById('name').value,
+                            from_email: document.getElementById('email').value,
+                            subject: document.getElementById('subject').value,
+                            message: document.getElementById('message').value
+                        };
+                        
+                        console.log('Sending email with data:', formData);
+                        
+                        // Send email using EmailJS
+                        const response = await emailjs.send('service_g73xunh', 'template_tge0hum', formData);
+                        console.log('Email sent successfully:', response);
+                        
+                        // Show success message
+                        alert('Message sent successfully! We will get back to you soon.');
+                        contactForm.reset();
+                    } catch (error) {
+                        console.error('Error sending email:', error);
+                        alert('Error sending message. Please try again later.');
+                    } finally {
+                        // Hide spinner and show text
+                        btnText.style.display = 'block';
+                        spinner.style.display = 'none';
+                        submitBtn.disabled = false;
+                    }
+                });
+                
+                console.log('Contact form handler attached successfully');
+            } else {
+                console.error('Contact form element not found');
+            }
+        });
+
+    </script>
+</body>
+</html>

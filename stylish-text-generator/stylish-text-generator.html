@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stylish Text Generator for LinkShare - Learn Understand How to Generate Stylish Text Name and Share on WhatsApp and Other Social Media using LinkShare LinkShare for WhatsApp group sharing.">
+    <meta name="keywords" content="LinkShare Stylish Text Generator, Stylish Name Generator for WhatsApp groups, Cool text Generator, Stylish Message Generator , Stylish text for group sharing">
+    <meta name="author" content="LinkShare">
+    <meta property="og:title" content="Cool Stylish Text Generator for Whatsapp - LinkShare">
+    <meta property="og:description" content="Learn How to Generate Stylish Text Name and Share on WhatsApp and Other Social Media using LinkShare LinkShare for WhatsApp group sharing.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cool Stylish Text Generator for Whatsapp - LinkShare">
+    <meta name="twitter:description" content="Understand How to Generate Stylish Text Name and Share on WhatsApp and Other Social Media - LinkShare">
+    <link rel="icon" type="image/x-icon" href="favicon-96x96.png" sizes="96x96">
+    <title>Cool Stylish Text Generator for Whatsapp - LinkShare</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<style>
+
+.stylish-text-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 20px;
+      /*box-shadow: 0 20px 40px rgba(0,0,0,0.1);*/
+      text-align: center;
+    }
+  
+    .stylish-text-h1 {
+      font-size: 2.5rem;
+      color: #3f3f3f;
+      margin-bottom: 25px;
+      background: linear-gradient(to right, #128C7E, #25D366);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  
+    #inputText {
+      width: 80%;
+      padding: 14px 20px;
+      font-size: 18px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      margin-bottom: 30px;
+      transition: 0.3s;
+    }
+  
+    #inputText:focus {
+      border-color: #007bff;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+    }
+  
+    .output-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 10px;
+    }
+  
+    .style-box {
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+      position: relative;
+      transition: transform 0.3s ease;
+      text-align: left;
+      word-break: break-word;
+    }
+  
+    .style-box:hover {
+      transform: translateY(-5px);
+    }
+  
+    .style-box strong {
+      font-size: 1.1rem;
+      color: #555;
+      display: block;
+      margin-bottom: 10px;
+    }
+  
+    .copy-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: linear-gradient(45deg, #128C7E, #25D366);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+  
+    .copy-btn:hover {
+      background: linear-gradient(45deg, #25D366, #128C7E);
+    }
+
+  .generate-btn {
+    width: max-content;
+    margin: 0 auto 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background: linear-gradient(135deg, #ff6ec4, #7873f5);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease;
+  }
+
+  .generate-btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #f857a6, #ff5858);
+  }
+
+  .show-more-btn {
+    width: max-content;
+    margin: 20px auto;
+    padding: 10px 25px;
+    font-size: 16px;
+    background: linear-gradient(135deg, #7873f5, #ff6ec4);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease;
+    display: none;
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin: 40px auto;
+    width: fit-content;
+    min-width: 200px;
+    text-align: center;
+}
+
+.show-more-btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #6863e5, #ef5eb4);
+}
+
+.page-header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    margin-bottom: 30px;
+}
+
+.page-header h1 {
+    font-size: 2.8rem;
+    background: linear-gradient(45deg, #128C7E, #25D366);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
+}
+
+.input-container {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+#inputText {
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 15px 25px;
+    border-radius: 15px;
+    border: 2px solid transparent;
+    background: rgba(255,255,255,0.9);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 0.5px solid #ccc;
+    transition: all 0.3s ease;
+}
+
+.show-more-btn {
+    background: linear-gradient(45deg, #128C7E, #25D366);
+    width: auto;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin: 40px auto;
+}
+
+.show-more-btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #25D366, #128C7E);
+}
+
+.show-more-btn:active {
+    transform: translateY(1px);
+}
+
+.show-more-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s;
+}
+
+.show-more-btn:active::after {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+}
+
+.copy-btn {
+    background: linear-gradient(45deg, #128C7E, #25D366);
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+    background: linear-gradient(45deg, #25D366, #128C7E);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255,65,108,0.3);
+}
+
+.copy-btn:active {
+    transform: translateY(0);
+}
+
+@media screen and (max-width: 768px) {
+    .stylish-text-h1 {
+        font-size: 1.8rem;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .navbar {
+        padding: 1rem;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: left;
+        padding: 10px 20px;
+    }
+
+    .nav-dropdown-content {
+        position: static;
+        display: none;
+        box-shadow: none;
+        padding-left: 20px;
+    }
+
+    .nav-dropdown.active .nav-dropdown-content {
+        display: block;
+    }
+}
+
+</style>
+
+<body>
+    <nav class="navbar">
+        <a href="https://www.linkshare.online/" class="nav-brand">
+            <img src="/linkshare-favicon.png" class="logo" alt="LinkShare Logo">
+            <span class="nav-brand-link-text">LinkShare</span>
+        </a>
+        <button class="nav-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links">
+            <li><a href="https://www.linkshare.online/">Home</a></li>
+            <li><a href="/add-group">Add Group</a></li>
+            <li class="nav-dropdown"><a href="#" class="dropbtn">Tools ▾</a>
+                <ul class="nav-dropdown-content">
+                    <li><a href="/stylish-text-generator">Stylish Text Generator</a></li>
+                </ul>
+            </li>
+            <li class="nav-dropdown">
+                <a href="#" class="dropbtn">Blog ▾</a>
+                <ul class="nav-dropdown-content">
+                    <li><a href="/Psl-live">🔴PSL Live</a></li>
+                    <li><a href="/usa-whatsapp-group-links">USA WhatsApp Group Links</a></li>
+                    <li><a href="/active-pakistani-whatsapp-group-links">Pakistani WhatsApp Group Links</a></li>
+                    <li><a href="/indian-whatsapp-group-links">Indian WhatsApp Group Links</a></li>
+                    <li><a href="/how-to-join-whatsapp-groups">How to Join WhatsApp Group</a></li>
+                </ul>
+            </li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/privacy" class="active">Privacy</a></li>
+            <li><a href="/terms">Terms</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-container">
+    <div class="page-header">
+        <h1>Generate Stylish Text</h1>
+        <p>Create and Share Beautiful Text Styles for WhatsApp and Social Media</p>
+    </div>
+    <div class="content-section">
+        <div class="stylish-text-container">
+           <h1> 🖋️ <span class="stylish-text-h1">Stylish Text Generator </span>🔥</h1>
+            <div class="input-container"></div>
+                <input type="text" id="inputTextGenerator" placeholder="Type something cool...">
+            </div>
+            
+            <p>✨ Transform your text into various styles and colors! ✨</p>
+                <p>💡 Click on the "Copy" button to copy the text to your clipboard! 💡</p>
+                <p>🎨 Explore different styles like Strikethrough, Fancy Script, Glitch, Small Caps, Bold Box, Symbolic, Crazy Fire, and more! 🎨</p>
+                <div class="output-container" id="output"></div>
+            </div>
+
+            <div class="instructions">
+                <h2>How to Use</h2>
+                <p>1. Enter the text you want to style in the input box.</p>
+                <p>2. Click the "Generate" button to create stylish text.</p>
+                <p>3. Copy the generated text and share it on WhatsApp or any other social media platform.</p>
+                <p>4. Enjoy your stylish text!</p>
+            </div>
+            <div class="social-media"></div>
+                <h2>Share Your Stylish Text</h2>
+                <p>Share your stylish text on WhatsApp and other social media platforms!</p>
+
+                <h2>Note</h2>
+                <p>This tool is designed to help you create stylish text for WhatsApp groups and other social media platforms. It is not affiliated with WhatsApp or any other social media service.</p>
+                <p>For any issues or feedback, please contact us through our <a href="/contact">Contact Page</a>.</p>
+            
+        </div>
+        </div>
+    
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="logo-container">
+                    <img src="/linkshare-favicon.png" alt="LinkShare Logo" class="logo">
+                    <h3>LinkShare</h3>
+                </div>
+                <div class="footer-tagline">
+                    <p>Share and discover amazing WhatsApp groups links</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/privacy">Privacy</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 LinkShare. All rights reserved.</p>
+        </div>
+    </footer>
+    <button class="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/stylishtext.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const dropdowns = document.querySelectorAll('.nav-dropdown');
+    
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    
+        dropdowns.forEach(dropdown => {
+            const dropButton = dropdown.querySelector('.dropbtn');
+            dropButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+                
+                // Close other dropdowns
+                dropdowns.forEach(otherDropdown => {
+                    if (otherDropdown !== dropdown) {
+                        otherDropdown.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-dropdown')) {
+                dropdowns.forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        });
+    });
+    </script>
+</body>
+</html>

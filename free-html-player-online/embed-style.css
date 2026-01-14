@@ -1,0 +1,375 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background: transparent;
+  overflow: hidden;
+}
+
+.video-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  color: #fff;
+  overflow: hidden;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.custom-loader {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border-top: 5px solid transparent;
+  border-right: 5px solid #ffffff;
+  border-left: 5px solid #ffffff;
+  border-bottom: 5px solid #ffffff;
+  z-index: 9999;
+  animation: rotation 2s infinite ease;
+  -webkit-animation: rotation 2s infinite ease;
+  display: none;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.player-state {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.state-btn {
+  font-size: 2.3rem;
+  background: rgba(0, 0, 0, 0.5);
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.state-forward,
+.state-backward {
+  font-size: 1.8rem;
+}
+
+.forward-duration,
+.backward-duration {
+  position: absolute;
+  font-size: 0.8rem;
+}
+
+.forward-duration {
+  left: 30%;
+}
+
+.backward-duration {
+  right: 30%;
+}
+
+.controls {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding: 0 1rem;
+  padding-bottom: 1rem;
+  transform: translateY(100%);
+  transition: all 0.2s ease;
+}
+
+.video-container:hover .controls {
+  transform: translateY(0);
+}
+
+.duration {
+  width: 100%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.current-time {
+  position: absolute;
+  height: 100%;
+  background: #ff6a00;
+  left: 0;
+  top: 0;
+  width: 0%;
+}
+
+.buffer {
+  position: absolute;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  left: 0;
+  top: 0;
+  width: 0%;
+}
+
+.hover-time {
+  position: absolute;
+  height: 20px;
+  width: 60px;
+  background: rgba(0, 0, 0, 0.7);
+  top: -25px;
+  transform: translateX(-50%);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.btn-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-con {
+  display: flex;
+  align-items: center;
+}
+
+.control-btn {
+  margin-right: 0.8rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.volume {
+  display: flex;
+  align-items: center;
+}
+
+.max-vol {
+  width: 0px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  margin-right: 0;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.volume:hover .max-vol {
+  width: 80px;
+  margin-right: 0.8rem;
+}
+
+.current-vol {
+  position: absolute;
+  height: 100%;
+  background: #fff;
+  left: 0;
+  top: 0;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.time-container {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.player-logo {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  border-radius: 50%;
+}
+
+#context-menu {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 5px 0;
+  z-index: 1001;
+}
+
+#context-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#context-menu ul li {
+  padding: 10px;
+  cursor: pointer;
+  color: #333;
+}
+
+#context-menu ul li:hover {
+  background-color: #f0f0f0;
+}
+
+#context-menu ul li span {
+  margin-right: 5px;
+}
+
+/* Settings menu */
+.setting-menu {
+  position: absolute;
+  bottom: 40px;
+  right: 0;
+  background: rgba(28, 28, 28, 0.9);
+  border-radius: 5px;
+  padding: 0.5rem 0;
+  display: none;
+  list-style: none;
+  min-width: 150px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.setting-menu li {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.setting-menu li:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.menu-header {
+  font-weight: bold;
+  color: #ff6a00;
+  cursor: default;
+}
+
+.menu-header:hover {
+  background: none;
+}
+
+.speed-active, .quality-active, .subtitle-active, .audio-active {
+  color: #ff6a00;
+}
+
+/* Subtitle container */
+.subtitle-container {
+  position: absolute;
+  bottom: 70px;
+  width: 100%;
+  text-align: center;
+  padding: 0 20%;
+  font-size: 1.2rem;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Share options */
+.share-options {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(28, 28, 28, 0.9);
+  border-radius: 5px;
+  padding: 1rem;
+  display: none;
+  width: 300px;
+  z-index: 1002;
+}
+
+.share-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.close-share {
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.share-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.share-buttons button {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  background: #333;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.share-buttons button ion-icon {
+  margin-right: 0.3rem;
+}
+
+.share-facebook {
+  background: #3b5998 !important;
+}
+
+.share-twitter {
+  background: #1da1f2 !important;
+}
+
+.share-whatsapp {
+  background: #25d366 !important;
+}
+
+.share-copy {
+  background: #555 !important;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .control-btn {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+  }
+  
+  .time-container {
+    font-size: 0.7rem;
+  }
+  
+  .state-btn {
+    font-size: 1.8rem;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .subtitle-container {
+    font-size: 1rem;
+    padding: 0 10%;
+  }
+}

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free M3U Playlist Reader - Analyze, filter and extract channels from M3U/M3U8 playlists. Find channels by country, group, or name.">
+  <meta name="keywords" content="M3U reader, M3U8 playlist, IPTV channels, playlist analyzer, channel filter">
+  <meta name="author" content="LinkShare">
+  <meta property="og:title" content="M3U Playlist Reader - Analyze & Filter Channels | LinkShare">
+  <meta property="og:description" content="Free M3U Playlist Reader - Analyze, filter and extract channels from M3U/M3U8 playlists. Find channels by country, group, or name.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.linkshare.online/linkshare-favicon.png">
+  <meta property="og:url" content="https://www.linkshare.online/m3u-playlist-reader.html">
+  
+  <!-- Favicon Implementation -->
+  <link rel="icon" type="image/x-icon" href="/favicon-96x96.png" >
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+  <title>M3U Playlist Reader - Analyze & Filter Channels | LinkShare</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/m3u-playlist-viewer.css">
+  <style>
+    .url-text {
+      font-size: 0.8rem;
+      color: #6c757d;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 70%;
+      display: inline-block;
+    }
+    
+    /* User Guide Styles */
+    .user-guide-container {
+      background-color: white;
+      border-radius: 10px;
+      
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .guide-section {
+      margin-bottom: 2rem;
+    }
+    
+    .guide-section h3 {
+      color: #128C7E;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .guide-section p, 
+    .guide-section li {
+      color: #333;
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
+    }
+    
+    .guide-section ul,
+    .guide-section ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .guide-section strong {
+      color: #128C7E;
+    }
+    
+    @media (max-width: 768px) {
+      .guide-section h3 {
+        font-size: 1.1rem;
+      }
+      
+      .guide-section p, 
+      .guide-section li {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+  <!-- navbar -->
+        <script src="js/nav-loader.js"></script>
+        <!-- adsense script-->
+        <script           async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8130991342525434"
+            crossorigin="anonymous"
+        ></script>
+</head>
+<body>
+  <!-- Add skip link for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+   <div class="main-container">
+    <header class="page-header">
+        <h1 class="page-header-h1">M3U Playlist Reader</h1>
+        <p class="page-header-p">Analyze, filter and extract channels from M3U/M3U8 playlists</p>
+    </header>
+    <div class="content-section">
+     
+  <main id="main-content" class="container" role="main" style="/*max-width: 1200px; margin: 0 auto; padding: 0 1rem;*/">
+     <!-- <div class="tool-container" style="background-color: white; border-radius: 10px; box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); padding: 2rem; margin-bottom: 2rem;"> -->
+      <h1 style="color: #075E54;">M3U Playlist Viewer 🔍</h1>
+      
+      <div>
+        <input type="url" id="m3uUrl" placeholder="Paste your M3U or M3U8 URL here..." />
+        <div class="example-url">
+          Example: <a href="#" onclick="document.getElementById('m3uUrl').value='https://iptv-org.github.io/iptv/index.m3u'; return false;">https://iptv-org.github.io/iptv/index.m3u</a> (Free IPTV sample)
+        </div>
+      </div>
+      
+      <p style="text-align: center; margin: 10px 0;">OR</p>
+      
+      <input type="file" id="fileInput" accept=".m3u,.m3u8" />
+      <button onclick="handlePlaylist()">Analyze Playlist</button>
+      
+      <div class="topbar">
+        <span id="channelCount">Count/Total: 0</span>
+        <div>
+          <button onclick="copyAll()">📋 Copy All</button>
+          <button onclick="clearResults()" style="background-color: #ff5555;">❌ Clear</button>
+        </div>
+      </div>
+      
+      <div class="filter-container">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search channels..." oninput="filterChannels()"/>
+          <button onclick="filterChannels()" style="background-color: #34B7F1;">🔍 Search</button>
+        </div>
+        
+        <div class="filter-options">
+          <select id="sortOrder" onchange="filterChannels()">
+            <option value="default">Default Order</option>
+            <option value="nameAsc">Name (A-Z)</option>
+            <option value="nameDesc">Name (Z-A)</option>
+          </select>
+          
+          <select id="countryFilter" onchange="filterChannels()">
+            <option value="">All Countries</option>
+            <!-- Countries will be populated dynamically -->
+          </select>
+          
+          <select id="groupFilter" onchange="filterChannels()">
+            <option value="">All Groups</option>
+            <!-- Groups will be populated dynamically -->
+          </select>
+        </div>
+      </div>
+      
+      <div id="results" class="results"></div>
+    
+    
+    
+  </main>
+    <!-- User Guide Section -->
+    <div class="user-guide-container" style="background-color: white; border-radius: 10px; padding: 2rem; margin-bottom: 2rem;">
+      <h2 style="color: #128C7E; margin-bottom: 1.5rem; text-align: center;">📋 M3U Playlist Reader User Guide</h2>
+      
+      <div class="guide-section">
+        <h3><i class="fas fa-info-circle"></i> What is an M3U Playlist?</h3>
+        <p>M3U is a file format that contains multimedia playlists. It's commonly used for IPTV services to organize and list TV channels, radio stations, and other media content. M3U files typically have the extension .m3u or .m3u8.</p>
+      </div>
+      
+      <div class="guide-section">
+        <h3><i class="fas fa-cogs"></i> How to Use This Tool</h3>
+        <ol>
+          <li><strong>Input Your Playlist:</strong> Either paste a URL to an M3U/M3U8 file or upload a local M3U file from your device.</li>
+          <li><strong>Analyze the Playlist:</strong> Click the "Analyze Playlist" button to process the file and extract all channels.</li>
+          <li><strong>Search & Filter:</strong> Use the search box to find specific channels by name, or use the country and group filters to narrow down results.</li>
+          <li><strong>View Channel Details:</strong> Each channel card shows the name, group, country, and URL of the channel.</li>
+          <li><strong>Copy Information:</strong> Use the "Copy Channel" button to copy the complete channel information or "Copy Link" to copy just the URL.</li>
+          <li><strong>Test Streams:</strong> Click the "Test" button to open the stream URL in a new tab and check if it works.</li>
+        </ol>
+      </div>
+      
+      <div class="guide-section">
+        <h3><i class="fas fa-star"></i> Features</h3>
+        <ul>
+          <li><strong>Fast Processing:</strong> Efficiently handles large playlists with thousands of channels without freezing your browser.</li>
+          <li><strong>Advanced Filtering:</strong> Filter channels by name, country, and group category for easy navigation.</li>
+          <li><strong>Country Detection:</strong> Automatically identifies and categorizes channels by country.</li>
+          <li><strong>Group Organization:</strong> Sorts channels by their group categories (Sports, Movies, News, etc.).</li>
+          <li><strong>Responsive Design:</strong> Works perfectly on all devices, from desktop to mobile.</li>
+          <li><strong>One-Click Testing:</strong> Quickly test stream links without copying and pasting.</li>
+          <li><strong>Batch Loading:</strong> For very large playlists, channels are loaded in batches to maintain performance.</li>
+        </ul>
+      </div>
+      
+      <div class="guide-section">
+        <h3><i class="fas fa-shield-alt"></i> Privacy & Security</h3>
+        <ul>
+          <li><strong>100% Client-Side:</strong> All processing happens in your browser - no data is sent to our servers.</li>
+          <li><strong>No Storage:</strong> We don't store your playlists or channel information anywhere.</li>
+          <li><strong>No Tracking:</strong> We don't track which channels you view or test.</li>
+          <li><strong>Secure File Handling:</strong> Your uploaded files are processed locally and never transmitted.</li>
+          <li><strong>URL Fetching:</strong> When you enter a URL, your browser fetches the content directly - we don't act as intermediaries.</li>
+        </ul>
+      </div>
+      
+      <div class="guide-section">
+        <h3><i class="fas fa-exclamation-triangle"></i> Important Notes</h3>
+        <ul>
+          <li>This tool is for analyzing and organizing M3U playlists only. We don't provide any content or streams.</li>
+          <li>The quality and availability of streams depend on the original source in your playlist.</li>
+          <li>Some streams may require specific players or additional authentication to work properly.</li>
+          <li>Always ensure you have the right to access the content in your playlists.</li>
+          <li>For very large playlists (10,000+ channels), initial processing may take a few moments.</li>
+        </ul>
+      </div>
+      
+      <div class="guide-section" style="background-color: #f8f9fa; padding: 15px; border-radius: 8px; margin-top: 20px;">
+        <h3 style="color: #128C7E;"><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+        <ul>
+          <li>Use specific search terms to quickly find the channels you're looking for.</li>
+          <li>Combine country and group filters for more precise results (e.g., Sports channels from the USA).</li>
+          <li>For large playlists, use the "Load More Channels" button to see additional results beyond the initial 500.</li>
+          <li>The "Copy All" button lets you save the entire playlist for backup or sharing.</li>
+          <li>Use the "Clear" button to reset everything and start with a fresh analysis.</li>
+        </ul>
+      </div>
+    </div>
+  
+</div></div>
+    <!-- Footer -->
+    <script src="js/footer-loader.js"></script>
+  <script src="js/m3u-playlist-viewer.js"></script>
+    <!-- Our Scripts -->
+<script src="js/main.js"></script>
+</body>
+</html>

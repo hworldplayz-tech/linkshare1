@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Short URL Generator | LinkShare.Online</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Add CSP meta tag -->
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <!-- Load Firebase from alternate CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.1/firebase-app.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.1/firebase-database.min.js"></script>
+</head>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background: #f7f7f7;
+      color: #333;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 12px;
+      background: #e9f7ef;
+      border-left: 4px solid #28a745;
+      word-break: break-all;
+    }
+  </style>
+<body>
+  <div id="app" style=" padding: 30px;">
+    <h2>Short URL Generator</h2>
+    <input type="text" id="originalUrl" placeholder="Enter your long URL" style="width: 300px; padding: 8px;" />
+    <button onclick="generateShortUrl()" style="padding: 8px 16px;">Generate</button>
+    <p id="shortUrlResult" style="margin-top: 20px; font-weight: bold;"></p>
+  </div>
+
+  <script>
+    // Initialize Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyB1Nejcpv0jubaq85ufjZwll-k62aIjFuQ",
+        authDomain: "short-url-generator-9ab67.firebaseapp.com",
+        databaseURL: "https://short-url-generator-9ab67-default-rtdb.firebaseio.com",
+        projectId: "short-url-generator-9ab67",
+        storageBucket: "short-url-generator-9ab67.appspot.com",
+        messagingSenderId: "375644970022",
+        appId: "1:375644970022:web:be24008ed6f3a57a66dae7",
+        measurementId: "G-1Q7PCGD8TM"
+    };
+
+    // Initialize Firebase with async initialization
+    document.addEventListener('DOMContentLoaded', async () => {
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        window.dbRef = firebase.database();
+        console.log("Firebase initialized successfully");
+    });
+
+    // URL Generation Function
+    async function generateShortUrl() {
+        try {
+            const originalUrl = document.getElementById("originalUrl").value.trim();
+            if (!originalUrl || !originalUrl.startsWith("http")) {
+                alert("Please enter a valid URL starting with http or https");
+                return;
+            }
+
+            // Create a reference to 'links' node
+            const shortId = generateId(6);
+            const linksRef = window.dbRef.ref('links');
+            
+            // Create new child reference
+            const newUrlRef = linksRef.child(shortId);
+            
+            // Data to save
+            const urlData = {
+                url: originalUrl,
+                created: firebase.database.ServerValue.TIMESTAMP
+            };
+
+            // Save data
+            await newUrlRef.set(urlData);
+
+            const shortUrl = `${window.location.origin}/${shortId}`;
+            document.getElementById("shortUrlResult").innerHTML = `
+                <div class="result">
+                    Short URL: <a href="${shortUrl}" target="_blank">${shortUrl}</a>
+                    <button onclick="copyToClipboard('${shortUrl}')" 
+                            style="margin-left: 10px; padding: 5px 10px;">Copy</button>
+                </div>`;
+
+        } catch (error) {
+            console.error("Error generating short URL:", error);
+            alert("Failed to create short URL. Please try again later.");
+        }
+    }
+
+    // Check for redirect after Firebase is initialized
+    setTimeout(() => {
+        if (window.dbRef) {
+            const path = window.location.pathname.replace(/^\/+|\.html$/g, '');
+            if (path && !path.includes('shorturl1')) {
+                window.dbRef.ref('links/' + path).once('value')
+                    .then(snapshot => {
+                        const data = snapshot.val();
+                        if (data && data.url) {
+                            window.location.href = data.url;
+                        } else {
+                            document.body.innerHTML = "<h2>404 - Short URL not found 😢</h2>";
+                        }
+                    })
+                    .catch(err => console.error("Redirect error:", err));
+            }
+        }
+    }, 1000);
+
+    // Helper functions
+    function generateId(length) {
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      let id = '';
+      for (let i = 0; i < length; i++) {
+        id += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return id;
+    }
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text)
+        .then(() => alert('URL copied to clipboard!'))
+        .catch(err => console.error('Failed to copy:', err));
+    }
+
+    // ⏱ Show UI after fallback (if redirect didn’t trigger)
+    setTimeout(() => {
+      const app = document.getElementById('app');
+      if (app && app.style.display === 'none') {
+        app.style.display = 'block';
+      }
+    }, 2000);
+  </script>
+</body>
+</html>

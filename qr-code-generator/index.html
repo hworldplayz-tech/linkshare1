@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="QR Code Generator for LinkShare - Create and share QR codes easily. Generate QR codes for WhatsApp groups, links, text, and more using LinkShare's free QR code generator tool.">
+    <meta name="keywords" content="LinkShare QR Code Generator, WhatsApp QR Code Generator, Free QR Code Generator, QR Code Maker, QR Code Creator">
+    <meta name="author" content="LinkShare">
+    <meta property="og:title" content="Free QR Code Generator - LinkShare">
+    <meta property="og:description" content="Create and share QR codes easily with LinkShare's free QR code generator. Perfect for WhatsApp groups, links, text, and more.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free QR Code Generator - LinkShare">
+    <meta name="twitter:description" content="Generate QR codes instantly for your WhatsApp groups, links, and text. Free QR code generator by LinkShare.">
+    <link rel="icon" type="image/x-icon" href="favicon-96x96.png" sizes="96x96">
+    <title>Free QR Code Generator - LinkShare</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+       <!-- navbar -->
+        <script src="js/nav-loader.js"></script>
+        <!-- Adsense Script-->
+        <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8130991342525434"
+            crossorigin="anonymous"
+        ></script>
+
+</head>
+
+  <style>
+    
+    .qr-generator-container {
+      background: #ffffff;
+      padding: 30px 20px;
+      border-radius: 15px;
+      /*box-shadow: 0 10px 30px rgba(0,0,0,0.25);*/
+      text-align: center;
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
+      animation: qrFadeIn 1s ease-in-out;
+    }
+    @keyframes qrFadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .qr-generator-title {
+      margin-bottom: 20px;
+      font-size: 28px;
+      color: #075E54;
+    }
+    .qr-input-area {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .qr-input {
+      width: 100%;
+      padding: 12px 15px;
+      font-size: 16px;
+      border: 2px solid #25D366;
+      border-radius: 10px;
+      outline: none;
+      margin-bottom: 5px;
+    }
+    .qr-generate-btn {
+      background-color: #25D366;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .qr-generate-btn:hover {
+      background-color: #128C7E;
+    }
+    .qr-display-area {
+      margin-top: 20px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      transition: all 0.5s ease;
+      display: none;
+    }
+    .qr-display-area canvas {
+      margin-bottom: 10px;
+    }
+    .qr-cancel-btn {
+      background: none;
+      border: none;
+      color: #ff4d4d;
+      font-size: 22px;
+      cursor: pointer;
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: #ffeaea;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      line-height: 28px;
+      text-align: center;
+    }
+    .qr-recent-section {
+      margin-top: 40px;
+      text-align: left;
+      display: none;
+    }
+    .qr-recent-title {
+      font-size: 18px;
+      color: #075E54;
+      margin-bottom: 10px;
+    }
+    .qr-recent-codes {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 15px;
+    }
+    .qr-recent-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #f5f5f5;
+      padding: 10px;
+      border-radius: 8px;
+    }
+    .qr-recent-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 5px;
+      border: 2px solid #25D366;
+      border-radius: 5px;
+      background: white;
+    }
+    .qr-recent-item span {
+      font-size: 12px;
+      text-align: center;
+      color: #333;
+      word-break: break-word;
+    }
+    .qr-footer {
+      margin-top: 40px;
+      font-size: 12px;
+      color: #555;
+      text-align: center;
+    }
+/* Clear All Btn style */
+/* Styling for Clear All Button */
+#clear-all-btn {
+  background: none;
+  color: #ff5722;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  display: none;  /* Initially hidden */
+  margin-top: 20px;
+  padding: 0;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+#clear-all-btn:hover {
+  color: #d44e1f;
+  transform: scale(1.05);
+}
+
+#clear-all-btn:active {
+  transform: scale(0.98);
+}
+
+#clear-all-btn:disabled {
+  color: #bbb;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+/* QR Description Styling */
+.qr-description-text {
+  font-size: 1.1rem;
+  color: #555;
+  text-align: center;
+  margin-top: 20px;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.8;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  max-width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+    @media (max-width: 480px) {
+      .qr-input, .qr-generate-btn {
+        font-size: 14px;
+        padding: 10px;
+      }
+      .qr-generator-title {
+        font-size: 24px;
+      }
+    }
+    .qr-footer {
+      margin-top: 20px;
+      font-size: 10px;
+    }
+    .qr-footer span {
+      color: #075E54;
+      font-weight: bold;
+    }
+    #clear-all-btn {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+    margin: auto;
+  }
+  .qr-description-text {
+    font-size: 1rem;
+    max-width: 95%;
+  }
+
+  </style>
+
+<body>
+ 
+  
+<div class="main-container">
+  <div class="page-header">
+    <h1 class="page-header-h1">QR Code Generator</h1>
+    <p class="page-header-p">Generate QR codes for your links and share them easily!</p>
+  
+</div>
+<div class="content-section">
+  <div class="qr-generator-container" id="qr-container">
+    <h1 class="qr-generator-title">QR Code Generator</h1>
+  
+    <div class="qr-input-area">
+      <input type="text" id="qr-name" class="qr-input" placeholder="Enter title or name for QR">
+      <input type="text" id="qr-text" class="qr-input" placeholder="Enter your link or text">
+      <button class="qr-generate-btn" onclick="generateQR()">Generate QR Code</button>
+    </div>
+  
+    <div class="qr-display-area" id="qr-display">
+      <button class="qr-cancel-btn" onclick="clearQR()">×</button>
+      <div id="qr-code-box"></div>
+    </div>
+
+  
+    <div class="qr-recent-section" id="qr-recent">
+      <div class="qr-recent-title">Recently Generated</div>
+      <div class="qr-recent-codes" id="qr-recent-list"></div>
+    </div>
+    <button id="clear-all-btn" onclick="clearAllSavedQRCodes()">Clear All Saved QR Codes</button>
+
+    <footer class="qr-footer">Made with 💚 for LinkShare Users</footer>
+  </div>
+  <h2>How to use Qr Code?</h2>
+  <ul>
+  <li>Use the QR code generator to create custom QR codes for your links. Share them on social media, print them, or use them in your marketing materials.</li>
+  <li>Simply enter your link or text, and click "Generate QR Code".</li>
+  <li>Once generated, you can download the QR code image or share it directly.</li>
+  </ul>
+  <p id="qr-description" class="qr-description-text">
+    This QR Code Generator allows you to quickly create QR codes for any text or URL. Simply enter the desired text or link, and click the "Generate QR Code" button. A unique QR code will be generated instantly, which you can scan with any QR code reader to easily access the content. You can also save your generated QR codes for future use and view them in the "Recently Generated" section. Whether you're sharing a website link, contact info, or event details, this tool makes it simple and fast!
+  </p>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+
+    <!-- Footer -->
+    <script src="js/footer-loader.js"></script>
+
+<!-- Our Scripts -->
+<script src="js/qrcode-generator.js"></script>
+<script src="js/firebase-config.js"></script>
+<script src="js/main.js"></script>
+<script src="js/stylishtext.js"></script>
+
+
+
+</body>
+</html>

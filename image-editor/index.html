@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Image editor & annotator — crop, resize, rotate, add text/stickers, draw, export PNG/JPEG." />
+    <title>Image Editor — LinkShare Tools</title>
+    <link rel="icon" href="/favicon-96x96.png" />
+  <link rel="stylesheet" href="../css/style.css"> 
+  <link rel="stylesheet" href="../image-editor/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- navbar -->
+    <script src="../js/nav-loader.js"></script>
+  </head>
+  <body>
+    <main class="page-container">
+      <header class="page-header">
+        <h1 class="page-header-h1">Image Editor & Annotator</h1>
+        <p class="page-header-p">Crop, resize, add text, stickers, draw and export images — runs fully in the browser.</p>
+      </header>
+
+      <section class="tool-section">
+        <div class="tool-toolbar">
+          <input id="uploadInput" type="file" accept="image/*" style="display:none">
+          <button id="uploadBtn" class="tool-btn"><i class="fas fa-upload"></i> Upload</button>
+          <button id="addTextBtn" class="tool-btn" data-tool="text"><i class="fas fa-font"></i> Add Text</button>
+          <button id="stickerBtn" class="tool-btn" data-tool="sticker"><i class="fas fa-smile"></i> Sticker</button>
+          <button id="drawBtn" class="tool-btn" data-tool="draw"><i class="fas fa-pencil-alt"></i> Draw</button>
+          <button id="cropStartBtn" class="tool-btn" data-tool="crop"><i class="fas fa-crop"></i> Crop</button>
+          <button id="applyCropBtn" class="tool-btn" disabled><i class="fas fa-check"></i> Apply Crop</button>
+          <button id="rotateBtn" class="tool-btn"><i class="fas fa-redo"></i> Rotate 90°</button>
+          <button id="flipBtn" class="tool-btn"><i class="fas fa-arrows-alt-h"></i> Flip</button>
+          <button id="clearBtn" class="tool-btn"><i class="fas fa-trash"></i> Clear</button>
+          <button id="exportPngBtn" class="tool-btn primary"><i class="fas fa-download"></i> Export PNG</button>
+          <button id="exportJpgBtn" class="tool-btn primary"><i class="fas fa-image"></i> Export JPG</button>
+        </div>
+
+        <div class="editor-container">
+          <div class="editor-wrap">
+            <canvas id="editor" width="900" height="600"></canvas>
+          </div>
+          
+          <!-- Text Panel -->
+          <div class="editor-panel" id="textPanel">
+            <h3>Text Options</h3>
+            <div class="panel-content">
+              <input type="text" id="textInput" placeholder="Enter your text here" class="form-input">
+              <div class="text-controls">
+                <div class="control-group">
+                  <label for="fontFamily">Font:</label>
+                  <select id="fontFamily" class="form-select">
+                    <option value="Arial">Arial</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Verdana">Verdana</option>
+                  </select>
+                </div>
+                <div class="control-group">
+                  <label for="fontSize">Size:</label>
+                  <input type="number" id="fontSize" value="28" min="8" max="200" class="form-input">
+                </div>
+                <div class="control-group">
+                  <label for="textColor">Color:</label>
+                  <input type="color" id="textColor" value="#000000" class="form-input color-picker">
+                </div>
+                <button id="addTextToCanvas" class="tool-btn">Add Text</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Draw Panel -->
+          <div class="editor-panel" id="drawPanel">
+            <h3>Drawing Options</h3>
+            <div class="panel-content">
+              <div class="draw-controls">
+                <div class="control-group">
+                  <label for="brushColor">Brush Color:</label>
+                  <input type="color" id="brushColor" value="#ff0000" class="form-input color-picker">
+                </div>
+                <div class="control-group">
+                  <label for="brushSize">Brush Size:</label>
+                  <div class="size-control">
+                    <input type="range" id="brushSize" min="1" max="50" value="3" class="form-input">
+                    <span id="brushSizeLabel">3px</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sticker Panel -->
+          <div class="editor-panel" id="stickerPanel">
+            <h3>Stickers</h3>
+            <div class="panel-content">
+              <div class="sticker-grid">
+                <button class="sticker-btn">😊</button>
+                <button class="sticker-btn">❤️</button>
+                <button class="sticker-btn">👍</button>
+                <button class="sticker-btn">🌟</button>
+                <button class="sticker-btn">🎉</button>
+                <button class="sticker-btn">🎨</button>
+                <button class="sticker-btn">🌈</button>
+                <button class="sticker-btn">✨</button>
+                <button class="sticker-btn">🔥</button>
+                <button class="sticker-btn">💯</button>
+                <button class="sticker-btn">💪</button>
+                <button class="sticker-btn">🏆</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+  <script src="../image-editor/main.js"></script>
+  <script src="../js/footer-loader.js"></script>
+  </body>
+</html>

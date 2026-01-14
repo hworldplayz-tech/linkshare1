@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Image to PDF Converter - Convert multiple images into a PDF document instantly. No registration required, 100% secure, works directly in browser.">
+    <meta name="keywords" content="image to pdf, convert images to pdf, jpg to pdf, png to pdf, free image converter, image tools, online image converter, best image to pdf converter, secure image converter">
+    <meta name="author" content="LinkShare">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="generator" content="LinkShare Image Tools">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Free Image to PDF Converter - Convert Images Online | LinkShare">
+    <meta property="og:description" content="Convert multiple images to PDF for free. No registration, no watermark, 100% secure. Best free online image to PDF converter that works directly in your browser.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.linkshare.online/linkshare-favicon.png">
+    <meta property="og:url" content="https://www.linkshare.online/image-to-pdf">
+    <meta property="og:site_name" content="LinkShare Image to PDF">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Image to PDF Converter - Convert Images Online | LinkShare">
+    <meta name="twitter:description" content="Convert multiple images to PDF for free. No registration, no watermark, 100% secure. Works directly in your browser.">
+    <meta name="twitter:image" content="https://www.linkshare.online/linkshare-favicon.png">
+    
+    <!-- Canonical URL -->
+    <meta rel="canonical" href="https://www.linkshare.online/image-to-pdf">
+    
+    <!-- Favicon Implementation -->
+    <link rel="icon" type="image/x-icon" href="/favicon-96x96.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Adsense Script-->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8130991342525434" crossorigin="anonymous"></script>
+
+    <title>Free Image to PDF Converter Online - Convert Images Online | LinkShare</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../image-to-pdf/style.css">
+    <!-- PDF.js Library -->
+    <script src="https://unpkg.com/pdf-lib@1.17.1"></script>
+    <!-- Sortable.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+    <!-- Download.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.8/download.min.js"></script>
+    <!-- navbar -->
+    <script src="../js/nav-loader.js"></script>
+</head>
+<body>
+    <main class="container">
+        <header class="page-header">
+            <h1 class="page-header-h1">Free Image to PDF Converter </h1>
+            <p class="page-header-p">Convert multiple images into a single PDF document</p>
+        </header>
+
+        <div class="image-pdf-container">
+            <div class="file-input-zone" id="dropZone">
+                <i class="fas fa-images"></i>
+                <h3>Drag & Drop Images Here</h3>
+                <p>or</p>
+                <input type="file" id="fileInput" accept="image/*" multiple style="display: none">
+                <button class="action-button select-button" onclick="document.getElementById('fileInput').click()">
+                    <i class="fas fa-plus"></i> Select Images
+                </button>
+            </div>
+
+            <div class="file-list" id="fileList"></div>
+
+            <div class="progress-bar" id="progressBar">
+                <div class="progress" id="progress"></div>
+            </div>
+
+            <div class="file-order-controls" id="orderControls" style="display: none;">
+                <h4><i class="fas fa-sort"></i> Reorder Images</h4>
+                <p>Drag images to reorder them before converting</p>
+            </div>
+
+            <div class="image-options">
+                <div class="option-group">
+                    <label for="pageSize">Page Size:</label>
+                    <select id="pageSize">
+                        <option value="A4">A4</option>
+                        <option value="Letter">Letter</option>
+                        <option value="Legal">Legal</option>
+                    </select>
+                </div>
+                <div class="option-group">
+                    <label for="orientation">Orientation:</label>
+                    <select id="orientation">
+                        <option value="portrait">Portrait</option>
+                        <option value="landscape">Landscape</option>
+                    </select>
+                </div>
+                <div class="option-group">
+                    <label for="imageQuality">Image Quality:</label>
+                    <select id="imageQuality">
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-button convert-button" id="convertButton" disabled>
+                    <i class="fas fa-file-pdf"></i> Convert to PDF
+                </button>
+                <button class="action-button clear-button" id="clearButton" disabled>
+                    <i class="fas fa-trash"></i> Clear All
+                </button>
+            </div>
+
+            <div id="convertedResult" style="display: none;" class="converted-result">
+                <h3><i class="fas fa-check-circle"></i> Images Converted Successfully!</h3>
+                <div class="download-section">
+                    <div class="filename-input">
+                        <input type="text" id="convertedFileName" placeholder="Enter file name (optional)" class="filename-field">
+                        <p class="filename-hint">File will be saved as: <span id="finalFileName">linkshare_image2pdf_[date].pdf</span></p>
+                    </div>
+                    <button class="action-button download-button" id="downloadButton">
+                        <i class="fas fa-download"></i> Download PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <script src="js/footer-loader.js"></script>
+
+
+    <script src="../image-to-pdf/script.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
