@@ -239,7 +239,7 @@ function loadGroups(
                 if (limitedGroups.length === 0) {
                     if (!loadMore) {
                         groupContainer.innerHTML =
-                            '<div class="no-groups">No groups found matching your criteria.<br><a href="https://www.whatsuplink.online/?submit-form=true" style="color: #25D366; text-decoration: none; font-weight: bold;">Add a new group!</a></div>';
+                            '<div class="no-groups">No groups found matching your criteria.<br><a href="/add-group" style="color: #25D366; text-decoration: none; font-weight: bold;">Add a new group!</a></div>';
                     }
                     isLastPage = true;
                     updateLoadMoreButton(0);

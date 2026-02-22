@@ -18,26 +18,6 @@
   ],
   "redirects": [
     {
-      "source": "/add-group",
-      "destination": "https://www.whatsuplink.online/?submit-form=true",
-      "permanent": true
-    },
-    {
-      "source": "/usa-whatsapp-group-links",
-      "destination": "https://www.whatsuplink.online/country/us",
-      "permanent": true
-    },
-    {
-      "source": "/active-pakistani-whatsapp-group-links",
-      "destination": "https://www.whatsuplink.online/country/pk",
-      "permanent": true
-    },
-    {
-      "source": "/indian-whatsapp-group-links",
-      "destination": "https://www.whatsuplink.online/country/in",
-      "permanent": true
-    },
-    {
       "source": "/moovie",
       "destination": "https://moovie-linkshare.vercel.app"
     },

@@ -126,6 +126,10 @@ GROUP_TEMPLATE = '''
 def serve_index():
     return send_from_directory('.', 'index.html')
 
+@app.route('/add-group')
+def serve_add_group():
+    return send_from_directory('add-group', 'index.html')
+
 @app.route('/api/extract-group-image', methods=['POST'])
 def extract_group_image():
     """
