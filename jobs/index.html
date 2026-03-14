@@ -68,6 +68,21 @@
     <div id="jobsContainer" class="jobs-grid"></div>
   </main>
 
+  <!-- DETAIL MODAL -->
+  <div class="job-modal-overlay" id="jobModal" onclick="handleModalOverlayClick(event)" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="job-modal-card">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close"><i class="fas fa-times"></i></button>
+      <div id="modalImageWrap" class="modal-image-wrap"></div>
+      <div class="modal-body">
+        <div id="modalTags" class="modal-tags"></div>
+        <h2 id="modalTitle" class="modal-title"></h2>
+        <div id="modalDeadline" class="modal-deadline-row"></div>
+        <div id="modalDesc" class="modal-desc"></div>
+        <div id="modalApply" class="modal-apply-row"></div>
+      </div>
+    </div>
+  </div>
+
   <script src="/js/footer-loader.js"></script>
   <script src="/jobs/script.js"></script>
 </body>

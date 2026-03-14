@@ -16,12 +16,30 @@ const btnList = document.getElementById('btnList');
 const resultsCount = document.getElementById('resultsCount');
 const activeFiltersEl = document.getElementById('activeFilters');
 
-// ── LOAD JOBS ──────────────────────────────────────────────
+// ── LOAD & PURGE JOBS ─────────────────────────────────────
 function loadJobs() {
   try {
     allJobs = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
   } catch (e) {
     allJobs = [];
+  }
+  purgeExpiredJobs();
+}
+
+// Delete jobs whose deadline passed more than 24 hours ago
+function purgeExpiredJobs() {
+  const now = Date.now();
+  const GRACE = 24 * 60 * 60 * 1000; // 24 hours in ms
+  const alive = allJobs.filter(job => {
+    if (!job.deadline) return true;
+    // deadline is "YYYY-MM-DD"; treat as end of that day (23:59:59)
+    const endOfDay = new Date(job.deadline);
+    endOfDay.setHours(23, 59, 59, 999);
+    return (now - endOfDay.getTime()) < GRACE;
+  });
+  if (alive.length < allJobs.length) {
+    allJobs = alive;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(allJobs));
   }
 }
 
@@ -203,7 +221,9 @@ function renderCard(job) {
 
   const applyBtn = job.applyLink
     ? `<a href="${escHtml(job.applyLink)}" target="_blank" rel="noopener" class="btn-apply"><i class="fas fa-external-link-alt"></i> Apply</a>`
-    : `<span style="font-size:0.8rem;color:var(--text-muted)">No link</span>`;
+    : '';
+
+  const detailBtn = `<button class="btn-detail" onclick="openModal('${escHtml(job.id)}')"><i class="fas fa-info-circle"></i> Details</button>`;
 
   return `
     <div class="job-card">
@@ -215,7 +235,10 @@ function renderCard(job) {
       </div>
       <div class="job-card-footer">
         ${deadlineStatus(job.deadline)}
-        ${applyBtn}
+        <div class="card-btn-group">
+          ${detailBtn}
+          ${applyBtn}
+        </div>
       </div>
     </div>`;
 }
@@ -226,8 +249,10 @@ function renderListItem(job) {
     : `<div class="job-list-thumb">💼</div>`;
 
   const applyBtn = job.applyLink
-    ? `<a href="${escHtml(job.applyLink)}" target="_blank" rel="noopener" class="btn-apply" style="font-size:0.8rem;padding:0.3rem 0.7rem"><i class="fas fa-external-link-alt"></i> Apply</a>`
+    ? `<a href="${escHtml(job.applyLink)}" target="_blank" rel="noopener" class="btn-apply btn-sm"><i class="fas fa-external-link-alt"></i> Apply</a>`
     : '';
+
+  const detailBtn = `<button class="btn-detail btn-sm" onclick="openModal('${escHtml(job.id)}')"><i class="fas fa-info-circle"></i> Details</button>`;
 
   return `
     <div class="job-list-item">
@@ -239,7 +264,10 @@ function renderListItem(job) {
       </div>
       <div class="job-list-actions">
         ${deadlineStatus(job.deadline)}
-        ${applyBtn}
+        <div class="card-btn-group">
+          ${detailBtn}
+          ${applyBtn}
+        </div>
       </div>
     </div>`;
 }
@@ -302,6 +330,64 @@ btnList.addEventListener('click', () => {
   btnList.classList.add('active');
   btnGrid.classList.remove('active');
   render();
+});
+
+// ── MODAL ─────────────────────────────────────────────────
+function openModal(jobId) {
+  const job = allJobs.find(j => j.id === jobId);
+  if (!job) return;
+
+  // Image
+  const imgWrap = document.getElementById('modalImageWrap');
+  if (job.image) {
+    imgWrap.innerHTML = `<img src="${escHtml(job.image)}" alt="${escHtml(job.title)}" onerror="this.parentNode.style.display='none'">`;
+    imgWrap.style.display = '';
+  } else {
+    imgWrap.style.display = 'none';
+  }
+
+  // Tags
+  document.getElementById('modalTags').innerHTML = jobTypeTags(job);
+
+  // Title
+  document.getElementById('modalTitle').textContent = job.title || 'Untitled Job';
+
+  // Deadline
+  document.getElementById('modalDeadline').innerHTML = deadlineStatus(job.deadline);
+
+  // Description
+  const descEl = document.getElementById('modalDesc');
+  if (job.description) {
+    descEl.innerHTML = escHtml(job.description).replace(/\n/g, '<br>');
+    descEl.style.display = '';
+  } else {
+    descEl.innerHTML = '<span style="color:var(--text-muted);font-style:italic">No description provided.</span>';
+    descEl.style.display = '';
+  }
+
+  // Apply button
+  const applyRow = document.getElementById('modalApply');
+  applyRow.innerHTML = job.applyLink
+    ? `<a href="${escHtml(job.applyLink)}" target="_blank" rel="noopener" class="btn-apply modal-apply-btn"><i class="fas fa-external-link-alt"></i> Apply Now</a>`
+    : `<span style="color:var(--text-muted);font-size:0.9rem">No application link provided.</span>`;
+
+  const overlay = document.getElementById('jobModal');
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('jobModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function handleModalOverlayClick(e) {
+  if (e.target === document.getElementById('jobModal')) closeModal();
+}
+
+// Close on ESC
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
 });
 
 // ── INIT ──────────────────────────────────────────────────
