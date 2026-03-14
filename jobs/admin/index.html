@@ -3,30 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JobPulse Admin – Manage Jobs</title>
-  <link rel="stylesheet" href="../style.css">
+  <title>JobPulse Admin – Manage Jobs | LinkShare</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/jobs/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="/js/nav-loader.js"></script>
 </head>
 <body>
-
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="/jobs/" class="logo">
-        <div class="logo-icon"><i class="fas fa-bolt"></i></div>
-        <span>Job<strong>Pulse</strong></span>
-      </a>
-      <div class="header-actions">
-        <a href="/jobs/" class="btn-admin" style="background:#64748b"><i class="fas fa-arrow-left"></i> View Jobs</a>
-      </div>
-    </div>
-  </header>
 
   <!-- ADMIN CONTENT -->
   <div class="admin-wrap">
 
     <div class="admin-header-bar">
-      <h1><i class="fas fa-cog" style="color:var(--primary)"></i> Admin Panel</h1>
+      <h1><i class="fas fa-cog" style="color:var(--primary)"></i> Admin Panel
+        <a href="/jobs/" style="font-size:0.85rem;font-weight:600;color:var(--text-muted);margin-left:1rem;text-decoration:none;">
+          <i class="fas fa-arrow-left"></i> View Jobs
+        </a>
+      </h1>
       <div style="display:flex;align-items:center;gap:0.75rem;font-size:0.85rem;color:var(--text-muted)">
         <span id="totalCount">0 jobs total</span>
       </div>
@@ -120,12 +113,26 @@
     </div>
   </div>
 
-  <footer class="site-footer">
-    <p>JobPulse Admin Panel &nbsp;·&nbsp; <a href="/jobs/">Back to listings</a></p>
-  </footer>
-
   <div class="toast" id="toast"></div>
 
-  <script src="admin.js"></script>
+  <!-- Footer loader with absolute path (admin is nested deeper) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      fetch('/footer.html')
+        .then(r => r.text())
+        .then(html => {
+          document.body.insertAdjacentHTML('beforeend', html);
+          const y = document.getElementById('currentYear');
+          if (y) y.textContent = new Date().getFullYear();
+          const btn = document.querySelector('.scroll-to-top');
+          if (btn) {
+            window.addEventListener('scroll', () => btn.classList.toggle('visible', window.pageYOffset > 300));
+            btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+          }
+        }).catch(() => {});
+    });
+  </script>
+
+  <script src="/jobs/admin/admin.js"></script>
 </body>
 </html>

@@ -3,25 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JobPulse – Find Your Next Opportunity</title>
+  <title>JobPulse – Find Your Next Opportunity | LinkShare</title>
   <meta name="description" content="Browse government and private job listings on JobPulse. Filter by type, city and search for your next career opportunity.">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/jobs/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="/js/nav-loader.js"></script>
+  <style>
+    /* Ensure jobs page content clears the sticky navbar */
+    .filters-section { margin-top: 0; }
+  </style>
 </head>
 <body>
-
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="/jobs/" class="logo">
-        <div class="logo-icon"><i class="fas fa-bolt"></i></div>
-        <span>Job<strong>Pulse</strong></span>
-      </a>
-      <div class="header-actions">
-        <a href="/jobs/admin/" class="btn-admin"><i class="fas fa-lock"></i> Admin</a>
-      </div>
-    </div>
-  </header>
 
   <!-- FILTERS -->
   <section class="filters-section">
@@ -75,10 +68,7 @@
     <div id="jobsContainer" class="jobs-grid"></div>
   </main>
 
-  <footer class="site-footer">
-    <p>© <span id="year"></span> JobPulse &nbsp;·&nbsp; <a href="/jobs/admin/">Admin Panel</a></p>
-  </footer>
-
-  <script src="script.js"></script>
+  <script src="/js/footer-loader.js"></script>
+  <script src="/jobs/script.js"></script>
 </body>
 </html>
