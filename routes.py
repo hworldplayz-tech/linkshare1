@@ -130,6 +130,16 @@ def serve_index():
 def serve_add_group():
     return send_from_directory('add-group', 'index.html')
 
+@app.route('/jobs')
+@app.route('/jobs/')
+def serve_jobs():
+    return send_from_directory('jobs', 'index.html')
+
+@app.route('/jobs/admin')
+@app.route('/jobs/admin/')
+def serve_jobs_admin():
+    return send_from_directory('jobs/admin', 'index.html')
+
 @app.route('/api/extract-group-image', methods=['POST'])
 def extract_group_image():
     """

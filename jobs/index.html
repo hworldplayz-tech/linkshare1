@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobPulse – Find Your Next Opportunity</title>
+  <meta name="description" content="Browse government and private job listings on JobPulse. Filter by type, city and search for your next career opportunity.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/jobs/" class="logo">
+        <div class="logo-icon"><i class="fas fa-bolt"></i></div>
+        <span>Job<strong>Pulse</strong></span>
+      </a>
+      <div class="header-actions">
+        <a href="/jobs/admin/" class="btn-admin"><i class="fas fa-lock"></i> Admin</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- FILTERS -->
+  <section class="filters-section">
+    <div class="filters-inner">
+
+      <!-- Row 1: Dropdowns -->
+      <div class="filters-row">
+        <span class="filter-label">Filter:</span>
+
+        <div class="custom-select-wrap">
+          <select id="filterGov" class="gov-select">
+            <option value="">🏛️ Government Jobs</option>
+          </select>
+        </div>
+
+        <div class="custom-select-wrap">
+          <select id="filterPrivate" class="private-select">
+            <option value="">🏢 Private Jobs</option>
+          </select>
+        </div>
+
+        <div class="custom-select-wrap">
+          <select id="filterCity">
+            <option value="">📍 All Cities</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Row 2: Search + View Toggle -->
+      <div class="search-row">
+        <div class="search-wrap">
+          <span class="search-icon"><i class="fas fa-search"></i></span>
+          <input type="text" id="searchInput" placeholder="Search by title, category, city…">
+        </div>
+        <div class="view-toggle">
+          <button class="view-btn active" id="btnGrid" title="Grid view"><i class="fas fa-th"></i></button>
+          <button class="view-btn" id="btnList" title="List view"><i class="fas fa-list"></i></button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <main class="main-content">
+    <div class="results-bar">
+      <div class="results-count">Showing <strong id="resultsCount">0</strong> jobs</div>
+      <div class="active-filters" id="activeFilters"></div>
+    </div>
+
+    <div id="jobsContainer" class="jobs-grid"></div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> JobPulse &nbsp;·&nbsp; <a href="/jobs/admin/">Admin Panel</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
