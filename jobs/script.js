@@ -305,8 +305,6 @@ btnList.addEventListener('click', () => {
 });
 
 // ── INIT ──────────────────────────────────────────────────
-document.getElementById('year').textContent = new Date().getFullYear();
-
 loadJobs();
 populateDropdowns(allJobs);
 render();
