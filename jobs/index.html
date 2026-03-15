@@ -9,41 +9,30 @@
   <link rel="stylesheet" href="/jobs/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script src="/js/nav-loader.js"></script>
-  <style>
-    /* Ensure jobs page content clears the sticky navbar */
-    .filters-section { margin-top: 0; }
-  </style>
 </head>
 <body>
 
   <!-- FILTERS -->
   <section class="filters-section">
     <div class="filters-inner">
-
-      <!-- Row 1: Dropdowns -->
       <div class="filters-row">
         <span class="filter-label">Filter:</span>
-
         <div class="custom-select-wrap">
           <select id="filterGov" class="gov-select">
             <option value="">🏛️ Government Jobs</option>
           </select>
         </div>
-
         <div class="custom-select-wrap">
           <select id="filterPrivate" class="private-select">
             <option value="">🏢 Private Jobs</option>
           </select>
         </div>
-
         <div class="custom-select-wrap">
           <select id="filterCity">
             <option value="">📍 All Cities</option>
           </select>
         </div>
       </div>
-
-      <!-- Row 2: Search + View Toggle -->
       <div class="search-row">
         <div class="search-wrap">
           <span class="search-icon"><i class="fas fa-search"></i></span>
@@ -54,7 +43,6 @@
           <button class="view-btn" id="btnList" title="List view"><i class="fas fa-list"></i></button>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -64,8 +52,12 @@
       <div class="results-count">Showing <strong id="resultsCount">0</strong> jobs</div>
       <div class="active-filters" id="activeFilters"></div>
     </div>
-
-    <div id="jobsContainer" class="jobs-grid"></div>
+    <div id="jobsContainer" class="jobs-grid">
+      <div class="loading-state">
+        <div class="loading-spinner"></div>
+        <p>Loading jobs…</p>
+      </div>
+    </div>
   </main>
 
   <!-- DETAIL MODAL -->
@@ -84,6 +76,6 @@
   </div>
 
   <script src="/js/footer-loader.js"></script>
-  <script src="/jobs/script.js"></script>
+  <script type="module" src="/jobs/script.js"></script>
 </body>
 </html>
